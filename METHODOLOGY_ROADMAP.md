@@ -44,8 +44,10 @@ The methodology is built from observed work, explicit abstraction, evidence, and
   - decision records;
   - worklogs;
   - authority map;
-  - pattern/adoption controls.
-  - Definition of Done: a new client repository can be initialized rapidly and safely.
+  - pattern/adoption controls;
+  - role-conversation charter template;
+  - role-conversation launch-prompt template with stale-state safeguards.
+  - Definition of Done: a new client repository and its first governed role conversation can be initialized rapidly and safely.
 
 - [ ] M05 — Define consultancy team operating model
   - engagement lead;
