@@ -24,46 +24,69 @@ Create a portable playbook so the Tenshodo management team can perform operating
 - Methodology runbook so the process repository follows its own durability rules.
 - DEC-0001 establishing the portable-method/client-state boundary.
 
-### Maturity posture
-
-Validated inside Tenshodo:
-
-- zero-context resumability;
-- bounded execution/checkpointing;
-- working-plane/control-plane separation;
-- no-dual-canonical rule;
-- live-source revalidation.
-
-Candidate patterns:
-
-- target accountability vs current execution;
-- organizational bootstrap;
-- AI role incubation;
-- proposal/adoption separation;
-- dependency-aware process change;
-- generalized separate-truth-dimensions model.
-
-No pattern has yet been promoted to **portable** because the methodology has not been tested in a materially different organization.
-
 ## 2026-10-01 — Role-conversation launch standard captured
 
 ### Observation
 
 The first AI-incubated management role was launched using a carefully written opening ChatGPT command that pointed the conversation back to durable GitHub state.
 
-The concept existed in the methodology, but the actual reusable launch command did not.
-
 ### Established
 
-- Created `templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md`.
+- Created templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md.
 - Established that the launch prompt is an ignition key, not the source of truth.
 - Required live durable state and declared authoritative systems to override stale prompt content.
-- Added stale-prompt checks for role status, charter currentness, task assignment, execution class, adoption authority, and required live systems.
-- Required explicit allowed/prohibited actions, maximum artifact state, and adoption authority.
-- Required bounded checkpointing and zero-context durability.
-- Added the launch protocol to `playbooks/03-ai-role-incubation.md`.
+- Added stale-prompt checks and explicit authority boundaries.
+- Added the launch protocol to the AI role-incubation playbook.
 - Registered the template as M04 client-bootstrap prework.
+
+## 2026-10-01 — M02 evidence calibration completed
+
+### Objective
+
+Prevent the emerging consultancy method from turning Tenshodo-specific enthusiasm into unsupported doctrine.
+
+### Work performed
+
+For every active pattern, added:
+
+- operating conditions;
+- failure modes;
+- counterexample or applicability limit;
+- falsifier;
+- artifact-level sanitized evidence locators;
+- explicit portability gap.
+
+### Evidence sources
+
+The durability patterns were grounded in current durable artifacts from jsitta-byte/Tenshodo-Exchange.
+
+The organizational/AI patterns were grounded in current durable decisions, models, and state from jsitta-byte/Tenshodo-Exchange-Management.
+
+### Maturity decisions
+
+Remain Validated:
+
+- PAT-001 Zero-context resumability
+- PAT-002 Bounded execution and checkpointing
+- PAT-003 Working/control plane separation
+- PAT-004 No-dual-canonical rule
+- PAT-005 Live-source revalidation
+
+Remain Candidate Pattern:
+
+- PAT-006 Target accountability vs current execution
+- PAT-007 Organizational bootstrap
+- PAT-008 AI role incubation
+- PAT-009 Proposal/adoption separation
+- PAT-010 Dependency-aware process change
+- PAT-011 Separate truth dimensions
+
+No pattern was promoted to Portable.
+
+### Completion
+
+M02 definition of done is satisfied.
 
 ### Exact next action
 
-Continue M02 by enriching each pattern with conditions, failure modes, counterexamples, and stronger evidence locators. Use that calibrated matrix before building the full consultancy kickoff/discovery kit.
+Execute M03: build the consultancy kickoff and discovery kit so the team can enter a new client, discover current authority/work systems/pain points/AI readiness/confidentiality constraints, and produce a clean discovery package for M04 client control-plane bootstrap.
