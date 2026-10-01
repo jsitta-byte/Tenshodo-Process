@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "client": "<client>",
+  "program": "<program>",
+  "repository": "<owner/repo>",
+  "durable_control_plane": "GitHub",
+  "working_planes": [],
+  "current_phase": "<phase>",
+  "current_task_id": "<task>",
+  "target_owner_role": "<role-or-null>",
+  "current_executor": "<person-role-agent-or-conversation>",
+  "adoption_authority": "<authority>",
+  "next_action": "<exact next action>",
+  "invariants": [],
+  "tasks": {}
+}
