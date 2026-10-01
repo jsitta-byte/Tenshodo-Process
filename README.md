@@ -74,7 +74,7 @@ They move through:
 
 Patterns that fail or are superseded become **Deprecated**.
 
-See [docs/PATTERN_MATURITY_MODEL.md](docs/PATTERN_MATURITY_MODEL.md) and [patterns/PATTERN_REGISTRY.json](patterns/PATTERN_REGISTRY.json).
+The evidence matrix deliberately keeps newer management/AI patterns at candidate status until field experience supports more.
 
 ## Initial field laboratory
 
@@ -105,6 +105,8 @@ These newer patterns remain subject to validation.
 
 - [PROCESS_STATE.json](PROCESS_STATE.json) — machine-readable methodology cursor
 - [METHODOLOGY_ROADMAP.md](METHODOLOGY_ROADMAP.md) — methodology build plan
+- [METHOD_RUNBOOK.md](METHOD_RUNBOOK.md) — how the methodology itself evolves and checkpoints
+- [decisions/DEC-0001-portable-method-and-client-boundary.md](decisions/DEC-0001-portable-method-and-client-boundary.md) — formal portable-method/client-state boundary
 - [docs/CONSULTING_MODEL.md](docs/CONSULTING_MODEL.md) — how the team works as a consultancy
 - [docs/METHOD_PRINCIPLES.md](docs/METHOD_PRINCIPLES.md) — portable principles
 - [docs/ENGAGEMENT_LIFECYCLE.md](docs/ENGAGEMENT_LIFECYCLE.md) — client transformation sequence
@@ -112,6 +114,7 @@ These newer patterns remain subject to validation.
 - [docs/PORTABILITY_AND_CONFIDENTIALITY.md](docs/PORTABILITY_AND_CONFIDENTIALITY.md) — strict client boundary
 - [docs/PATTERN_MATURITY_MODEL.md](docs/PATTERN_MATURITY_MODEL.md) — evidence-based promotion rules
 - [patterns/PATTERN_REGISTRY.json](patterns/PATTERN_REGISTRY.json) — machine-readable pattern catalog
+- [patterns/EVIDENCE_MATRIX.md](patterns/EVIDENCE_MATRIX.md) — maturity rationale and evidence gaps
 - [playbooks/](playbooks/) — reusable execution guides
 - [templates/](templates/) — client-safe starter artifacts
 - [case-studies/](case-studies/) — sanitized field evidence
