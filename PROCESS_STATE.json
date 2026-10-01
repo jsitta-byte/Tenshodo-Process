@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "method": "Tenshodo Process",
   "repository": "jsitta-byte/Tenshodo-Process",
   "repository_visibility": "public",
@@ -16,9 +16,9 @@
     "role_conversation_charter": "templates/ROLE_CONVERSATION_CHARTER.md",
     "role_conversation_launch_prompt": "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md"
   },
-  "current_phase": "Phase 1 - Evidence-backed methodology extraction",
-  "current_task_id": "M02",
-  "next_action": "Continue M02 by enriching each active pattern with conditions, failure modes, counterexamples, and stronger sanitized evidence locators from Tenshodo-Exchange and Tenshodo-Exchange-Management. Reassess maturity conservatively and promote no pattern to portable solely from single-company evidence.",
+  "current_phase": "Phase 2 - Consultancy engagement kit",
+  "current_task_id": "M03",
+  "next_action": "Build the consultancy kickoff and discovery kit: executive sponsor interview guide, current-state authority discovery, working-plane inventory, durable-state assessment, process/change pain-point discovery, AI/agent readiness assessment, confidentiality/access boundary checklist, and an engagement discovery output contract that feeds a client control-plane bootstrap without assuming Tenshodo-specific structure.",
   "maturity_states": [
     "observed",
     "candidate_pattern",
@@ -48,17 +48,21 @@
       "title": "Initialize consultancy methodology repository"
     },
     "M02": {
-      "status": "in_progress",
+      "status": "complete",
       "depends_on": ["M01"],
-      "title": "Build pattern evidence matrix and calibrate maturity"
+      "title": "Build pattern evidence matrix and calibrate maturity",
+      "completion_evidence": [
+        "patterns/PATTERN_REGISTRY.json",
+        "patterns/EVIDENCE_MATRIX.md"
+      ]
     },
     "M03": {
-      "status": "blocked_by_dependency",
+      "status": "in_progress",
       "depends_on": ["M02"],
       "title": "Build consultancy engagement kickoff and discovery kit"
     },
     "M04": {
-      "status": "blocked_by_dependency",
+      "status": "ready",
       "depends_on": ["M02"],
       "title": "Build client control-plane bootstrap kit",
       "prework_complete": [
