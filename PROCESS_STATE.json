@@ -1,13 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "method": "Tenshodo Process",
   "repository": "jsitta-byte/Tenshodo-Process",
   "repository_visibility": "public",
   "purpose": "Portable consultancy methodology for building durable, dependency-aware, AI-enabled organizational operating systems.",
   "field_laboratory": "Tenshodo Exchange",
+  "method_runbook": "METHOD_RUNBOOK.md",
+  "pattern_registry": "patterns/PATTERN_REGISTRY.json",
+  "pattern_evidence_matrix": "patterns/EVIDENCE_MATRIX.md",
+  "client_boundary_decision": "decisions/DEC-0001-portable-method-and-client-boundary.md",
   "current_phase": "Phase 1 - Evidence-backed methodology extraction",
   "current_task_id": "M02",
-  "next_action": "Backfill a structured evidence matrix for each current pattern using sanitized checkpoints from Tenshodo-Exchange and Tenshodo-Exchange-Management. Confirm maturity labels, document conditions/failure modes, and promote no pattern to portable solely from single-company evidence.",
+  "next_action": "Continue M02 by enriching each active pattern with conditions, failure modes, counterexamples, and stronger sanitized evidence locators from Tenshodo-Exchange and Tenshodo-Exchange-Management. Reassess maturity conservatively and promote no pattern to portable solely from single-company evidence.",
   "maturity_states": [
     "observed",
     "candidate_pattern",
@@ -17,7 +21,7 @@
   ],
   "principles": [
     "Conversation is an execution surface, not the durable record.",
-    "Durable operational state must survive employee, tool, and conversation turnover.",
+    "Durable operational state must survive employee, tool, consultant, and conversation turnover.",
     "Working planes and durable control planes have different jobs.",
     "One information class should have one declared authority at a time.",
     "Target accountability and current execution authority are separate.",
@@ -26,6 +30,9 @@
     "Local improvement should create global awareness without automatic global change.",
     "Client confidentiality and portability are architectural requirements, not cleanup tasks.",
     "Patterns earn portability through evidence."
+  ],
+  "decision_records": [
+    "decisions/DEC-0001-portable-method-and-client-boundary.md"
   ],
   "tasks": {
     "M01": {
@@ -65,7 +72,9 @@
   "required_checkpoint_files": [
     "PROCESS_STATE.json",
     "METHODOLOGY_ROADMAP.md",
+    "METHOD_RUNBOOK.md",
     "patterns/PATTERN_REGISTRY.json",
+    "patterns/EVIDENCE_MATRIX.md",
     "CHANGELOG.md",
     "worklogs/foundation.md"
   ]
