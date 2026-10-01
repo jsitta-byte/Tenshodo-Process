@@ -45,6 +45,25 @@ Candidate patterns:
 
 No pattern has yet been promoted to **portable** because the methodology has not been tested in a materially different organization.
 
+## 2026-10-01 — Role-conversation launch standard captured
+
+### Observation
+
+The first AI-incubated management role was launched using a carefully written opening ChatGPT command that pointed the conversation back to durable GitHub state.
+
+The concept existed in the methodology, but the actual reusable launch command did not.
+
+### Established
+
+- Created `templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md`.
+- Established that the launch prompt is an ignition key, not the source of truth.
+- Required live durable state and declared authoritative systems to override stale prompt content.
+- Added stale-prompt checks for role status, charter currentness, task assignment, execution class, adoption authority, and required live systems.
+- Required explicit allowed/prohibited actions, maximum artifact state, and adoption authority.
+- Required bounded checkpointing and zero-context durability.
+- Added the launch protocol to `playbooks/03-ai-role-incubation.md`.
+- Registered the template as M04 client-bootstrap prework.
+
 ### Exact next action
 
-Continue M02 by enriching each pattern with conditions, failure modes, counterexamples, and stronger evidence locators. Use that calibrated matrix before building the consultancy kickoff/discovery kit.
+Continue M02 by enriching each pattern with conditions, failure modes, counterexamples, and stronger evidence locators. Use that calibrated matrix before building the full consultancy kickoff/discovery kit.
