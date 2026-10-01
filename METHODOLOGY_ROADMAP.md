@@ -15,17 +15,18 @@ The methodology is built from observed work, explicit abstraction, evidence, and
 
 ## Phase 1 — Evidence-backed methodology extraction
 
-- [ ] M02 — Build pattern evidence matrix and calibrate maturity — IN PROGRESS
-  - Extract sanitized evidence from Tenshodo Exchange flagship durability work.
-  - Extract sanitized evidence from Tenshodo Exchange Management.
-  - Record the problem that produced each pattern.
-  - Record conditions, counterexamples, failure modes, and unresolved questions.
-  - Do not promote a pattern to portable merely because it worked repeatedly inside Tenshodo.
-  - Definition of Done: every active pattern has explicit evidence and a defensible maturity state.
+- [x] M02 — Build pattern evidence matrix and calibrate maturity
+  - Extracted sanitized evidence from Tenshodo Exchange flagship durability work.
+  - Extracted sanitized evidence from Tenshodo Exchange Management.
+  - Recorded the problem, conditions, counterexamples/limits, failure modes, falsifiers, and portability gap for every active pattern.
+  - Added artifact-level evidence locators.
+  - Reassessed maturity conservatively.
+  - Result: PAT-001 through PAT-005 remain Validated; PAT-006 through PAT-011 remain Candidate Pattern; no pattern is Portable.
+  - Definition of Done satisfied: every active pattern has explicit evidence and a defensible maturity state.
 
 ## Phase 2 — Consultancy engagement kit
 
-- [ ] M03 — Build kickoff and discovery kit
+- [ ] M03 — Build kickoff and discovery kit — IN PROGRESS
   - Executive sponsor interview.
   - current-state authority discovery.
   - working-plane inventory.
@@ -35,7 +36,7 @@ The methodology is built from observed work, explicit abstraction, evidence, and
   - confidentiality and access boundaries.
   - Definition of Done: consultants can enter a new client without relying on Tenshodo-specific assumptions.
 
-- [ ] M04 — Build client control-plane bootstrap kit
+- [ ] M04 — Build client control-plane bootstrap kit — READY
   - starter repository structure;
   - state file;
   - plan;
