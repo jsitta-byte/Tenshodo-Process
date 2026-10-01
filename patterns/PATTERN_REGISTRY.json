@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "registry": "tenshodo_process_patterns",
   "maturity_states": [
     "observed",
@@ -8,6 +8,7 @@
     "portable",
     "deprecated"
   ],
+  "evidence_rule": "Pattern maturity must be supported by sanitized evidence, operating conditions, failure modes, and a stated portability gap. Single-company evidence cannot by itself establish portability.",
   "patterns": [
     {
       "id": "PAT-001",
@@ -15,7 +16,29 @@
       "maturity": "validated",
       "problem": "Long-running work fails when continuation depends on conversation history or individual memory.",
       "mechanism": "Durable state + plan + runbook + zero-context handoff + exact next action.",
-      "evidence": ["CASE-TENSHODO-001"],
+      "conditions": [
+        "The durable control plane is accessible to the successor.",
+        "The current task and exact next action are maintained after substantive work.",
+        "Live external sources are revalidated when they can change."
+      ],
+      "failure_modes": [
+        "State files become stale or are not updated after work.",
+        "Critical context remains only in chat or a person's memory.",
+        "The handoff points to artifacts that are no longer authoritative."
+      ],
+      "counterexample_or_limit": "Short-lived work that is completed in one session may not justify a full durability scaffold.",
+      "falsifier": "A zero-context qualified successor repeatedly cannot determine the current task or safe next action from durable state alone.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-001",
+          "repository": "jsitta-byte/Tenshodo-Exchange",
+          "artifacts": [
+            "CONTINUE_HERE.md@451d1eaf14ab6cc62874c1887792c83b373dd89e",
+            "PROJECT_STATE.json@308e7ea0a1dd9002d1a9a73fa7c89c94b400a0eb",
+            "CHATGPT_RUNBOOK.md@10f64e612f176ba76aaf58707658816eb18740c4"
+          ]
+        }
+      ],
       "portability_gap": "Not yet validated in a materially different company."
     },
     {
@@ -24,7 +47,29 @@
       "maturity": "validated",
       "problem": "Large tasks are vulnerable to interruption, connector limits, retries, and partial completion.",
       "mechanism": "Deterministic batches, validation, checkpoint after each substantive batch, explicit remaining queue.",
-      "evidence": ["CASE-TENSHODO-001"],
+      "conditions": [
+        "The work can be partitioned into objectively identifiable units or batches.",
+        "Completion can be validated independently of the conversation that performed it.",
+        "Remaining work can be reconstructed deterministically."
+      ],
+      "failure_modes": [
+        "Batch boundaries are arbitrary and cannot be reconciled to source inventory.",
+        "Partial writes are counted as complete without validation.",
+        "Checkpoints omit the exact next boundary."
+      ],
+      "counterexample_or_limit": "Highly atomic tasks with no meaningful intermediate state may not benefit from batching.",
+      "falsifier": "Interrupted work routinely requires repeating previously validated batches because completed units cannot be identified.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-001",
+          "repository": "jsitta-byte/Tenshodo-Exchange",
+          "artifacts": [
+            "PROJECT_STATE.json@308e7ea0a1dd9002d1a9a73fa7c89c94b400a0eb",
+            "PROJECT_PLAN.md@2acc64947857ee803a755f88211e0ed2c1dee2fd",
+            "CHATGPT_RUNBOOK.md@10f64e612f176ba76aaf58707658816eb18740c4"
+          ]
+        }
+      ],
       "portability_gap": "Needs multi-domain validation beyond research/data workflows."
     },
     {
@@ -33,7 +78,35 @@
       "maturity": "validated",
       "problem": "Forcing collaboration artifacts and durable operating state into one system creates friction or conflicting truths.",
       "mechanism": "Keep collaborative work in its best-fit system while versioning normalized control state separately.",
-      "evidence": ["CASE-TENSHODO-001", "CASE-TENSHODO-002"],
+      "conditions": [
+        "Authority for each information class is explicitly declared.",
+        "References between planes are durable enough to reconcile.",
+        "The control plane stores state and relationships rather than duplicating every working artifact."
+      ],
+      "failure_modes": [
+        "Both planes become independently editable authorities for the same information.",
+        "The control plane drifts because working-plane changes are never checkpointed.",
+        "Teams are forced into the control plane for routine collaboration, creating adoption friction."
+      ],
+      "counterexample_or_limit": "A very small project may legitimately use one system for both work and control if authority remains unambiguous.",
+      "falsifier": "Separation increases reconciliation cost more than it reduces ambiguity because ownership and synchronization rules are unclear.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-001",
+          "repository": "jsitta-byte/Tenshodo-Exchange",
+          "artifacts": [
+            "CONTINUE_HERE.md@451d1eaf14ab6cc62874c1887792c83b373dd89e",
+            "PROJECT_STATE.json@308e7ea0a1dd9002d1a9a73fa7c89c94b400a0eb"
+          ]
+        },
+        {
+          "case_id": "CASE-TENSHODO-002",
+          "repository": "jsitta-byte/Tenshodo-Exchange-Management",
+          "artifacts": [
+            "COMPANY_STATE.json@c98d9a5ee7674f1ed5ff6af89d553a1702d13f3c"
+          ]
+        }
+      ],
       "portability_gap": "Needs validation with tool stacks other than GitHub + Google/SharePoint."
     },
     {
@@ -42,7 +115,28 @@
       "maturity": "validated",
       "problem": "Two editable copies of the same information class create reconciliation debt and hidden divergence.",
       "mechanism": "Declare one authoritative source and explicit replicas/exports/cutover state.",
-      "evidence": ["CASE-TENSHODO-001"],
+      "conditions": [
+        "The authoritative source is named per information class.",
+        "Replicas or exports have a declared generation/import path.",
+        "Transitions between authorities have explicit cutover rules."
+      ],
+      "failure_modes": [
+        "Users edit both the source and its export.",
+        "Authority changes without a cutover checkpoint.",
+        "A stale replica is silently treated as current."
+      ],
+      "counterexample_or_limit": "Multi-master systems can be valid when conflict resolution is intentionally engineered; this pattern targets unmanaged dual authority.",
+      "falsifier": "Declared single authority does not reduce reconciliation incidents because operational users cannot access or trust it.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-001",
+          "repository": "jsitta-byte/Tenshodo-Exchange",
+          "artifacts": [
+            "CHATGPT_RUNBOOK.md@10f64e612f176ba76aaf58707658816eb18740c4",
+            "PROJECT_STATE.json@308e7ea0a1dd9002d1a9a73fa7c89c94b400a0eb"
+          ]
+        }
+      ],
       "portability_gap": "Cross-company validation pending."
     },
     {
@@ -51,8 +145,29 @@
       "maturity": "validated",
       "problem": "External source systems can change after a durable checkpoint, invalidating prior classifications.",
       "mechanism": "Verify current source commit/tree/state and reconcile differences before resuming.",
-      "evidence": ["CASE-TENSHODO-001"],
-      "portability_gap": "Needs validation with non-code source systems."
+      "conditions": [
+        "The external source has a detectable version, timestamp, digest, or queryable state.",
+        "The prior checkpoint records what source state it used.",
+        "Material differences can be reconciled before new work proceeds."
+      ],
+      "failure_modes": [
+        "Source versions are not recorded.",
+        "Revalidation checks only that the source exists, not whether relevant content changed.",
+        "A changed source invalidates prior work but the project continues without reconciliation."
+      ],
+      "counterexample_or_limit": "Immutable source artifacts do not require repeated revalidation once their identity is proven.",
+      "falsifier": "Revalidation repeatedly fails to detect changes that materially alter earlier classifications.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-001",
+          "repository": "jsitta-byte/Tenshodo-Exchange",
+          "artifacts": [
+            "PROJECT_STATE.json@308e7ea0a1dd9002d1a9a73fa7c89c94b400a0eb",
+            "CONTINUE_HERE.md@451d1eaf14ab6cc62874c1887792c83b373dd89e"
+          ]
+        }
+      ],
+      "portability_gap": "Needs validation with non-code source systems such as CRM/ERP/HRIS."
     },
     {
       "id": "PAT-006",
@@ -60,8 +175,29 @@
       "maturity": "candidate_pattern",
       "problem": "Future-state roles cannot authorize present-day transformation work when those roles do not yet exist.",
       "mechanism": "Represent target owner and current executor separately, with explicit delegation.",
-      "evidence": ["CASE-TENSHODO-002"],
-      "portability_gap": "New pattern; requires operational use and external validation."
+      "conditions": [
+        "The organization is in transition or has ambiguous staffing relative to the target model.",
+        "Current authority can be identified independently of target design.",
+        "Tasks can record both future accountability and present execution."
+      ],
+      "failure_modes": [
+        "Target role labels are treated as if they confer current authority.",
+        "Temporary executors silently become permanent owners.",
+        "No one records who may actually adopt decisions."
+      ],
+      "counterexample_or_limit": "In a stable organization where current and target roles are identical, the distinction may add little value.",
+      "falsifier": "Separating target and current authority increases ambiguity or delays decisions without preventing real governance errors.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002",
+          "repository": "jsitta-byte/Tenshodo-Exchange-Management",
+          "artifacts": [
+            "decisions/DEC-0002-organizational-bootstrap-authority-and-transitional-stewardship.md@963e85e364fdb4e7567b9ec918ba2f81e0343d28",
+            "COMPANY_STATE.json@c98d9a5ee7674f1ed5ff6af89d553a1702d13f3c"
+          ]
+        }
+      ],
+      "portability_gap": "Requires sustained operating use and external validation."
     },
     {
       "id": "PAT-007",
@@ -69,8 +205,28 @@
       "maturity": "candidate_pattern",
       "problem": "A transformation can deadlock if the governance structure required to execute it is itself the thing being created.",
       "mechanism": "Narrow temporary stewardship that exists only to bootstrap current-state truth and transition toward target governance.",
-      "evidence": ["CASE-TENSHODO-002"],
-      "portability_gap": "Designed but not yet repeatedly exercised."
+      "conditions": [
+        "A real bootstrap deadlock exists.",
+        "A current sponsor can authorize narrow temporary stewardship.",
+        "The temporary mechanism has an exit/review condition."
+      ],
+      "failure_modes": [
+        "Bootstrap authority becomes permanent by inertia.",
+        "Temporary stewards exceed the narrow mandate.",
+        "The target-state role model is imposed before current-state evidence is understood."
+      ],
+      "counterexample_or_limit": "Organizations with already-functional governance may not need a bootstrap layer.",
+      "falsifier": "The bootstrap layer creates more governance debt than it resolves or cannot be retired cleanly.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002",
+          "repository": "jsitta-byte/Tenshodo-Exchange-Management",
+          "artifacts": [
+            "decisions/DEC-0002-organizational-bootstrap-authority-and-transitional-stewardship.md@963e85e364fdb4e7567b9ec918ba2f81e0343d28"
+          ]
+        }
+      ],
+      "portability_gap": "Designed and activated, but repeated execution and successful retirement are not yet proven."
     },
     {
       "id": "PAT-008",
@@ -78,8 +234,32 @@
       "maturity": "candidate_pattern",
       "problem": "A needed function may not yet have a clear human owner or mature job definition.",
       "mechanism": "Chartered AI role conversation builds/proposes the function while binding authority remains human; later transfer durable state to a human steward.",
-      "evidence": ["CASE-TENSHODO-002"],
-      "portability_gap": "Human takeover has not yet been completed in field use."
+      "conditions": [
+        "The function can be meaningfully advanced through research, design, inventory, drafting, or other non-binding work.",
+        "The AI role has a durable charter and startup/handoff package.",
+        "Binding authority remains explicitly separate.",
+        "A durable repository preserves continuity beyond the chat."
+      ],
+      "failure_modes": [
+        "The role conversation is mistaken for a human executive.",
+        "AI proposals are silently treated as adopted decisions.",
+        "The function accumulates in private chat rather than durable state.",
+        "No human takeover path is defined."
+      ],
+      "counterexample_or_limit": "Functions dominated by licensed professional judgment, physical operations, or immediate human authority may be poor candidates for AI incubation.",
+      "falsifier": "The AI-incubated function cannot be safely handed to a human without substantial reconstruction or creates recurring authority confusion.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002",
+          "repository": "jsitta-byte/Tenshodo-Exchange-Management",
+          "artifacts": [
+            "decisions/DEC-0003-ai-role-incubation-and-human-handoff.md@c677525d1ac743b26c7001032637e34e1649ac95",
+            "docs/AI_ROLE_INCUBATION.md@e29f8f5d776004a4c2f447082a95d2a7b100c2fb",
+            "COMPANY_STATE.json@c98d9a5ee7674f1ed5ff6af89d553a1702d13f3c"
+          ]
+        }
+      ],
+      "portability_gap": "No completed AI-incubation to human-stewardship transfer yet."
     },
     {
       "id": "PAT-009",
@@ -87,8 +267,29 @@
       "maturity": "candidate_pattern",
       "problem": "Consultants and AI can blur recommendation with authorization.",
       "mechanism": "Explicit draft/proposed/adopted/superseded states and adoption authority.",
-      "evidence": ["CASE-TENSHODO-002"],
-      "portability_gap": "Requires repeated operational use."
+      "conditions": [
+        "The organization distinguishes recommendation from binding decision.",
+        "Adoption authority can be named.",
+        "Artifacts can carry lifecycle status."
+      ],
+      "failure_modes": [
+        "Proposed artifacts are operationalized before approval.",
+        "Adoption authority is vague or distributed informally.",
+        "Status labels exist but are ignored in practice."
+      ],
+      "counterexample_or_limit": "Purely informational artifacts that have no binding consequence may not need adoption state.",
+      "falsifier": "Explicit states fail to reduce unauthorized implementation or create excessive approval latency for low-risk work.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002",
+          "repository": "jsitta-byte/Tenshodo-Exchange-Management",
+          "artifacts": [
+            "decisions/DEC-0003-ai-role-incubation-and-human-handoff.md@c677525d1ac743b26c7001032637e34e1649ac95",
+            "docs/AI_ROLE_INCUBATION.md@e29f8f5d776004a4c2f447082a95d2a7b100c2fb"
+          ]
+        }
+      ],
+      "portability_gap": "Requires repeated operational adoption cycles."
     },
     {
       "id": "PAT-010",
@@ -96,8 +297,28 @@
       "maturity": "candidate_pattern",
       "problem": "Local process/product changes create untracked downstream consequences.",
       "mechanism": "Employee suggestion -> triage -> candidate impact map -> accountable decision -> linked implementation -> validation -> adoption.",
-      "evidence": ["CASE-TENSHODO-002"],
-      "portability_gap": "Dependency graph not yet fully implemented."
+      "conditions": [
+        "Material managed objects and dependencies can be identified.",
+        "Impact discovery is separated from scope approval.",
+        "Accountable owners can accept, reject, or defer candidate impacts."
+      ],
+      "failure_modes": [
+        "Dependency maps are treated as automatic implementation scope.",
+        "The graph becomes too stale or detailed to support useful decisions.",
+        "Cross-functional owners are not available to decide impacts."
+      ],
+      "counterexample_or_limit": "Tiny local changes with no meaningful downstream dependencies may not require a formal impact lifecycle.",
+      "falsifier": "The dependency model consistently misses material downstream effects or creates more coordination overhead than the avoided failures justify.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002",
+          "repository": "jsitta-byte/Tenshodo-Exchange-Management",
+          "artifacts": [
+            "docs/PROCESS_CHANGE_SYSTEM.md@b7db95883116cb14f28abacca73d156af5937b24"
+          ]
+        }
+      ],
+      "portability_gap": "Dependency graph is not yet fully implemented or tested through a complete cross-functional change cycle."
     },
     {
       "id": "PAT-011",
@@ -105,8 +326,29 @@
       "maturity": "candidate_pattern",
       "problem": "Organizations collapse different notions of truth into a single convenient status.",
       "mechanism": "Model independent truth dimensions and require evidence appropriate to each dimension.",
-      "evidence": ["CASE-TENSHODO-001"],
-      "portability_gap": "General abstraction needs examples outside the source domain."
+      "conditions": [
+        "The domain genuinely contains distinct truth questions.",
+        "Each dimension has materially different evidence or time sensitivity.",
+        "Users understand why the dimensions should not be collapsed."
+      ],
+      "failure_modes": [
+        "Dimensions are created without decision value.",
+        "The model becomes too complex for operators to maintain.",
+        "One dimension is still used as a proxy for another in practice."
+      ],
+      "counterexample_or_limit": "Simple domains with one stable notion of truth do not need multiple dimensions.",
+      "falsifier": "Separating truth dimensions adds complexity without preventing erroneous conclusions or improving decisions.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-001",
+          "repository": "jsitta-byte/Tenshodo-Exchange",
+          "artifacts": [
+            "PROJECT_STATE.json@308e7ea0a1dd9002d1a9a73fa7c89c94b400a0eb",
+            "CHATGPT_RUNBOOK.md@10f64e612f176ba76aaf58707658816eb18740c4"
+          ]
+        }
+      ],
+      "portability_gap": "General abstraction needs business-domain examples outside the original source domain."
     }
   ]
 }
