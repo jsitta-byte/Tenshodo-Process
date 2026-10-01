@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "method": "Tenshodo Process",
+  "repository": "jsitta-byte/Tenshodo-Process",
+  "repository_visibility": "public",
+  "purpose": "Portable consultancy methodology for building durable, dependency-aware, AI-enabled organizational operating systems.",
+  "field_laboratory": "Tenshodo Exchange",
+  "current_phase": "Phase 1 - Evidence-backed methodology extraction",
+  "current_task_id": "M02",
+  "next_action": "Backfill a structured evidence matrix for each current pattern using sanitized checkpoints from Tenshodo-Exchange and Tenshodo-Exchange-Management. Confirm maturity labels, document conditions/failure modes, and promote no pattern to portable solely from single-company evidence.",
+  "maturity_states": [
+    "observed",
+    "candidate_pattern",
+    "validated",
+    "portable",
+    "deprecated"
+  ],
+  "principles": [
+    "Conversation is an execution surface, not the durable record.",
+    "Durable operational state must survive employee, tool, and conversation turnover.",
+    "Working planes and durable control planes have different jobs.",
+    "One information class should have one declared authority at a time.",
+    "Target accountability and current execution authority are separate.",
+    "AI may incubate functions without inheriting human organizational authority.",
+    "Consequential proposals and adopted decisions are different states.",
+    "Local improvement should create global awareness without automatic global change.",
+    "Client confidentiality and portability are architectural requirements, not cleanup tasks.",
+    "Patterns earn portability through evidence."
+  ],
+  "tasks": {
+    "M01": {
+      "status": "complete",
+      "title": "Initialize consultancy methodology repository"
+    },
+    "M02": {
+      "status": "in_progress",
+      "depends_on": ["M01"],
+      "title": "Build pattern evidence matrix and calibrate maturity"
+    },
+    "M03": {
+      "status": "blocked_by_dependency",
+      "depends_on": ["M02"],
+      "title": "Build consultancy engagement kickoff and discovery kit"
+    },
+    "M04": {
+      "status": "blocked_by_dependency",
+      "depends_on": ["M02"],
+      "title": "Build client control-plane bootstrap kit"
+    },
+    "M05": {
+      "status": "blocked_by_dependency",
+      "depends_on": ["M03", "M04"],
+      "title": "Define consultant role system and delivery team operating model"
+    },
+    "M06": {
+      "status": "future",
+      "title": "Validate method on a materially different organizational environment"
+    },
+    "M07": {
+      "status": "future",
+      "depends_on": ["M06"],
+      "title": "Promote qualifying patterns to portable v1"
+    }
+  },
+  "required_checkpoint_files": [
+    "PROCESS_STATE.json",
+    "METHODOLOGY_ROADMAP.md",
+    "patterns/PATTERN_REGISTRY.json",
+    "CHANGELOG.md",
+    "worklogs/foundation.md"
+  ]
+}
