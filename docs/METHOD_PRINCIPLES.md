@@ -1,0 +1,121 @@
+# Method Principles
+
+## 1. Conversation is not the system of record
+
+Meetings, chats, LLM sessions, and agent runs execute work.
+
+Durable state must live elsewhere.
+
+## 2. Zero-context resumption is a design requirement
+
+A qualified newcomer should be able to resume important work without asking the previous operator to reconstruct history.
+
+The durable state should identify:
+
+- current task;
+- authority;
+- dependencies;
+- completed checkpoints;
+- evidence;
+- exact next action.
+
+## 3. Separate working plane from durable control plane
+
+Collaborative documents and active operational work may live in SharePoint, Google Workspace, CRM, finance systems, or other tools.
+
+The durable control plane records the state and relationships needed to govern and resume that work.
+
+Do not force every artifact into Git merely to make Git central.
+
+## 4. One declared authority per information class
+
+Parallel editable truths create reconciliation debt.
+
+Each information class should have one declared authoritative source at a time, plus explicit replicas, exports, or transition rules where needed.
+
+## 5. Revalidate live sources before crediting prior work
+
+A checkpoint is evidence of what was true at checkpoint time.
+
+If external source state can change, revalidate it before treating earlier classifications as current.
+
+## 6. Bounded work is safer work
+
+Long tasks should have deterministic batches and checkpoint boundaries.
+
+A partial attempt is not completion.
+
+## 7. Evidence beats conversational claims
+
+Completion must be supported by durable artifacts or source evidence.
+
+"Someone said it was done" is not a control.
+
+## 8. Preserve distinct truth dimensions
+
+Do not collapse dimensions merely because one data point is convenient.
+
+A portable example:
+
+- current system behavior;
+- historical validity;
+- current economic or operational conditions
+
+may all be different truths requiring different evidence.
+
+## 9. Target accountability is not current authority
+
+A future org chart cannot authorize today's work.
+
+Model:
+
+- where responsibility should ultimately live;
+- who is actually allowed to act now.
+
+## 10. Bootstrap before the target organization exists
+
+Transformation must remain executable when the roles the future model calls for do not yet exist.
+
+Use narrow, temporary, reviewable transition mechanisms.
+
+## 11. AI can incubate a function without becoming the executive
+
+A role-based AI conversation may research, build, draft, map, test, and propose within an explicit charter.
+
+It does not acquire human legal or organizational authority from the prompt.
+
+## 12. Proposal and adoption are different states
+
+Useful states include:
+
+- draft;
+- proposed;
+- adopted;
+- superseded.
+
+An AI or consultant should not quietly convert its own proposal into binding policy unless current authority explicitly permits it.
+
+## 13. Local improvement should create global awareness
+
+An employee should be able to propose a local improvement.
+
+The system should identify likely downstream impacts across processes, systems, controls, products, training, documents, and roles.
+
+Impact discovery is not automatic approval.
+
+## 14. Human takeover is a handoff, not a restart
+
+If consultants or AI build a function, the future human steward inherits:
+
+- durable state;
+- source rules;
+- open tasks;
+- decisions;
+- risks;
+- exact next action.
+
+## 15. Portability is earned
+
+A pattern is not portable because it is elegant.
+
+It becomes portable when evidence shows it survives differences in organization, tools, culture, authority, and domain.
