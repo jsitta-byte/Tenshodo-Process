@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "method": "Tenshodo Process",
   "repository": "jsitta-byte/Tenshodo-Process",
   "repository_visibility": "public",
@@ -9,6 +9,13 @@
   "pattern_registry": "patterns/PATTERN_REGISTRY.json",
   "pattern_evidence_matrix": "patterns/EVIDENCE_MATRIX.md",
   "client_boundary_decision": "decisions/DEC-0001-portable-method-and-client-boundary.md",
+  "standard_templates": {
+    "client_continue_here": "templates/CLIENT_CONTINUE_HERE.md",
+    "client_state": "templates/CLIENT_STATE.json",
+    "decision_record": "templates/DECISION_RECORD.md",
+    "role_conversation_charter": "templates/ROLE_CONVERSATION_CHARTER.md",
+    "role_conversation_launch_prompt": "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md"
+  },
   "current_phase": "Phase 1 - Evidence-backed methodology extraction",
   "current_task_id": "M02",
   "next_action": "Continue M02 by enriching each active pattern with conditions, failure modes, counterexamples, and stronger sanitized evidence locators from Tenshodo-Exchange and Tenshodo-Exchange-Management. Reassess maturity conservatively and promote no pattern to portable solely from single-company evidence.",
@@ -27,6 +34,7 @@
     "Target accountability and current execution authority are separate.",
     "AI may incubate functions without inheriting human organizational authority.",
     "Consequential proposals and adopted decisions are different states.",
+    "A role-conversation launch prompt is a bootstrap pointer; live durable state and declared authoritative systems override it.",
     "Local improvement should create global awareness without automatic global change.",
     "Client confidentiality and portability are architectural requirements, not cleanup tasks.",
     "Patterns earn portability through evidence."
@@ -52,7 +60,14 @@
     "M04": {
       "status": "blocked_by_dependency",
       "depends_on": ["M02"],
-      "title": "Build client control-plane bootstrap kit"
+      "title": "Build client control-plane bootstrap kit",
+      "prework_complete": [
+        "templates/CLIENT_CONTINUE_HERE.md",
+        "templates/CLIENT_STATE.json",
+        "templates/DECISION_RECORD.md",
+        "templates/ROLE_CONVERSATION_CHARTER.md",
+        "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md"
+      ]
     },
     "M05": {
       "status": "blocked_by_dependency",
