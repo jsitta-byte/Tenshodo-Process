@@ -28,27 +28,9 @@ Tenshodo Process helps clients build that capability.
 
 ## What we carry between companies
 
-We carry:
+We carry the methodology, patterns, schemas, playbooks, templates, evaluation criteria, engagement sequencing, and sanitized lessons learned.
 
-- the methodology;
-- patterns;
-- schemas;
-- playbooks;
-- templates;
-- evaluation criteria;
-- engagement sequencing;
-- sanitized lessons learned.
-
-We do **not** carry:
-
-- employee records;
-- customer data;
-- credentials;
-- internal client financial data;
-- proprietary product information;
-- client operating state;
-- private prompts containing client secrets;
-- anything else a consultant would not be entitled to take to a new engagement.
+We do **not** carry employee records, customer data, credentials, internal client financial data, proprietary product information, client operating state, private prompts containing client secrets, or anything else a consultant would not be entitled to take to a new engagement.
 
 Every client receives its own control plane and working-plane architecture.
 
@@ -63,6 +45,16 @@ The method separates five things that organizations often blur together:
 5. **Evidence plane** — the sources that prove facts, completion, controls, and decisions.
 
 GitHub has proven useful as the durable control plane, but the methodology is not tied to GitHub forever. The principle is durable, versioned, reviewable operational state.
+
+## Role-conversation launch standard
+
+A client role conversation should be launched from a standard prompt generated from durable role metadata.
+
+Use [templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md](templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md).
+
+The launch prompt is an ignition key, not the source of truth. The live client control plane and declared authoritative systems override stale prompt text or prior conversation memory.
+
+See [playbooks/03-ai-role-incubation.md](playbooks/03-ai-role-incubation.md).
 
 ## Pattern maturity
 
@@ -116,7 +108,7 @@ These newer patterns remain subject to validation.
 - [patterns/PATTERN_REGISTRY.json](patterns/PATTERN_REGISTRY.json) — machine-readable pattern catalog
 - [patterns/EVIDENCE_MATRIX.md](patterns/EVIDENCE_MATRIX.md) — maturity rationale and evidence gaps
 - [playbooks/](playbooks/) — reusable execution guides
-- [templates/](templates/) — client-safe starter artifacts
+- [templates/](templates/) — client-safe starter artifacts, including the role-conversation launch prompt
 - [case-studies/](case-studies/) — sanitized field evidence
 - [worklogs/](worklogs/) — development history of the methodology
 
