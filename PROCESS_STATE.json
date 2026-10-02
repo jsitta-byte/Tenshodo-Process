@@ -1,5 +1,5 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "method": "Tenshodo Process",
   "repository": "jsitta-byte/Tenshodo-Process",
   "repository_visibility": "public",
@@ -14,7 +14,8 @@
     "client_state": "templates/CLIENT_STATE.json",
     "decision_record": "templates/DECISION_RECORD.md",
     "role_conversation_charter": "templates/ROLE_CONVERSATION_CHARTER.md",
-    "role_conversation_launch_prompt": "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md"
+    "role_conversation_launch_prompt": "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md",
+    "process_context": "templates/PROCESS_CONTEXT.json"
   },
   "current_phase": "Phase 2 - Consultancy engagement kit",
   "current_task_id": "M03",
@@ -49,7 +50,9 @@
     },
     "M02": {
       "status": "complete",
-      "depends_on": ["M01"],
+      "depends_on": [
+        "M01"
+      ],
       "title": "Build pattern evidence matrix and calibrate maturity",
       "completion_evidence": [
         "patterns/PATTERN_REGISTRY.json",
@@ -58,24 +61,35 @@
     },
     "M03": {
       "status": "in_progress",
-      "depends_on": ["M02"],
+      "depends_on": [
+        "M02"
+      ],
       "title": "Build consultancy engagement kickoff and discovery kit"
     },
     "M04": {
       "status": "ready",
-      "depends_on": ["M02"],
+      "depends_on": [
+        "M02"
+      ],
       "title": "Build client control-plane bootstrap kit",
       "prework_complete": [
         "templates/CLIENT_CONTINUE_HERE.md",
         "templates/CLIENT_STATE.json",
         "templates/DECISION_RECORD.md",
         "templates/ROLE_CONVERSATION_CHARTER.md",
-        "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md"
+        "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md",
+        "templates/PROCESS_CONTEXT.json",
+        "engagement/STEP_REGISTRY.json",
+        "docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md",
+        "engagement/QUICK_START.md"
       ]
     },
     "M05": {
       "status": "blocked_by_dependency",
-      "depends_on": ["M03", "M04"],
+      "depends_on": [
+        "M03",
+        "M04"
+      ],
       "title": "Define consultant role system and delivery team operating model"
     },
     "M06": {
@@ -84,7 +98,9 @@
     },
     "M07": {
       "status": "future",
-      "depends_on": ["M06"],
+      "depends_on": [
+        "M06"
+      ],
       "title": "Promote qualifying patterns to portable v1"
     }
   },
@@ -96,5 +112,13 @@
     "patterns/EVIDENCE_MATRIX.md",
     "CHANGELOG.md",
     "worklogs/foundation.md"
-  ]
+  ],
+  "engagement_runtime": {
+    "step_registry": "engagement/STEP_REGISTRY.json",
+    "quick_start": "engagement/QUICK_START.md",
+    "conversation_bootstrap_protocol": "docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md",
+    "client_context_template": "templates/PROCESS_CONTEXT.json",
+    "short_command_pattern": "Check Tenshodo-Process and execute Engagement Step <N> for <client>.",
+    "preferred_continuation_pattern": "Check Tenshodo-Process and execute the current engagement step for <client>."
+  }
 }
