@@ -90,3 +90,59 @@ M02 definition of done is satisfied.
 ### Exact next action
 
 Execute M03: build the consultancy kickoff and discovery kit so the team can enter a new client, discover current authority/work systems/pain points/AI readiness/confidentiality constraints, and produce a clean discovery package for M04 client control-plane bootstrap.
+
+
+## 2026-10-02 — Process-driven conversation bootstrap established
+
+### Problem
+
+The first role conversation could be launched safely, but doing so still required the human operator to paste a long, carefully constructed prompt.
+
+That is not sufficiently repeatable for a consultancy operating across many clients and functions.
+
+### Decision
+
+Move substantive launch context out of the human prompt.
+
+Use a two-layer resolver:
+
+- Tenshodo Process contains the portable engagement-step protocol.
+- Each client control plane contains a small `PROCESS_CONTEXT.json` pointer packet.
+
+### Established
+
+- `docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md`
+- `engagement/STEP_REGISTRY.json`
+- `engagement/QUICK_START.md`
+- `templates/PROCESS_CONTEXT.json`
+- request routing in `CONTINUE_HERE.md`
+- engagement runtime rules in `METHOD_RUNBOOK.md`
+
+### Stable step model
+
+- ENG-01 — establish engagement context
+- ENG-02 — resolve and launch current work conversation
+- ENG-03 — execute bounded work and checkpoint
+- ENG-04 — route decisions/adoption
+- ENG-05 — transfer/rotate stewardship
+- ENG-06 — close/transition engagement
+
+Human-friendly ordinals map to stable IDs. Existing IDs should not be renumbered after publication.
+
+### Intended operator experience
+
+A configured client should normally require only:
+
+`Check Tenshodo-Process and execute Engagement Step 2 for <client>.`
+
+Or:
+
+`Check Tenshodo-Process and execute the current engagement step for <client>.`
+
+### Boundary
+
+The public Process repository defines how context is resolved; live client context remains in the client repository.
+
+### Next methodology action
+
+Continue M03 — build the consultancy kickoff and discovery kit.
