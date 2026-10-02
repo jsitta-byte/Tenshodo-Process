@@ -4,67 +4,71 @@
 
 A consulting engagement should not require a handcrafted opening prompt every time a new ChatGPT conversation is started.
 
-The portable process defines **how a conversation resolves its context**.
+The portable process defines **how a conversation resolves its context**. The client control plane defines **the live context to resolve**.
 
-The client control plane defines **the live context to resolve**.
+## Operator experience
 
-This keeps the launch instruction small while preserving client confidentiality, live-state precedence, and zero-context resumability.
-
-## The operator experience
-
-For a configured engagement, the human should be able to start a new conversation with a short instruction such as:
+For a configured engagement, the user should be able to say:
 
 > Check Tenshodo-Process and execute Engagement Step 2 for <client>.
 
-Or, when the client repository is already obvious from workspace context:
+Or:
 
-> Check the process and execute Engagement Step 2.
+> Check Tenshodo-Process and execute the current engagement step for <client>.
 
-The new conversation must not depend on the wording of that short command for substantive context.
+The short command is only a routing instruction. It is not the substantive work context.
 
-It uses the command only to locate the durable process and client context packet.
+## Repository roles
 
-## Two-layer design
+A client may have many repositories.
 
-### Portable layer — Tenshodo Process
+Only one should be the **engagement control plane** for a given engagement.
 
-The process repository contains:
+### Control-plane repository
 
-- the engagement-step registry;
-- the conversation-bootstrap protocol;
-- context-packet schema/template;
-- resolution rules;
-- authority safeguards;
-- recovery behavior.
+Contains:
+
+- `PROCESS_CONTEXT.json`;
+- live client state;
+- current executor / role conversation;
+- authority and adoption metadata;
+- current task and exact next action.
+
+### Non-control client repository
+
+May contain specialized project, application, code, data, or supporting work.
+
+A non-control repo may include `PROCESS_POINTER.json`, which immediately identifies the client control-plane repository.
+
+Use `templates/PROCESS_POINTER.json`.
+
+## Portable layer — Tenshodo Process
+
+The Process repository contains the engagement-step registry, bootstrap protocol, context/pointer templates, resolution rules, authority safeguards, and recovery behavior.
 
 It contains no live confidential client state.
 
-### Client layer — client control plane
+## Client layer — client control plane
 
-Each configured client repository contains a small durable file, normally:
+Each configured client control-plane repository contains `PROCESS_CONTEXT.json`.
 
-`PROCESS_CONTEXT.json`
+That packet identifies:
 
-That file identifies:
-
-- process method and version/ref;
+- process repository;
+- client name and aliases;
+- client control repository;
+- live state file;
 - current engagement step;
-- client repository;
-- client state file;
 - current role conversation / executor;
 - role START_HERE and charter;
 - required read order;
 - authority/adoption boundary;
-- exact current task pointer;
+- expected current task pointer;
 - recovery rule.
 
-The context packet should point to live client artifacts rather than duplicate their contents.
+The packet is pointer-oriented and must not duplicate live client state.
 
 ## Stable engagement-step IDs
-
-Use stable IDs rather than relying only on prose or a mutable ordinal.
-
-The initial standard is:
 
 - **ENG-01 — Establish engagement context**
 - **ENG-02 — Resolve and launch the current work conversation**
@@ -75,7 +79,24 @@ The initial standard is:
 
 Humans may say "Step 2"; the resolver maps ordinal 2 to `ENG-02`.
 
-Do not renumber existing stable IDs after publication.
+Do not renumber stable IDs after publication.
+
+## Client-repository resolution algorithm
+
+When the user names a client but not an exact control-plane repository:
+
+1. Normalize the requested client name.
+2. Inspect obvious matching repositories **only for small routing files first**:
+   - `PROCESS_CONTEXT.json`;
+   - `PROCESS_POINTER.json`.
+3. If `PROCESS_CONTEXT.json` exists and its `client` or `client_aliases` matches, use that repository as the control plane.
+4. If `PROCESS_POINTER.json` exists and its client matches, follow `client_control_repository` directly.
+5. If the first obvious repo has neither routing file, search connected/installed repositories for `PROCESS_CONTEXT.json` whose `client` or `client_aliases` matches.
+6. If exactly one matching control plane is found, use it.
+7. If multiple matching control planes remain, ask only for the engagement/control repository needed to disambiguate.
+8. Do **not** read large project plans or state files merely to discover where the control plane is if a routing file can answer the question.
+
+This resolution order exists to minimize connector calls and startup latency.
 
 ## ENG-02 resolution algorithm
 
@@ -83,17 +104,16 @@ When asked to execute Step 2:
 
 1. Read `engagement/STEP_REGISTRY.json` in Tenshodo Process.
 2. Resolve Step 2 to `ENG-02`.
-3. Identify the client control-plane repository from:
-   - an explicit repository/client in the user's command; or
-   - the already connected/current engagement context.
-4. Read the client repository's `PROCESS_CONTEXT.json`.
+3. Resolve the client control-plane repository using the repository-resolution algorithm above.
+4. Read that repository's `PROCESS_CONTEXT.json`.
 5. Verify:
-   - its declared process repository is Tenshodo Process;
-   - its current_engagement_step is compatible with ENG-02;
-   - its client state file exists;
-   - its current executor / role conversation is still active;
+   - declared process repository is Tenshodo Process;
+   - client name/alias matches;
+   - current engagement step is compatible with ENG-02;
+   - client state file exists;
+   - current executor / role conversation is still active;
    - referenced START_HERE and charter exist.
-6. Read the client live state file.
+6. Read the live client state file.
 7. Reconcile the context packet against live state.
 8. If live state differs, **live client state wins** and the discrepancy is checkpointed.
 9. Read the role-specific START_HERE and charter.
@@ -107,47 +127,41 @@ Highest to lowest:
 
 1. live authoritative client systems for the information classes they own;
 2. live client control-plane state and adopted decisions;
-3. client PROCESS_CONTEXT.json;
-4. portable Process step definition;
-5. the human's short launch phrase;
-6. prior chat memory.
+3. client `PROCESS_CONTEXT.json`;
+4. non-control `PROCESS_POINTER.json`;
+5. portable Process step definition;
+6. human short launch phrase;
+7. prior chat memory.
 
-The short launch phrase never overrides durable authority.
+## Context-packet invariants
 
-## Client context packet invariants
-
-`PROCESS_CONTEXT.json` must be:
-
-- small;
-- pointer-oriented;
-- machine-readable;
-- safe to read at startup;
-- updated whenever the current executor or process step changes;
-- free of unnecessary confidential content;
-- consistent with the client state file.
+`PROCESS_CONTEXT.json` must be small, pointer-oriented, machine-readable, safe to read at startup, updated when routing changes, free of unnecessary confidential content, and consistent with live client state.
 
 It must not become a second copy of client state.
 
+## Pointer invariants
+
+`PROCESS_POINTER.json` contains only enough information to redirect a conversation to the client control plane.
+
+It should not include current task, people records, confidential business state, or detailed authority metadata.
+
 ## Recovery
 
-If the context packet is missing or stale:
+If a context packet is missing or stale:
 
 1. do not invent the role or task;
-2. read the client zero-context handoff/state directly;
-3. reconcile the correct executor and task;
-4. repair PROCESS_CONTEXT.json as part of the checkpoint if authorized.
+2. look for a repository pointer;
+3. reconcile from the client zero-context handoff/state;
+4. repair the context packet if authorized.
 
-If no client repository can be identified, ask only for the client/repository identifier needed to resolve the context.
+If a non-control repo is mistaken for the control plane:
+
+1. check `PROCESS_POINTER.json`;
+2. follow the pointer;
+3. do not begin specialized-project work unless the resolved client state assigns it.
+
+If no control plane can be identified after pointer/context discovery, ask only for the repository identifier needed to disambiguate.
 
 ## Definition of success
 
-A user can open a fresh conversation, connect the relevant repositories, give a one-line step instruction, and the conversation can reconstruct:
-
-- its role;
-- its mission;
-- the current task;
-- required sources;
-- authority boundaries;
-- checkpoint behavior;
-
-without the user manually copying the prior conversation prompt.
+A user can open a fresh conversation, connect the relevant repositories, give a one-line step instruction, and the conversation can reconstruct the correct client control plane, role, mission, current task, required sources, authority boundaries, and checkpoint behavior without the user manually copying prior conversation context.
