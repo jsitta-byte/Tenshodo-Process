@@ -47,8 +47,11 @@ The methodology is built from observed work, explicit abstraction, evidence, and
   - authority map;
   - pattern/adoption controls;
   - role-conversation charter template;
-  - role-conversation launch-prompt template with stale-state safeguards.
-  - Definition of Done: a new client repository and its first governed role conversation can be initialized rapidly and safely.
+  - long-form role-conversation launch-prompt template;
+  - client `PROCESS_CONTEXT.json` pointer packet;
+  - stable engagement-step registry;
+  - one-line Step 2 conversation-bootstrap protocol and quick start.
+  - Definition of Done: a new client repository and its first governed role conversation can be initialized rapidly and then resumed from a one-line process-step command.
 
 - [ ] M05 — Define consultancy team operating model
   - engagement lead;
