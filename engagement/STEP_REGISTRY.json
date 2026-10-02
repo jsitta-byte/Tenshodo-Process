@@ -16,7 +16,9 @@
       "ordinal": 1,
       "name": "Establish engagement context",
       "goal": "Identify the client control plane, working planes, sponsor, access boundary, and create or verify PROCESS_CONTEXT.json.",
-      "entry_requirements": ["client or engagement can be identified"],
+      "entry_requirements": [
+        "client or engagement can be identified"
+      ],
       "output": "A valid client PROCESS_CONTEXT.json and client durable-state entrypoint."
     },
     {
@@ -26,7 +28,13 @@
       "goal": "Turn a short user instruction into the correct live client role, read order, task, and authority boundary.",
       "protocol": "docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md",
       "client_context_file": "PROCESS_CONTEXT.json",
-      "next_step": "ENG-03"
+      "next_step": "ENG-03",
+      "repository_resolution": [
+        "Check candidate repositories for PROCESS_CONTEXT.json or PROCESS_POINTER.json before reading large project state.",
+        "Follow PROCESS_POINTER.json to the client control plane when present.",
+        "Match PROCESS_CONTEXT.json by client or client_aliases.",
+        "Ask for a repository identifier only if multiple control planes remain."
+      ]
     },
     {
       "id": "ENG-03",
