@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "process_repository": "jsitta-byte/Tenshodo-Process",
+  "client": "<client>",
+  "repository_role": "<specialized_project|working_repo|data_repo|other>",
+  "client_control_repository": "<owner/control-repo>",
+  "client_context_file": "PROCESS_CONTEXT.json",
+  "resolution_rule": "This repository is not the engagement control plane. Follow client_control_repository before resolving the current engagement step."
+}
