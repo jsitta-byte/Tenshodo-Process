@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "registry": "engagement_steps",
+  "purpose": "Stable portable steps used by fresh conversations to resolve and execute client engagements.",
+  "ordinal_aliases": {
+    "1": "ENG-01",
+    "2": "ENG-02",
+    "3": "ENG-03",
+    "4": "ENG-04",
+    "5": "ENG-05",
+    "6": "ENG-06"
+  },
+  "steps": [
+    {
+      "id": "ENG-01",
+      "ordinal": 1,
+      "name": "Establish engagement context",
+      "goal": "Identify the client control plane, working planes, sponsor, access boundary, and create or verify PROCESS_CONTEXT.json.",
+      "entry_requirements": ["client or engagement can be identified"],
+      "output": "A valid client PROCESS_CONTEXT.json and client durable-state entrypoint."
+    },
+    {
+      "id": "ENG-02",
+      "ordinal": 2,
+      "name": "Resolve and launch the current work conversation",
+      "goal": "Turn a short user instruction into the correct live client role, read order, task, and authority boundary.",
+      "protocol": "docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md",
+      "client_context_file": "PROCESS_CONTEXT.json",
+      "next_step": "ENG-03"
+    },
+    {
+      "id": "ENG-03",
+      "ordinal": 3,
+      "name": "Execute bounded client work and checkpoint",
+      "goal": "Perform eligible work in bounded, validated units and leave exact resumable state.",
+      "next_step": "ENG-04_or_repeat_ENG-03"
+    },
+    {
+      "id": "ENG-04",
+      "ordinal": 4,
+      "name": "Route decisions and adoption",
+      "goal": "Separate proposed work from binding adoption and route consequential decisions through valid authority.",
+      "next_step": "ENG-03_or_ENG-05"
+    },
+    {
+      "id": "ENG-05",
+      "ordinal": 5,
+      "name": "Transfer or rotate stewardship",
+      "goal": "Move a mature function or active workstream to another human or role conversation without restarting.",
+      "next_step": "ENG-03_or_ENG-06"
+    },
+    {
+      "id": "ENG-06",
+      "ordinal": 6,
+      "name": "Close or transition the engagement",
+      "goal": "Verify client-owned durable continuity, unresolved items, authority, and consultant exit/transition."
+    }
+  ]
+}
