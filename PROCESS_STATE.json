@@ -1,5 +1,5 @@
 {
-  "schema_version": 5,
+  "schema_version": 6,
   "method": "Tenshodo Process",
   "repository": "jsitta-byte/Tenshodo-Process",
   "repository_visibility": "public",
@@ -15,7 +15,8 @@
     "decision_record": "templates/DECISION_RECORD.md",
     "role_conversation_charter": "templates/ROLE_CONVERSATION_CHARTER.md",
     "role_conversation_launch_prompt": "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md",
-    "process_context": "templates/PROCESS_CONTEXT.json"
+    "process_context": "templates/PROCESS_CONTEXT.json",
+    "process_pointer": "templates/PROCESS_POINTER.json"
   },
   "current_phase": "Phase 2 - Consultancy engagement kit",
   "current_task_id": "M03",
@@ -81,7 +82,8 @@
         "templates/PROCESS_CONTEXT.json",
         "engagement/STEP_REGISTRY.json",
         "docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md",
-        "engagement/QUICK_START.md"
+        "engagement/QUICK_START.md",
+        "templates/PROCESS_POINTER.json"
       ]
     },
     "M05": {
@@ -119,6 +121,8 @@
     "conversation_bootstrap_protocol": "docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md",
     "client_context_template": "templates/PROCESS_CONTEXT.json",
     "short_command_pattern": "Check Tenshodo-Process and execute Engagement Step <N> for <client>.",
-    "preferred_continuation_pattern": "Check Tenshodo-Process and execute the current engagement step for <client>."
+    "preferred_continuation_pattern": "Check Tenshodo-Process and execute the current engagement step for <client>.",
+    "repository_pointer_template": "templates/PROCESS_POINTER.json",
+    "repository_resolution_rule": "Check PROCESS_CONTEXT.json and PROCESS_POINTER.json before reading large repository state; follow pointers to the engagement control plane."
   }
 }
