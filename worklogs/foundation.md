@@ -146,3 +146,36 @@ The public Process repository defines how context is resolved; live client conte
 ### Next methodology action
 
 Continue M03 — build the consultancy kickoff and discovery kit.
+
+
+## 2026-10-02 — Live Step-2 launch exposed repository ambiguity
+
+### Observation
+
+A fresh conversation received the intended one-line command:
+
+`Check Tenshodo-Process and execute the current engagement step for Tenshodo Exchange.`
+
+It correctly read the Process bootstrap layer, but initially treated `jsitta-byte/Tenshodo-Exchange` as a candidate client control plane because the repository name matched the client name.
+
+That specialized project repository did not contain `PROCESS_CONTEXT.json`. The conversation inferred that `Tenshodo-Exchange-Management` was likely the control plane, but the run timed out while validating the redirect.
+
+### Lesson
+
+A multi-repository client needs deterministic repository routing before the resolver reads substantive project state.
+
+### Change
+
+- Added a generic `PROCESS_POINTER.json` template.
+- Added aliases and `repository_role` to `PROCESS_CONTEXT.json`.
+- ENG-02 now checks routing files before large plans/state.
+- Non-control client repositories may point directly to the engagement control plane.
+- Added the pointer pattern to M04 bootstrap prework.
+
+### Expected result
+
+A new conversation should resolve:
+
+named client → small routing file → client control repository → PROCESS_CONTEXT → live client state
+
+without exploratory project reads.
