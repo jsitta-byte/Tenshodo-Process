@@ -49,6 +49,7 @@ The methodology is built from observed work, explicit abstraction, evidence, and
   - role-conversation charter template;
   - long-form role-conversation launch-prompt template;
   - client `PROCESS_CONTEXT.json` pointer packet;
+  - non-control repository pointer template for multi-repo clients;
   - stable engagement-step registry;
   - one-line Step 2 conversation-bootstrap protocol and quick start.
   - Definition of Done: a new client repository and its first governed role conversation can be initialized rapidly and then resumed from a one-line process-step command.
