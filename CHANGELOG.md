@@ -67,3 +67,14 @@ The repeatable conversation launch path is now:
 short operator command → portable ENG step → client PROCESS_CONTEXT.json → live client state → role START_HERE / charter → bounded execution.
 
 M03 remains the active methodology-development task.
+
+
+### 2026-10-02 — Multi-repository routing hardening
+
+- Added `templates/PROCESS_POINTER.json` for non-control client repositories.
+- Added client aliases and explicit `repository_role` to the process-context schema.
+- Updated ENG-02 to resolve `PROCESS_CONTEXT.json` / `PROCESS_POINTER.json` before reading large repository state.
+- Updated the bootstrap protocol and quick start to follow a pointer directly to the engagement control plane.
+- Registered repository-pointer routing as standard M04 bootstrap prework.
+
+This change was prompted by a live launch attempt that first inspected the specialized Tenshodo-Exchange project repo because its name matched the client, then had to search for the separate management control plane.
