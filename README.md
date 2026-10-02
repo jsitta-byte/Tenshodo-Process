@@ -26,6 +26,22 @@ A modern organization should be able to answer, durably:
 
 Tenshodo Process helps clients build that capability.
 
+## Engagement quick start
+
+Once a client has been configured with a `PROCESS_CONTEXT.json`, the normal operator experience should be a one-line command:
+
+> **Check Tenshodo-Process and execute Engagement Step 2 for <client>.**
+
+Or, when the client is already unambiguous:
+
+> **Check the process and execute Step 2.**
+
+The resolver in [engagement/STEP_REGISTRY.json](engagement/STEP_REGISTRY.json) maps the step to the portable protocol in [docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md](docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md), then reads the client's `PROCESS_CONTEXT.json` and live durable state.
+
+See [engagement/QUICK_START.md](engagement/QUICK_START.md).
+
+The user should not need to paste the old launch prompt, role charter, task ID, or prior conversation history.
+
 ## What we carry between companies
 
 We carry the methodology, patterns, schemas, playbooks, templates, evaluation criteria, engagement sequencing, and sanitized lessons learned.
@@ -48,13 +64,11 @@ GitHub has proven useful as the durable control plane, but the methodology is no
 
 ## Role-conversation launch standard
 
-A client role conversation should be launched from a standard prompt generated from durable role metadata.
+A client role conversation should be launched from durable role metadata.
 
-Use [templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md](templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md).
+The long-form launch template remains available at [templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md](templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md), but normal engagements should prefer the step resolver + client context packet.
 
-The launch prompt is an ignition key, not the source of truth. The live client control plane and declared authoritative systems override stale prompt text or prior conversation memory.
-
-See [playbooks/03-ai-role-incubation.md](playbooks/03-ai-role-incubation.md).
+The launch instruction is an ignition key, not the source of truth. The live client control plane and declared authoritative systems override stale prompt text or prior conversation memory.
 
 ## Pattern maturity
 
@@ -98,6 +112,10 @@ These newer patterns remain subject to validation.
 - [PROCESS_STATE.json](PROCESS_STATE.json) — machine-readable methodology cursor
 - [METHODOLOGY_ROADMAP.md](METHODOLOGY_ROADMAP.md) — methodology build plan
 - [METHOD_RUNBOOK.md](METHOD_RUNBOOK.md) — how the methodology itself evolves and checkpoints
+- [engagement/STEP_REGISTRY.json](engagement/STEP_REGISTRY.json) — stable engagement-step IDs and ordinals
+- [engagement/QUICK_START.md](engagement/QUICK_START.md) — one-line conversation-start workflow
+- [docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md](docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md) — context resolution algorithm
+- [templates/PROCESS_CONTEXT.json](templates/PROCESS_CONTEXT.json) — client-side context packet template
 - [decisions/DEC-0001-portable-method-and-client-boundary.md](decisions/DEC-0001-portable-method-and-client-boundary.md) — formal portable-method/client-state boundary
 - [docs/CONSULTING_MODEL.md](docs/CONSULTING_MODEL.md) — how the team works as a consultancy
 - [docs/METHOD_PRINCIPLES.md](docs/METHOD_PRINCIPLES.md) — portable principles
@@ -108,7 +126,7 @@ These newer patterns remain subject to validation.
 - [patterns/PATTERN_REGISTRY.json](patterns/PATTERN_REGISTRY.json) — machine-readable pattern catalog
 - [patterns/EVIDENCE_MATRIX.md](patterns/EVIDENCE_MATRIX.md) — maturity rationale and evidence gaps
 - [playbooks/](playbooks/) — reusable execution guides
-- [templates/](templates/) — client-safe starter artifacts, including the role-conversation launch prompt
+- [templates/](templates/) — client-safe starter artifacts
 - [case-studies/](case-studies/) — sanitized field evidence
 - [worklogs/](worklogs/) — development history of the methodology
 
