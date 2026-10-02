@@ -1,9 +1,13 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "process_repository": "jsitta-byte/Tenshodo-Process",
   "process_ref": "main",
   "current_engagement_step": "ENG-02",
   "client": "<client>",
+  "client_aliases": [
+    "<alternate-client-name-if-any>"
+  ],
+  "repository_role": "engagement_control_plane",
   "client_repository": "<owner/repo>",
   "client_state_file": "<state-file>",
   "client_continue_here": "<continue-here-file>",
