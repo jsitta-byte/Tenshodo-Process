@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "process_repository": "jsitta-byte/Tenshodo-Process",
+  "process_ref": "main",
+  "current_engagement_step": "ENG-02",
+  "client": "<client>",
+  "client_repository": "<owner/repo>",
+  "client_state_file": "<state-file>",
+  "client_continue_here": "<continue-here-file>",
+  "current_executor": {
+    "type": "chatgpt_role_conversation",
+    "id": "<role-conversation-id>",
+    "start_here": "<role-start-here-path>",
+    "charter": "<role-charter-path>"
+  },
+  "expected_current_task_id": "<task-id-or-verify-live>",
+  "required_read_order": [
+    "<client-state-file>",
+    "<client-plan>",
+    "<client-runbook>",
+    "<role-start-here>",
+    "<role-charter>"
+  ],
+  "authority": {
+    "execution_class": "<execution-class>",
+    "maximum_artifact_state_without_separate_approval": "<draft-or-proposed>",
+    "adoption_authority": "<authority-pointer>"
+  },
+  "precedence_rule": "Live authoritative client systems and live client durable state override this packet if they differ.",
+  "recovery_rule": "If this packet is stale, reconcile from the client state and repair the packet before relying on it again."
+}
