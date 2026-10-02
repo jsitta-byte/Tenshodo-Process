@@ -1,10 +1,41 @@
 # CONTINUE HERE — Tenshodo Process
 
-This repository is the durable source for the Tenshodo consulting methodology.
+This repository is the durable source for the Tenshodo consulting methodology **and the portable resolver for engagement-step launch requests**.
 
-A new consultant, employee, ChatGPT conversation, or agent should resume methodology work from repository state rather than reconstructing it from prior conversations.
+A new consultant, employee, ChatGPT conversation, or agent should not reconstruct work from prior chat history.
 
-## Startup order
+## First: route the request
+
+Before following the methodology-development cursor, determine which mode the user requested.
+
+### Engagement-step mode
+
+If the user says something like:
+
+- "check the process for Step 2";
+- "execute Engagement Step 2 for <client>";
+- "resume the current engagement step for <client>";
+- "follow ENG-02";
+
+then **do not automatically resume PROCESS_STATE.json current_task_id**.
+
+Instead:
+
+1. read `engagement/STEP_REGISTRY.json`;
+2. read `docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md`;
+3. resolve the requested ordinal or stable ENG-ID;
+4. identify the client control-plane repository;
+5. read that client's `PROCESS_CONTEXT.json`;
+6. reconcile the packet against live client state;
+7. execute the engagement step under the client authority model.
+
+The portable process defines how to launch. The client repository defines what is live.
+
+### Methodology-development mode
+
+If the user asks to develop, improve, document, or continue **Tenshodo Process itself**, use the methodology startup below and resume PROCESS_STATE.json current_task_id.
+
+## Methodology startup order
 
 Read:
 
@@ -26,24 +57,20 @@ Then read the playbook or template relevant to the active methodology task.
 
 This repository contains **portable method**, not client operating state.
 
-When learning from a live client or Tenshodo Exchange:
+When learning from a live client:
 
 1. identify the observed lesson;
 2. sanitize it;
 3. record evidence without importing confidential data;
-4. classify the pattern maturity honestly;
+4. classify pattern maturity honestly;
 5. document conditions and failure modes;
 6. update a reusable playbook or template only when justified.
 
-## Current directive
+## Current methodology directive
 
-Build a consultancy-grade transformation method that can be carried from organization to organization.
+The active methodology-development task is **M03 — Build consultancy engagement kickoff and discovery kit**.
 
-Do not prematurely call every Tenshodo design portable.
-
-Repeated success inside one organization can validate a pattern internally, but portability requires evidence that the abstraction survives a materially different environment.
-
-The active task is M02 — build the pattern evidence matrix and calibrate maturity.
+This cursor is irrelevant when the user's request is an engagement-step launch.
 
 ## Checkpoint rule
 
