@@ -36,7 +36,7 @@ Or, when the client is already unambiguous:
 
 > **Check the process and execute Step 2.**
 
-The resolver in [engagement/STEP_REGISTRY.json](engagement/STEP_REGISTRY.json) maps the step to the portable protocol in [docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md](docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md), then reads the client's `PROCESS_CONTEXT.json` and live durable state.
+The resolver in [engagement/STEP_REGISTRY.json](engagement/STEP_REGISTRY.json) maps the step to the portable protocol in [docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md](docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md). It checks `PROCESS_CONTEXT.json` or `PROCESS_POINTER.json` first, follows any pointer to the client control plane, then reads live client state.
 
 See [engagement/QUICK_START.md](engagement/QUICK_START.md).
 
@@ -115,7 +115,8 @@ These newer patterns remain subject to validation.
 - [engagement/STEP_REGISTRY.json](engagement/STEP_REGISTRY.json) — stable engagement-step IDs and ordinals
 - [engagement/QUICK_START.md](engagement/QUICK_START.md) — one-line conversation-start workflow
 - [docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md](docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md) — context resolution algorithm
-- [templates/PROCESS_CONTEXT.json](templates/PROCESS_CONTEXT.json) — client-side context packet template
+- [templates/PROCESS_CONTEXT.json](templates/PROCESS_CONTEXT.json) — client control-plane context packet template
+- [templates/PROCESS_POINTER.json](templates/PROCESS_POINTER.json) — redirect template for specialized/non-control client repositories
 - [decisions/DEC-0001-portable-method-and-client-boundary.md](decisions/DEC-0001-portable-method-and-client-boundary.md) — formal portable-method/client-state boundary
 - [docs/CONSULTING_MODEL.md](docs/CONSULTING_MODEL.md) — how the team works as a consultancy
 - [docs/METHOD_PRINCIPLES.md](docs/METHOD_PRINCIPLES.md) — portable principles
