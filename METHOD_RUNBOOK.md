@@ -6,7 +6,25 @@ This runbook governs how the consulting method itself evolves.
 
 The repository should not become a scrapbook of clever ideas. It should preserve reusable patterns whose maturity can be explained and defended.
 
-## Startup
+## Request routing
+
+Before using the methodology-development cursor, determine whether the user is asking to:
+
+- **develop Tenshodo Process itself**; or
+- **execute a client engagement step**.
+
+For client engagement-step requests, follow:
+
+1. `engagement/STEP_REGISTRY.json`;
+2. `docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md`;
+3. the client's `PROCESS_CONTEXT.json`;
+4. the client's live durable state.
+
+Do not resume PROCESS_STATE.json merely because this repository was opened.
+
+For methodology-development work, use the startup sequence below.
+
+## Methodology startup
 
 1. Read CONTINUE_HERE.md.
 2. Read PROCESS_STATE.json.
@@ -15,6 +33,23 @@ The repository should not become a scrapbook of clever ideas. It should preserve
 5. Read patterns/EVIDENCE_MATRIX.md.
 6. Read docs/PORTABILITY_AND_CONFIDENTIALITY.md.
 7. Read the latest relevant field notes and worklog.
+
+## Engagement runtime
+
+Portable engagement steps use stable IDs.
+
+The initial registry maps:
+
+- Step 1 → ENG-01
+- Step 2 → ENG-02
+- Step 3 → ENG-03
+- Step 4 → ENG-04
+- Step 5 → ENG-05
+- Step 6 → ENG-06
+
+When a user says "check the process and execute Step 2", resolve the ordinal through the registry rather than relying on memory.
+
+The client context packet is a pointer layer, not the authority. Live client state wins.
 
 ## Pattern capture workflow
 
@@ -99,6 +134,12 @@ If methodology work is interrupted:
 - verify what files actually landed;
 - do not credit an attempted write that cannot be verified;
 - resume PROCESS_STATE.json current_task_id.
+
+If an engagement launch is interrupted:
+
+- trust the client repository;
+- re-read PROCESS_CONTEXT.json and live client state;
+- reconcile before resuming.
 
 ## Session end
 
