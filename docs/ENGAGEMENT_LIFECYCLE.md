@@ -20,21 +20,85 @@ Do not begin by redesigning the org chart.
 
 ## Stage 1 — Current-state discovery
 
-Discover the organization that actually exists:
+Use the governing sequence:
+
+**Evidence intake → current-process discovery → provisional inference → targeted validation → current-state baseline → transformation**
+
+See `playbooks/05-current-state-discovery.md`.
+
+### 1. Evidence intake
+
+Collect or connect what already exists before asking people to recreate it:
+
+- workforce / HR records;
+- org charts;
+- job descriptions;
+- process material;
+- authority/RACI records;
+- system inventories;
+- repositories;
+- recurring reports;
+- policy and approval records;
+- current AI/automation evidence.
+
+Do not ask the client to clean the evidence first.
+
+### 2. Choose discovery mode
+
+Classify the engagement as:
+
+- document-led;
+- hybrid;
+- interview-led.
+
+The methodology stays the same; the cost mix changes.
+
+### 3. Discover current work
+
+Establish enough of the actual recurring work to understand:
 
 - people and responsibilities;
-- recurring work;
-- systems;
-- data;
+- triggers and outputs;
+- systems/data;
 - approvals;
 - decisions;
 - handoffs;
 - pain points;
-- hidden spreadsheets;
-- informal workarounds;
+- workarounds;
 - current AI use.
 
+### 4. Infer only the gaps
+
+Use provisional inference when authoritative/documentary/observed evidence does not cheaply answer the question.
+
+Every inferred field must preserve provenance, confidence, rationale, and validation need.
+
+Do not infer consequential decision authority from title or activity alone.
+
+### 5. Validate selectively
+
+Spend employee/manager/consultant time on:
+
+- high-consequence ambiguity;
+- conflicting evidence;
+- cross-functional processes;
+- undocumented authority;
+- transformation-critical unknowns.
+
+### 6. Establish the baseline
+
+Create a Current-State Confidence Map that separates:
+
+- authoritative;
+- attested;
+- observed;
+- inferred;
+- unknown;
+- disputed.
+
 Record unknowns instead of guessing.
+
+Discovery ends when the organization is legible enough to route work and choose a safe transformation pilot—not when every field is perfect.
 
 ## Stage 2 — Durable control-plane bootstrap
 
@@ -47,7 +111,8 @@ Create the minimum structure required for resumable transformation:
 - decision records;
 - worklog;
 - change log;
-- authority/source model.
+- authority/source model;
+- process context / routing where applicable.
 
 Do not build the perfect enterprise ontology first.
 
