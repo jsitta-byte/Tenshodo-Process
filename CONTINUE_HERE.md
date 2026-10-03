@@ -49,7 +49,8 @@ Read:
 8. patterns/PATTERN_REGISTRY.json
 9. patterns/EVIDENCE_MATRIX.md
 10. docs/PORTABILITY_AND_CONFIDENTIALITY.md
-11. latest relevant case-study notes, worklog, and CHANGELOG.md
+11. methodology/METHOD_OBSERVATION_REGISTER.json
+12. latest relevant case-study notes, worklog, and CHANGELOG.md
 
 Then read the playbook or template relevant to the active methodology task.
 
@@ -59,16 +60,22 @@ This repository contains **portable method**, not client operating state.
 
 When learning from a live client:
 
-1. identify the observed lesson;
-2. sanitize it;
-3. record evidence without importing confidential data;
-4. classify pattern maturity honestly;
-5. document conditions and failure modes;
-6. update a reusable playbook or template only when justified.
+1. capture the reusable lesson durably before relying on memory;
+2. keep client-private detail in the client environment;
+3. sanitize the method observation;
+4. register/triage it without hijacking the active methodology cursor;
+5. record evidence without importing confidential data;
+6. classify pattern maturity honestly;
+7. document conditions and failure modes;
+8. update a reusable playbook or template only when justified.
 
 ## Current methodology directive
 
-The active methodology-development task is **M03 — Build consultancy engagement kickoff and discovery kit**.
+The active methodology-development task is **M04 — Build client control-plane bootstrap kit**.
+
+M03 remains complete. Additive discovery capabilities now include multi-environment working-plane topology, optional Connected Discovery, process-corpus shortcuts, Process Evidence Graphs, tenant-aware provenance, and terminology crosswalks.
+
+Reusable lessons discovered during client work are captured in `methodology/METHOD_OBSERVATION_REGISTER.json` without changing the active M04 cursor merely because a new observation exists.
 
 This cursor is irrelevant when the user's request is an engagement-step launch.
 
@@ -78,6 +85,7 @@ After substantive methodology work:
 
 - update PROCESS_STATE.json;
 - update METHODOLOGY_ROADMAP.md if state changes;
+- update the Method Observation register when observations are captured/triaged;
 - update the pattern registry and evidence matrix when evidence changes;
 - append the methodology worklog;
 - update CHANGELOG.md;
