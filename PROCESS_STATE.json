@@ -1,5 +1,5 @@
 {
-  "schema_version": 8,
+  "schema_version": 9,
   "method": "Tenshodo Process",
   "repository": "jsitta-byte/Tenshodo-Process",
   "repository_visibility": "public",
@@ -21,11 +21,16 @@
     "executive_sponsor_interview": "templates/EXECUTIVE_SPONSOR_INTERVIEW.md",
     "current_state_confidence_map": "templates/CURRENT_STATE_CONFIDENCE_MAP.json",
     "current_state_discovery_assessment": "templates/CURRENT_STATE_DISCOVERY_ASSESSMENT.md",
-    "discovery_output_contract": "templates/DISCOVERY_OUTPUT_CONTRACT.md"
+    "discovery_output_contract": "templates/DISCOVERY_OUTPUT_CONTRACT.md",
+    "workstream_registry": "templates/WORKSTREAM_REGISTRY.json",
+    "commercialization_brand_market_foundation": "templates/COMMERCIALIZATION_BRAND_MARKET_FOUNDATION.md",
+    "commercialization_offer_architecture": "templates/COMMERCIALIZATION_OFFER_ARCHITECTURE.md",
+    "commercialization_claims_register": "templates/COMMERCIALIZATION_CLAIMS_REGISTER.md",
+    "commercialization_sales_enablement_handoff": "templates/COMMERCIALIZATION_SALES_ENABLEMENT_HANDOFF.md"
   },
   "current_phase": "Phase 2 - Client control-plane bootstrap kit",
   "current_task_id": "M04",
-  "next_action": "Build the reusable client control-plane bootstrap kit from the completed discovery package. Add generic client plan, runbook, worklog, authority/source model, adoption-status controls, and a bootstrap assembly checklist so a new engagement can move from accepted discovery outputs to a functioning client control plane without hand-building the repository.",
+  "next_action": "Complete the reusable M04 client control-plane bootstrap kit by adding the remaining generic client plan, runbook, worklog, authority/source model, adoption-status controls, and bootstrap assembly checklist. The kit now also supports optional parallel workstreams and a reusable commercialization module.",
   "maturity_states": [
     "observed",
     "candidate_pattern",
@@ -101,7 +106,14 @@
         "engagement/STEP_REGISTRY.json",
         "docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md",
         "engagement/QUICK_START.md",
-        "docs/ROLE_ROUTING_GUARD.md"
+        "docs/ROLE_ROUTING_GUARD.md",
+        "docs/PARALLEL_WORKSTREAM_MODEL.md",
+        "templates/WORKSTREAM_REGISTRY.json",
+        "modules/commercialization/README.md",
+        "templates/COMMERCIALIZATION_BRAND_MARKET_FOUNDATION.md",
+        "templates/COMMERCIALIZATION_OFFER_ARCHITECTURE.md",
+        "templates/COMMERCIALIZATION_CLAIMS_REGISTER.md",
+        "templates/COMMERCIALIZATION_SALES_ENABLEMENT_HANDOFF.md"
       ]
     },
     "M05": {
@@ -153,6 +165,18 @@
         "HUMAN_ACTION_REQUIRED",
         "ENGAGEMENT_COMPLETE"
       ]
+    },
+    "parallel_workstream_model": "docs/PARALLEL_WORKSTREAM_MODEL.md",
+    "workstream_registry_template": "templates/WORKSTREAM_REGISTRY.json",
+    "workstream_command_pattern": "Check Tenshodo-Process and continue the <workstream> workstream for <client>.",
+    "workstream_resolution_rule": "Resolve role binding first, then explicit workstream, role-assigned workstream, declared default, or the single remaining eligible active workstream; ask only when multiple eligible workstreams remain."
+  },
+  "optional_modules": {
+    "commercialization": {
+      "status": "available_candidate_module",
+      "playbook": "modules/commercialization/README.md",
+      "activation_rule": "Activate only when real durable market-facing work exists; do not create executive role conversations solely to fill an org chart.",
+      "supporting_model": "docs/PARALLEL_WORKSTREAM_MODEL.md"
     }
   }
 }
