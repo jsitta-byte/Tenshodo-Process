@@ -70,6 +70,25 @@ The long-form launch template remains available at [templates/ROLE_CONVERSATION_
 
 The launch instruction is an ignition key, not the source of truth. The live client control plane and declared authoritative systems override stale prompt text or prior conversation memory.
 
+## Role routing and self-handoff
+
+Governed role conversations are **role-bound**.
+
+A fresh conversation may resolve the live client state and adopt the current authorized executor role. Once it has adopted a role, it must not silently become another role later in the same chat.
+
+If the user sends the Process command to the wrong role conversation, that conversation should:
+
+- identify its bound role;
+- identify the live required role and task;
+- perform no substantive work for the other role;
+- avoid carrying its role-local assumptions into the other domain;
+- tell the user whether to return to an existing role conversation or open a fresh one;
+- provide the exact generic Process command.
+
+See [docs/ROLE_ROUTING_GUARD.md](docs/ROLE_ROUTING_GUARD.md).
+
+Every substantive governed batch also ends with a **Next-Step Contract** so the executing conversation tells the operator whether to continue here, open a new conversation, return to another role conversation, provide a human decision, or stop because the engagement is complete.
+
 ## Pattern maturity
 
 Patterns in this repository are not automatically declared best practice.
