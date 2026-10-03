@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "artifact": "method_observation_register",
+  "purpose": "Durable queue for sanitized reusable lessons discovered during client or methodology execution without interrupting the active methodology cursor.",
+  "states": [
+    "captured",
+    "triaged",
+    "accepted_for_method",
+    "merged",
+    "rejected",
+    "implemented",
+    "superseded"
+  ],
+  "observations": [
+    {
+      "observation_id": "MOBS-001",
+      "title": "Multi-environment working-plane topology",
+      "origin_case_id": "CASE-TENSHODO-002",
+      "origin_context": "Management governance review exposed that provider-level working-plane assumptions can misclassify evidence and architecture.",
+      "state": "implemented",
+      "sanitized_observation": "Organizations may legitimately operate across multiple providers, tenants, environments, services, and locations. Provider name alone is not sufficient environment identity or evidence provenance.",
+      "related_patterns": [
+        "PAT-003",
+        "PAT-004"
+      ],
+      "candidate_pattern": "PAT-012",
+      "method_changes": [
+        "docs/WORKING_PLANE_TOPOLOGY.md",
+        "templates/ENVIRONMENT_REGISTRY.json",
+        "templates/INFORMATION_AUTHORITY_REGISTER.json",
+        "templates/INFORMATION_FLOW_REGISTRY.json"
+      ],
+      "evidence_needed": "Use in at least one multi-tenant or multi-provider organization outside the originating field laboratory."
+    },
+    {
+      "observation_id": "MOBS-002",
+      "title": "Maturity-adaptive connected discovery",
+      "origin_case_id": "CASE-TENSHODO-002",
+      "origin_context": "Discovery design showed that mature process corpora can shortcut system-by-system discovery while low-documentation organizations may benefit from optional authorized connector review.",
+      "state": "implemented",
+      "sanitized_observation": "10XP discovery should choose the least intrusive acquisition path: corpus intake, corpus plus targeted validation, targeted connected read, or broader authorized connected discovery. Connector access accelerates evidence collection but does not create authority.",
+      "related_patterns": [
+        "PAT-005"
+      ],
+      "candidate_pattern": "PAT-013",
+      "method_changes": [
+        "modules/connected-discovery/README.md",
+        "templates/CONNECTED_DISCOVERY_SCOPE.json",
+        "templates/PROCESS_EVIDENCE_GRAPH.json"
+      ],
+      "evidence_needed": "Run the acquisition profiles across organizations with materially different process maturity and compare discovery cost, accuracy, and validation burden."
+    },
+    {
+      "observation_id": "MOBS-003",
+      "title": "Terminology drift requires semantic crosswalk before renaming",
+      "origin_case_id": "CASE-TENSHODO-002",
+      "origin_context": "Adjacent service work used different terms for apparently similar operating concepts.",
+      "state": "implemented",
+      "sanitized_observation": "Cross-team integration should map terminology semantically before changing durable source vocabulary. Similar labels require comparison of definition, object boundary, lifecycle, authority, fields, and relationships.",
+      "related_patterns": [],
+      "candidate_pattern": "PAT-014",
+      "method_changes": [
+        "templates/TERMINOLOGY_CROSSWALK.md"
+      ],
+      "evidence_needed": "Validate during at least one multi-team or cross-organization integration with real terminology collisions."
+    },
+    {
+      "observation_id": "MOBS-004",
+      "title": "Methodology learning requires a parallel durable observation queue",
+      "origin_case_id": "CASE-TENSHODO-002",
+      "origin_context": "Several material method improvements existed only in conversation while the formal methodology cursor remained on unrelated M04 work.",
+      "state": "implemented",
+      "sanitized_observation": "Method learning should be captured immediately without hijacking the active methodology-development cursor. A durable observation queue allows capture now and triage later.",
+      "related_patterns": [
+        "PAT-001",
+        "PAT-002"
+      ],
+      "candidate_pattern": "PAT-015",
+      "method_changes": [
+        "templates/METHOD_OBSERVATION.md",
+        "methodology/METHOD_OBSERVATION_REGISTER.json",
+        "METHOD_RUNBOOK.md"
+      ],
+      "evidence_needed": "Demonstrate repeated client-to-method capture cycles without lost insights or disruptive cursor switching."
+    }
+  ],
+  "rules": [
+    "No material reusable methodology insight should remain conversation-only after a substantive batch.",
+    "Capture is not method adoption.",
+    "Client-confidential evidence remains in the client environment; this register stores sanitized observations only.",
+    "The observation queue does not replace or automatically advance PROCESS_STATE.current_task_id."
+  ]
+}

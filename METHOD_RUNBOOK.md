@@ -164,3 +164,72 @@ If live client state assigns work to a different role, the bound conversation mu
 Cross-role facts must move through durable client state or another declared authoritative source, not through role-local conversational assumptions.
 
 Every substantive client batch must end with the Next-Step Contract so the operator does not need a separate supervisory conversation to discover what to do next.
+
+## Method observation capture
+
+A material reusable methodology insight must not remain conversation-only after substantive engagement work.
+
+### Capture rule
+
+After every substantive client batch, ask:
+
+> Did this batch reveal a potentially reusable methodology lesson?
+
+If no, record no observation.
+
+If yes:
+
+1. capture the raw/private observation in the client-authorized environment when client detail is needed;
+2. create or queue a sanitized Method Observation for 10XP;
+3. do not change the active methodology cursor merely because an observation exists;
+4. preserve the observation until Method Steward triage.
+
+Use templates/METHOD_OBSERVATION.md and methodology/METHOD_OBSERVATION_REGISTER.json.
+
+### Observation lifecycle
+
+Recommended states:
+
+- captured;
+- triaged;
+- accepted_for_method;
+- merged;
+- rejected;
+- implemented;
+- superseded.
+
+Capture is not adoption.
+
+An observation may become:
+
+- an amendment to an existing pattern;
+- a new Candidate Pattern;
+- a playbook/template change;
+- roadmap work;
+- a duplicate/merged observation;
+- rejected with rationale.
+
+### Cursor rule
+
+The methodology-development cursor and the observation queue are parallel concerns.
+
+Do not interrupt M04, M05, or another active methodology task solely to process every observation immediately.
+
+The Method Steward may triage observations asynchronously or in bounded batches.
+
+### Confidentiality rule
+
+Detailed client facts stay in the client environment.
+
+The public 10XP repository stores sanitized observations and non-confidential evidence pointers only.
+
+### Checkpoint rule
+
+When methodology observations are triaged or implemented, update:
+
+- methodology/METHOD_OBSERVATION_REGISTER.json;
+- related pattern/evidence records if applicable;
+- PROCESS_STATE.json when method runtime changes;
+- roadmap when task scope/status changes;
+- CHANGELOG.md;
+- methodology worklog.

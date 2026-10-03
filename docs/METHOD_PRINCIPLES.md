@@ -162,3 +162,13 @@ Authorized AI access may reconstruct candidate processes, systems, handoffs, art
 Observed behavior and AI inference remain evidence states, not adopted organizational truth.
 
 Generated SOPs, process descriptions, authority maps, and Benchmarks remain draft or proposed until the appropriate validation and adoption occur.
+
+## 20. Capture method learning before memory becomes the dependency
+
+A reusable lesson discovered during client execution must not depend on the participants remembering to reconstruct it later.
+
+Capture the observation durably first.
+
+Triage, abstraction, evidence calibration, and method adoption may occur later.
+
+The active methodology cursor should continue independently from the observation queue.

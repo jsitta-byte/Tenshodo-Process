@@ -164,3 +164,19 @@ If the user explicitly asks a role-bound conversation to switch to another role,
 A human operator should not need a separate supervisory chat merely to learn whether the current conversation is still correct, whether a new role conversation is needed, which role owns the next work, or what command to send next.
 
 The executing conversation itself must provide that handoff.
+
+## Methodology observation signal
+
+A governed client batch may expose reusable 10XP lessons without authorizing the client role conversation to edit the public methodology repository.
+
+At the end of a substantive batch, the response should include a concise methodology-observation signal when relevant:
+
+- **Methodology observation:** none
+- **Methodology observation:** captured <client-side observation ID>
+- **Methodology observation:** candidate identified; Method Steward triage required
+
+This signal does not create a sixth Next-Step Contract state.
+
+The five routing outcomes remain unchanged.
+
+Client role conversations record client-specific evidence only in the client environment. Sanitized 10XP capture and pattern changes belong to the methodology-maintenance context / Method Steward.
