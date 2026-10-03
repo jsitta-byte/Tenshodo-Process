@@ -89,6 +89,35 @@ See [docs/ROLE_ROUTING_GUARD.md](docs/ROLE_ROUTING_GUARD.md).
 
 Every substantive governed batch also ends with a **Next-Step Contract** so the executing conversation tells the operator whether to continue here, open a new conversation, return to another role conversation, provide a human decision, or stop because the engagement is complete.
 
+## Parallel workstreams
+
+Early engagements can use one global task cursor. When the organization has multiple independently executable bodies of work, the same control plane can activate parallel workstreams.
+
+Each workstream has its own current task, current executor, dependencies, checkpoint, and exact next action while still remaining inside one engagement control plane.
+
+See [docs/PARALLEL_WORKSTREAM_MODEL.md](docs/PARALLEL_WORKSTREAM_MODEL.md) and [templates/WORKSTREAM_REGISTRY.json](templates/WORKSTREAM_REGISTRY.json).
+
+The normal generic Process command remains valid when routing is unambiguous. In a multi-workstream engagement, a human may say:
+
+> **Check Tenshodo-Process and continue the commercialization workstream for <client>.**
+
+Workstream routing never overrides the role-binding guard.
+
+## Optional modules
+
+The core Process is the transformation spine. Domain modules snap onto it only when real work requires them.
+
+The first reusable optional module is [commercialization](modules/commercialization/README.md), covering:
+
+- offer architecture;
+- brand and market foundation;
+- positioning and messaging;
+- claims/proof governance;
+- marketing-to-sales handoff;
+- sales enablement.
+
+The module defines reusable method and templates. Client-specific brands, decks, claims, pricing, campaign state, and customer evidence remain in the client's authorized environment.
+
 ## Pattern maturity
 
 Patterns in this repository are not automatically declared best practice.
@@ -147,6 +176,8 @@ These newer patterns remain subject to validation.
 - [patterns/EVIDENCE_MATRIX.md](patterns/EVIDENCE_MATRIX.md) — maturity rationale and evidence gaps
 - [playbooks/](playbooks/) — reusable execution guides
 - [templates/](templates/) — client-safe starter artifacts
+- [modules/](modules/) — optional domain modules activated when real work exists
+- [modules/commercialization/](modules/commercialization/) — reusable commercialization method and source-artifact sequence
 - [case-studies/](case-studies/) — sanitized field evidence
 - [worklogs/](worklogs/) — development history of the methodology
 
