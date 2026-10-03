@@ -183,3 +183,40 @@ These target-accountability distinctions do not automatically activate executive
 ### Exact next Process action
 
 Continue M04 by completing the remaining generic client bootstrap artifacts and assembly checklist. Parallel-workstream and commercialization support are now available as reusable prework.
+
+## 2026-10-03 — Multi-environment discovery architecture and method-learning loop captured
+
+### Trigger
+
+A live management-governance correction exposed two distinct method gaps:
+
+1. provider-level or singular-working-plane language is insufficient when organizations can operate across multiple clouds, tenants, environments, services, and locations;
+2. major 10XP improvements can emerge during client work while the methodology-development cursor is busy elsewhere.
+
+A parallel integration discussion also exposed terminology drift between teams and the need to compare semantics before renaming durable concepts.
+
+### Established
+
+- Working-Plane Topology with provider → tenant/account → environment → service → location identity;
+- separate Information Authority and Information Flow registries;
+- optional, scope-controlled Connected Discovery with read-only default;
+- mature-process-corpus shortcut before broad connector access;
+- Process Evidence Graph for candidate process reconstruction;
+- AI-drafted SOP and Benchmark candidates remain draft/proposed pending validation/adoption;
+- wrong-environment search results are not evidence merely because they match;
+- terminology crosswalk before source-system renaming;
+- Method Observation queue so reusable lessons are captured immediately without changing the active methodology cursor.
+
+### Pattern registration
+
+Registered PAT-012 through PAT-015 as Candidate Patterns.
+
+No portability promotion occurred.
+
+### Cursor
+
+M04 remains active. The new capabilities are additive prework and runtime support; they do not restart M03 or M04.
+
+### Exact next Process action
+
+Complete the remaining M04 generic client plan, runbook, worklog, authority/source model, adoption-status controls, and bootstrap assembly checklist.

@@ -349,6 +349,136 @@
         }
       ],
       "portability_gap": "General abstraction needs business-domain examples outside the original source domain."
+    },
+    {
+      "id": "PAT-012",
+      "name": "Multi-environment working-plane topology",
+      "maturity": "candidate_pattern",
+      "problem": "Provider-level or singular-working-plane models can misclassify evidence and governance when an organization uses multiple clouds, tenants, environments, services, or locations.",
+      "mechanism": "Assign stable environment identity across provider, tenant/account, environment, service, and location; assign information authority separately and govern material flows between environments.",
+      "conditions": [
+        "The organization has material system or tenant boundaries worth distinguishing.",
+        "Environment identity can be established reliably enough for evidence and routing.",
+        "Information classes can be assigned authority independently from provider choice."
+      ],
+      "failure_modes": [
+        "The topology is over-modeled for a simple organization.",
+        "Provider name is still used as a proxy for tenant/environment identity.",
+        "Environment inventory exists but authority and flows remain ambiguous."
+      ],
+      "counterexample_or_limit": "A small organization with one unambiguous workspace may not need more than a simple Level-1 topology.",
+      "falsifier": "The added environment distinctions do not prevent evidence mistakes, routing errors, or authority ambiguity and create more maintenance cost than decision value.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002",
+          "repository": "jsitta-byte/Tenshodo-Exchange-Management",
+          "artifacts": [
+            "decisions/DEC-0004-ten-ex-operating-architecture-correction.md@6bf310e34d37a31bf46e57d0401902be8c30f5b7"
+          ]
+        },
+        {
+          "case_id": "CASE-TENSHODO-002-SANITIZED",
+          "repository": "jsitta-byte/Tenshodo-Process",
+          "artifacts": [
+            "docs/WORKING_PLANE_TOPOLOGY.md@eb0b123a76c60a11885803c4640cceb109a84f7e",
+            "methodology/METHOD_OBSERVATION_REGISTER.json@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f"
+          ]
+        }
+      ],
+      "portability_gap": "Needs use in at least one materially different multi-tenant or multi-provider organization."
+    },
+    {
+      "id": "PAT-013",
+      "name": "Maturity-adaptive connected discovery",
+      "maturity": "candidate_pattern",
+      "problem": "Uniform discovery either wastes effort by interviewing mature organizations about already-documented work or misses operating reality in poorly documented organizations.",
+      "mechanism": "Choose the least intrusive evidence-acquisition profile that can establish a trustworthy baseline: process corpus, corpus plus targeted validation, targeted connected read, or broader authorized connected read; preserve evidence state and read-only defaults.",
+      "conditions": [
+        "Client access scope and environment identity can be governed.",
+        "Existing process/document maturity can be assessed.",
+        "Human validation remains available for consequential ambiguity."
+      ],
+      "failure_modes": [
+        "Broad connector access is used by default without need.",
+        "Observed activity is mistaken for adopted process or authority.",
+        "Wrong-tenant search results enter the baseline.",
+        "A process corpus is trusted without testing currentness or provenance."
+      ],
+      "counterexample_or_limit": "Clients with strong authoritative process repositories may need little or no connected discovery.",
+      "falsifier": "Connected discovery does not reduce discovery cost/latency or increases false conclusions, privacy exposure, or validation burden.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002-SANITIZED",
+          "repository": "jsitta-byte/Tenshodo-Process",
+          "artifacts": [
+            "modules/connected-discovery/README.md@f1bbaa95e799a3922c64e53bcd955aa6e82b3ba5",
+            "methodology/METHOD_OBSERVATION_REGISTER.json@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f"
+          ]
+        }
+      ],
+      "portability_gap": "Needs comparative discovery runs across organizations with materially different documentation maturity."
+    },
+    {
+      "id": "PAT-014",
+      "name": "Semantic terminology crosswalk before renaming",
+      "maturity": "candidate_pattern",
+      "problem": "Teams can use different labels for similar concepts, causing integration errors when names are treated as proof of semantic equivalence.",
+      "mechanism": "Crosswalk terms by definition, object boundary, lifecycle, authority, fields, and relationships; classify mappings as exact, partial, broader, narrower, or not equivalent before changing source terminology.",
+      "conditions": [
+        "The terms refer to potentially overlapping managed concepts.",
+        "Source terminology can remain stable during analysis.",
+        "A deliberate shared-language decision can be made later if needed."
+      ],
+      "failure_modes": [
+        "Synonyms are assumed exact without field/lifecycle comparison.",
+        "One team's vocabulary is overwritten before semantics are understood.",
+        "Crosswalks become permanent ambiguity without a decision owner."
+      ],
+      "counterexample_or_limit": "Purely cosmetic vocabulary differences with no durable schema or workflow impact may not justify formal crosswalking.",
+      "falsifier": "Semantic crosswalking does not reduce integration defects or produces more coordination overhead than direct terminology convergence.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002-SANITIZED",
+          "repository": "jsitta-byte/Tenshodo-Process",
+          "artifacts": [
+            "templates/TERMINOLOGY_CROSSWALK.md@f1bbaa95e799a3922c64e53bcd955aa6e82b3ba5",
+            "methodology/METHOD_OBSERVATION_REGISTER.json@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f"
+          ]
+        }
+      ],
+      "portability_gap": "Needs validation during a real multi-team or cross-organization integration."
+    },
+    {
+      "id": "PAT-015",
+      "name": "Parallel methodology observation queue",
+      "maturity": "candidate_pattern",
+      "problem": "Reusable method insights discovered during client execution can be lost when the formal methodology cursor is busy with unrelated work.",
+      "mechanism": "Capture sanitized Method Observations immediately in a durable queue, then triage and operationalize them later without automatically changing the active methodology task.",
+      "conditions": [
+        "Client-private evidence can remain separated from sanitized public method notes.",
+        "A Method Steward or methodology-maintenance context can triage observations.",
+        "Observation state is distinct from adoption/pattern maturity."
+      ],
+      "failure_modes": [
+        "Every observation interrupts the active methodology cursor.",
+        "The queue becomes an untriaged idea backlog.",
+        "Client-confidential details leak into the public method repo.",
+        "Captured observations are treated as adopted doctrine."
+      ],
+      "counterexample_or_limit": "Trivial observations with no plausible reusable mechanism do not require registration.",
+      "falsifier": "Repeated field insights are still lost, or the observation queue creates enough administrative burden to discourage capture.",
+      "evidence": [
+        {
+          "case_id": "CASE-TENSHODO-002-SANITIZED",
+          "repository": "jsitta-byte/Tenshodo-Process",
+          "artifacts": [
+            "templates/METHOD_OBSERVATION.md@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f",
+            "methodology/METHOD_OBSERVATION_REGISTER.json@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f",
+            "METHOD_RUNBOOK.md@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f"
+          ]
+        }
+      ],
+      "portability_gap": "Needs repeated client-to-method capture and triage cycles demonstrating lower insight loss without cursor disruption."
     }
   ]
 }

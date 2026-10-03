@@ -91,3 +91,24 @@ The methodology is built from observed work, explicit abstraction, evidence, and
 - Separate observation from doctrine.
 - Prefer a small proven pattern over an elaborate unvalidated framework.
 - Deprecate patterns openly when better evidence appears.
+
+## Additive discovery and learning architecture captured during M04
+
+Field work during M04 exposed material extensions to the already-complete M03 Discovery Kit.
+
+M03 remains historically complete; it is not reopened.
+
+Added capability:
+
+- provider-neutral multi-environment working-plane topology;
+- stable provider → tenant/account → environment → service → location identity;
+- Environment, Information Authority, and Information Flow registries;
+- maturity-adaptive discovery acquisition: corpus-only, corpus + targeted validation, targeted connected read, broader connected read;
+- optional Connected Discovery module with read-only default and explicit scope contract;
+- Process Evidence Graph for reconstructing candidate workflows from operating evidence;
+- AI-drafted SOP / Benchmark candidates with preserved evidence state and adoption boundaries;
+- provenance lineage / evidence-independence controls;
+- terminology crosswalks for cross-team semantic integration;
+- durable Method Observation queue so method learning can be captured without interrupting the active methodology cursor.
+
+These extensions begin as Candidate Patterns and require further field validation before any portability promotion.

@@ -127,3 +127,32 @@ A user may send the generic Process command to the wrong role conversation. That
 The Process module contains reusable method and templates only.
 
 Client brand identity, decks, claims, pricing, customer evidence, market state, and sales execution remain client-specific.
+
+## 2026-10-03 — Multi-environment discovery and methodology feedback loop
+
+### Added
+
+- provider-neutral Working-Plane Topology model;
+- Environment Registry;
+- Information Authority Register;
+- Information Flow Register;
+- optional Connected Discovery module;
+- Connected Discovery Scope;
+- Process Evidence Graph;
+- terminology crosswalk template;
+- Method Observation template and durable observation register;
+- PAT-012 through PAT-015 as Candidate Patterns.
+
+### Changed
+
+- discovery now supports maturity-adaptive acquisition: process corpus, targeted validation, targeted connected read, or broader authorized connected read;
+- current-state confidence provenance can identify environment/location, source lineage, evidence independence, and access scope;
+- connector discovery is tenant/environment aware;
+- PROCESS_CONTEXT can point to environment/authority/flow/discovery-scope registries without duplicating their content;
+- 10XP is recorded as the human-layer shorthand for Tenshodo Process;
+- substantive governed batches may signal methodology observations without adding a new Next-Step Contract routing state;
+- methodology observations can be captured while M04 remains the active method cursor.
+
+### Maturity boundary
+
+These additions are durable method architecture but remain Candidate Patterns until field validation justifies promotion.

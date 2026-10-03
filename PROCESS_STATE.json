@@ -1,5 +1,5 @@
 {
-  "schema_version": 9,
+  "schema_version": 10,
   "method": "Tenshodo Process",
   "repository": "jsitta-byte/Tenshodo-Process",
   "repository_visibility": "public",
@@ -26,11 +26,18 @@
     "commercialization_brand_market_foundation": "templates/COMMERCIALIZATION_BRAND_MARKET_FOUNDATION.md",
     "commercialization_offer_architecture": "templates/COMMERCIALIZATION_OFFER_ARCHITECTURE.md",
     "commercialization_claims_register": "templates/COMMERCIALIZATION_CLAIMS_REGISTER.md",
-    "commercialization_sales_enablement_handoff": "templates/COMMERCIALIZATION_SALES_ENABLEMENT_HANDOFF.md"
+    "commercialization_sales_enablement_handoff": "templates/COMMERCIALIZATION_SALES_ENABLEMENT_HANDOFF.md",
+    "environment_registry": "templates/ENVIRONMENT_REGISTRY.json",
+    "information_authority_register": "templates/INFORMATION_AUTHORITY_REGISTER.json",
+    "information_flow_registry": "templates/INFORMATION_FLOW_REGISTRY.json",
+    "connected_discovery_scope": "templates/CONNECTED_DISCOVERY_SCOPE.json",
+    "process_evidence_graph": "templates/PROCESS_EVIDENCE_GRAPH.json",
+    "terminology_crosswalk": "templates/TERMINOLOGY_CROSSWALK.md",
+    "method_observation": "templates/METHOD_OBSERVATION.md"
   },
   "current_phase": "Phase 2 - Client control-plane bootstrap kit",
   "current_task_id": "M04",
-  "next_action": "Complete the reusable M04 client control-plane bootstrap kit by adding the remaining generic client plan, runbook, worklog, authority/source model, adoption-status controls, and bootstrap assembly checklist. The kit now also supports optional parallel workstreams and a reusable commercialization module.",
+  "next_action": "Complete the remaining reusable M04 client control-plane bootstrap kit artifacts: generic client plan, runbook, worklog, authority/source model, adoption-status controls, and bootstrap assembly checklist. Multi-environment topology, optional Connected Discovery, terminology crosswalks, and the Method Observation queue are now registered method capabilities.",
   "maturity_states": [
     "observed",
     "candidate_pattern",
@@ -50,7 +57,10 @@
     "Local improvement should create global awareness without automatic global change.",
     "Client confidentiality and portability are architectural requirements, not cleanup tasks.",
     "Patterns earn portability through evidence.",
-    "Discovery escalates uncertainty rather than meetings: prove what can be proven, infer only the gaps, validate what matters, and redesign only after enough current work and authority are understood."
+    "Discovery escalates uncertainty rather than meetings: prove what can be proven, infer only the gaps, validate what matters, and redesign only after enough current work and authority are understood.",
+    "Working-plane topology is provider-neutral and identifies provider, tenant/account, environment, service, and location separately.",
+    "Connected discovery is optional evidence acquisition; connector access does not create information authority.",
+    "Material methodology lessons are captured durably before later triage; the observation queue does not hijack the active method cursor."
   ],
   "decision_records": [
     "decisions/DEC-0001-portable-method-and-client-boundary.md"
@@ -113,7 +123,13 @@
         "templates/COMMERCIALIZATION_BRAND_MARKET_FOUNDATION.md",
         "templates/COMMERCIALIZATION_OFFER_ARCHITECTURE.md",
         "templates/COMMERCIALIZATION_CLAIMS_REGISTER.md",
-        "templates/COMMERCIALIZATION_SALES_ENABLEMENT_HANDOFF.md"
+        "templates/COMMERCIALIZATION_SALES_ENABLEMENT_HANDOFF.md",
+        "templates/ENVIRONMENT_REGISTRY.json",
+        "templates/INFORMATION_AUTHORITY_REGISTER.json",
+        "templates/INFORMATION_FLOW_REGISTRY.json",
+        "templates/CONNECTED_DISCOVERY_SCOPE.json",
+        "templates/PROCESS_EVIDENCE_GRAPH.json",
+        "templates/TERMINOLOGY_CROSSWALK.md"
       ]
     },
     "M05": {
@@ -177,6 +193,14 @@
       "playbook": "modules/commercialization/README.md",
       "activation_rule": "Activate only when real durable market-facing work exists; do not create executive role conversations solely to fill an org chart.",
       "supporting_model": "docs/PARALLEL_WORKSTREAM_MODEL.md"
+    },
+    "connected_discovery": {
+      "status": "available_candidate_module",
+      "playbook": "modules/connected-discovery/README.md",
+      "activation_rule": "Optional. Use the least intrusive acquisition profile sufficient for trustworthy discovery; default connector posture is scoped read-only.",
+      "supporting_model": "docs/WORKING_PLANE_TOPOLOGY.md"
     }
-  }
+  },
+  "method_alias": "10XP",
+  "methodology_observation_register": "methodology/METHOD_OBSERVATION_REGISTER.json"
 }

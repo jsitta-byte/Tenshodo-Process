@@ -79,3 +79,35 @@ Every active pattern now has:
 This satisfies the M02 evidence-calibration definition of done.
 
 No pattern is currently Portable.
+
+## Additive candidate patterns from multi-environment discovery architecture
+
+| Pattern | Maturity | Evidence | Operating conditions | Primary failure mode | Portability gap |
+|---|---|---|---|---|---|
+| PAT-012 Multi-environment working-plane topology | Candidate Pattern | CASE-TENSHODO-002 + sanitized method capture | Material environment/tenant boundaries exist and can be identified | Provider name still substitutes for environment identity or topology becomes needless bureaucracy | External multi-tenant/multi-provider use |
+| PAT-013 Maturity-adaptive connected discovery | Candidate Pattern | Sanitized method capture | Access scope can be governed and discovery maturity can be assessed | Broad access by default; observation mistaken for authority; wrong-tenant evidence | Comparative discovery across different maturity levels |
+| PAT-014 Semantic terminology crosswalk before renaming | Candidate Pattern | Sanitized method capture | Similar concepts exist under different labels | Labels assumed equivalent or source vocabulary overwritten too early | Real cross-team/cross-company integration |
+| PAT-015 Parallel methodology observation queue | Candidate Pattern | Sanitized method capture | Method Steward can triage and confidentiality boundary is preserved | Queue becomes backlog or hijacks active cursor | Repeated field-to-method cycles |
+
+### PAT-012 evidence
+
+- `jsitta-byte/Tenshodo-Exchange-Management/decisions/DEC-0004-ten-ex-operating-architecture-correction.md@6bf310e34d37a31bf46e57d0401902be8c30f5b7`
+- `jsitta-byte/Tenshodo-Process/docs/WORKING_PLANE_TOPOLOGY.md@eb0b123a76c60a11885803c4640cceb109a84f7e`
+- `jsitta-byte/Tenshodo-Process/methodology/METHOD_OBSERVATION_REGISTER.json@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f`
+
+### PAT-013 evidence
+
+- `jsitta-byte/Tenshodo-Process/modules/connected-discovery/README.md@f1bbaa95e799a3922c64e53bcd955aa6e82b3ba5`
+- `jsitta-byte/Tenshodo-Process/methodology/METHOD_OBSERVATION_REGISTER.json@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f`
+
+### PAT-014 evidence
+
+- `jsitta-byte/Tenshodo-Process/templates/TERMINOLOGY_CROSSWALK.md@f1bbaa95e799a3922c64e53bcd955aa6e82b3ba5`
+- `jsitta-byte/Tenshodo-Process/methodology/METHOD_OBSERVATION_REGISTER.json@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f`
+
+### PAT-015 evidence
+
+- `jsitta-byte/Tenshodo-Process/templates/METHOD_OBSERVATION.md@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f`
+- `jsitta-byte/Tenshodo-Process/METHOD_RUNBOOK.md@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f`
+
+These patterns are intentionally not promoted beyond Candidate Pattern. The architecture is now durable; portability remains to be earned through field evidence.
