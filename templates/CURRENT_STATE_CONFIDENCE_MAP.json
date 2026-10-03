@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "artifact": "current_state_confidence_map",
+  "client": "<client>",
+  "engagement": "<engagement>",
+  "discovery_mode": "<document-led|hybrid|interview-led>",
+  "evidence_states": [
+    "authoritative",
+    "attested",
+    "observed",
+    "inferred",
+    "unknown",
+    "disputed"
+  ],
+  "confidence_levels": [
+    "high",
+    "medium",
+    "low",
+    "not_applicable"
+  ],
+  "records": [
+    {
+      "object_id": "<stable-id>",
+      "object_type": "<person|process|system|authority|data|agent|other>",
+      "field": "<field-name>",
+      "current_value": "<value-or-null>",
+      "evidence_state": "<state>",
+      "confidence": "<level>",
+      "evidence_sources": [
+        {
+          "type": "<system|document|repository|interview|attestation|observation>",
+          "reference": "<durable-reference>"
+        }
+      ],
+      "inference_rationale": null,
+      "last_verified": "<date-or-null>",
+      "validator_or_attestor": null,
+      "consequence_if_wrong": "<low|medium|high>",
+      "validation_action": "<none|async_confirm|manager_confirm|consultant_interview|workshop|other>",
+      "status": "<open|accepted_for_baseline|needs_validation|disputed|superseded>",
+      "notes": null
+    }
+  ],
+  "rules": [
+    "Confidence is field-level, not object-level.",
+    "Consequential decision authority is not inferred from title or activity alone.",
+    "Inferred fields require provenance, confidence, rationale, and validation action.",
+    "Unknown and disputed are valid states and must not be filled by guesswork.",
+    "Consultant time should prioritize high-consequence uncertainty."
+  ]
+}
