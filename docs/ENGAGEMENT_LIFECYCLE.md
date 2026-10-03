@@ -153,6 +153,24 @@ Where target roles are missing:
 - build the function;
 - learn the actual requirements of the human role.
 
+## Parallel-workstream activation
+
+The engagement may remain single-cursor through early bootstrap.
+
+Introduce parallel workstreams only when at least two durable bodies of work can proceed with distinct executors or independently useful checkpoints.
+
+When that threshold is met:
+
+- create a client workstream registry;
+- keep one declared executor per workstream task;
+- preserve role-conversation binding;
+- record cross-workstream dependencies explicitly;
+- keep one engagement control plane rather than creating competing canonical repositories.
+
+See `docs/PARALLEL_WORKSTREAM_MODEL.md`.
+
+Optional domain modules may be activated as workstreams when real work exists. For example, `modules/commercialization/` provides a commercialization spine for brand, offer, claims, marketing, and sales-enablement work without making commercialization mandatory for every engagement.
+
 ## Stage 6 — Process and dependency mapping
 
 Model material:
