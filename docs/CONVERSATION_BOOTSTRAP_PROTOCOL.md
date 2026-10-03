@@ -177,3 +177,32 @@ After resolving the client control plane and before substantive work, read `docs
 When `bound_wrong`, provide the correct live role, current task, and exact handoff instruction. Shared facts may cross roles only through durable client state or another declared authoritative source.
 
 After every substantive bounded batch, follow the Next-Step Contract in `docs/ROLE_ROUTING_GUARD.md` so the executing conversation itself tells the human operator whether to stay in the same chat, open a new chat, return to another role chat, provide a human decision, or stop because the engagement is complete.
+
+
+## Parallel-workstream resolution
+
+Some engagements begin with one global current-task cursor and later develop multiple independently executable workstreams.
+
+Use `docs/PARALLEL_WORKSTREAM_MODEL.md` and the client workstream registry when parallel workstreams are active.
+
+Resolve in this order:
+
+1. resolve the client control plane;
+2. resolve conversation role binding;
+3. if the user explicitly names a workstream, validate and use it;
+4. if the bound role has exactly one eligible active workstream, use it;
+5. if a valid default workstream is declared for the role/conversation, use it;
+6. if exactly one eligible active workstream exists, use it;
+7. if multiple eligible workstreams remain, ask only which workstream the user wants to continue.
+
+Do not guess from prior chat subject matter when live workstream routing exists.
+
+The normal generic command remains valid when routing is unambiguous:
+
+> Check Tenshodo-Process and execute the current engagement step for <client>.
+
+For a multi-workstream engagement, the human may instead say:
+
+> Check Tenshodo-Process and continue the <workstream> workstream for <client>.
+
+A role-bound conversation must still obey the role-routing guard. Workstream routing never authorizes a role switch.
