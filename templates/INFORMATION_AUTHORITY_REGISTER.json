@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "artifact": "information_authority_register",
+  "client": "<client>",
+  "assignments": [
+    {
+      "information_class_id": "IC-001",
+      "name": "<information-class>",
+      "authoritative_environment_id": "<ENV-id>",
+      "authoritative_location": "<location-pointer>",
+      "authority_status": "<authoritative|transitioning|unknown|disputed>",
+      "owner": "<owner>",
+      "replicas_or_working_copies": [
+        {
+          "environment_id": "<ENV-id>",
+          "location": "<location-pointer>",
+          "copy_role": "<working_copy|replica|export|archive|superseded>",
+          "synchronization_rule": "<rule-or-null>"
+        }
+      ],
+      "validation_rule": "<how-authority-is-verified>",
+      "notes": null
+    }
+  ],
+  "rules": [
+    "One information class has one declared authority at a time unless transition/dispute is explicitly modeled.",
+    "A storage location is not authoritative merely because it contains a matching artifact."
+  ]
+}

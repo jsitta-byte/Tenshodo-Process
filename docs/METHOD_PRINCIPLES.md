@@ -131,3 +131,34 @@ authoritative system → controlled record → observed operational evidence →
 Inference is a fallback and accelerator, not a substitute for evidence.
 
 Human consulting time should concentrate on high-consequence ambiguity, disagreement, undocumented authority, hidden process behavior, and transformation-critical unknowns.
+
+## 17. Model working-plane topology, not a provider assumption
+
+An organization may have one working environment or many.
+
+Model the actual topology as distinct provider, tenant/account, environment, service, and location identities. Do not treat a provider name such as SharePoint, Google Drive, or GitHub as sufficient environment identity.
+
+Authority is assigned separately by information class.
+
+A matching artifact found in the wrong tenant, environment, or location is not valid evidence merely because its name or contents look relevant.
+
+## 18. Discovery depth should match organizational maturity
+
+Do not force every organization through the same discovery burden.
+
+Prefer the least intrusive evidence path that can establish a trustworthy baseline:
+
+- mature process corpus / authoritative structured records;
+- corpus plus targeted connected validation;
+- broader authorized connected discovery when documentation is weak;
+- targeted human validation for consequential remaining uncertainty.
+
+Connected discovery is optional, scoped, and normally read-only.
+
+## 19. Connected discovery accelerates evidence collection; it does not create authority
+
+Authorized AI access may reconstruct candidate processes, systems, handoffs, artifacts, Benchmarks, controls, and SOPs from operating evidence.
+
+Observed behavior and AI inference remain evidence states, not adopted organizational truth.
+
+Generated SOPs, process descriptions, authority maps, and Benchmarks remain draft or proposed until the appropriate validation and adoption occur.

@@ -88,3 +88,23 @@ The management/control-plane repository should summarize and link rather than ab
 ## Exit standard
 
 Before the consulting team exits, a zero-context qualified client operator should be able to resume from the repository without access to private consultant chat history.
+
+## Working-plane topology
+
+Working plane is a functional concept, not a requirement that one organization use one collaboration system.
+
+A client may have multiple approved working-plane instances across providers, tenants, environments, services, and locations.
+
+Model material environments with stable IDs and keep their identity distinct:
+
+**provider → tenant/account → environment → service → location**
+
+The control plane should record pointers, authority assignments, and material flows rather than duplicate every working artifact.
+
+Use:
+
+- templates/ENVIRONMENT_REGISTRY.json;
+- templates/INFORMATION_AUTHORITY_REGISTER.json;
+- templates/INFORMATION_FLOW_REGISTRY.json.
+
+The rule remains one declared authority per information class, not one cloud per organization.

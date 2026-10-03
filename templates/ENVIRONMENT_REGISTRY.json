@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "artifact": "environment_registry",
+  "client": "<client>",
+  "environments": [
+    {
+      "environment_id": "ENV-001",
+      "name": "<environment-name>",
+      "provider": "<provider>",
+      "tenant_or_account": "<tenant-domain-account-or-org>",
+      "environment_class": "<production|development|test|legacy|acquired|sandbox|other>",
+      "services": [
+        {
+          "service": "<service>",
+          "locations": [
+            "<stable-location-pointer>"
+          ]
+        }
+      ],
+      "business_purpose": "<purpose>",
+      "owner": "<owner-or-steward>",
+      "lifecycle_state": "<active|transitioning|read_only|retired>",
+      "allowed_information_classes": [
+        "<class-id>"
+      ],
+      "prohibited_information_classes": [
+        "<class-id-or-none>"
+      ],
+      "access_scope_reference": "<connected-discovery-scope-or-null>",
+      "notes": null
+    }
+  ],
+  "rules": [
+    "Provider identity is not sufficient when multiple tenants/environments may exist.",
+    "Stable environment IDs are used in evidence, authority, and flow records.",
+    "Environment existence does not by itself make the environment authoritative for any information class."
+  ]
+}

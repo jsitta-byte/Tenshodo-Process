@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "artifact": "information_flow_registry",
+  "client": "<client>",
+  "flows": [
+    {
+      "flow_id": "FLOW-001",
+      "name": "<flow-name>",
+      "source_environment_id": "<ENV-id>",
+      "source_location": "<pointer>",
+      "destination_environment_id": "<ENV-id>",
+      "destination_location": "<pointer>",
+      "information_class_id": "<IC-id>",
+      "direction": "<one_way|two_way|event_driven|manual>",
+      "transformation": "<none-or-description>",
+      "authority_behavior": "<source_remains_authoritative|authority_transfers|derived_non_authoritative|other>",
+      "trigger_or_cadence": "<trigger>",
+      "validation": "<validation>",
+      "failure_or_staleness_behavior": "<behavior>",
+      "owner": "<owner>",
+      "lifecycle_state": "<active|proposed|retired>",
+      "notes": null
+    }
+  ]
+}
