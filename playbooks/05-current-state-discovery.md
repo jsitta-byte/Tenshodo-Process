@@ -367,3 +367,88 @@ A completed discovery phase produces at least:
 - unresolved unknowns/disputes;
 - recommended high-value pilot;
 - handoff/output package for client control-plane bootstrap and transformation.
+
+## Corpus-assisted and connected discovery extension
+
+The standard discovery sequence remains:
+
+**Evidence intake → current-process discovery → provisional inference → targeted validation → current-state baseline → transformation**
+
+The acquisition strategy may vary by client maturity.
+
+### Process Corpus Intake
+
+Use when the client can provide a trustworthy process database, SOP library, Human Operating Guides, process-mining output, architecture inventory, or comparable structured corpus.
+
+Ingest existing knowledge before requesting broad system access.
+
+Derive candidate relationships among processes, roles, systems, environments, information classes, artifacts, approvals, handoffs, controls, and exceptions.
+
+Do not convert a documented statement into authoritative current state unless its evidence status justifies that promotion.
+
+### Targeted Connected Discovery
+
+Use when the corpus is useful but incomplete, stale, or contradicted by operating evidence.
+
+Connect only approved systems/environments needed to validate material gaps.
+
+Default posture is read-only discovery.
+
+### Broad Connected Discovery
+
+Use only when documentation maturity is low enough that a broader evidence review materially reduces interview burden.
+
+Before access:
+
+1. record sponsor authorization;
+2. enumerate in-scope provider/tenant/environment/service/location identities;
+3. declare prohibited environments and data classes;
+4. define retention/export restrictions;
+5. define whether any write capability exists;
+6. preserve least privilege.
+
+Broad access is never permission to treat every returned search result as in scope.
+
+### Environment identity rule
+
+Environment identity is:
+
+**provider → tenant/account → environment → service → location**
+
+A result from the wrong tenant/environment/location must be excluded or explicitly treated as out-of-scope evidence.
+
+Do not collapse multiple tenants from the same provider into one source.
+
+### Process Evidence Graph
+
+Discovery may construct a provisional Process Evidence Graph linking process, role, environment, information class, artifact, approval/control, handoff, exception, Benchmark/checkpoint candidate, and evidence source.
+
+The graph is an evidence-backed discovery accelerator, not an adopted ontology by default.
+
+### Candidate SOP and Benchmark drafting
+
+When evidence is sufficient, AI/consultants may draft current-process descriptions, SOPs/work instructions, artifact definitions, Benchmark/checkpoint candidates, authority questions, and contradiction queues.
+
+Generated outputs remain draft or proposed until required validation/adoption occurs.
+
+### Contradiction handling
+
+Documentation echo does not equal independent evidence.
+
+Track provenance lineage so several documents derived from one obsolete source do not masquerade as several confirmations.
+
+Conflicting authoritative, documented, observed, and inferred evidence should produce disputed state and targeted validation rather than silent reconciliation.
+
+### Required extension outputs when used
+
+When corpus-assisted or connected discovery is activated, also produce:
+
+- Environment Registry;
+- Connected Discovery Scope;
+- Information Authority Register;
+- material Information Flow Register;
+- Process Evidence Graph or client-native equivalent;
+- connector/search provenance sufficient to identify tenant/environment;
+- list of excluded/out-of-scope results encountered;
+- draft SOP/Benchmark candidates, if created;
+- unresolved semantic/terminology crosswalks.

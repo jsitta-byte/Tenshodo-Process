@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "artifact": "process_evidence_graph",
+  "client": "<client>",
+  "nodes": [
+    {
+      "node_id": "<stable-id>",
+      "node_type": "<process|role|environment|system|information_class|artifact|control|approval|handoff|benchmark|evidence_source|other>",
+      "name": "<name>",
+      "evidence_state": "<authoritative|attested|observed|inferred|unknown|disputed>",
+      "confidence": "<high|medium|low|not_applicable>",
+      "environment_id": "<ENV-id-or-null>",
+      "provenance": [
+        "<source-reference>"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "<stable-id>",
+      "from_node": "<node-id>",
+      "relationship": "<uses|creates|reads|writes|approves|hands_off_to|depends_on|derives_from|validates|checkpoints|other>",
+      "to_node": "<node-id>",
+      "evidence_state": "<authoritative|attested|observed|inferred|unknown|disputed>",
+      "provenance": [
+        "<source-reference>"
+      ],
+      "notes": null
+    }
+  ],
+  "rules": [
+    "This graph is a discovery artifact unless separately adopted as a managed-object ontology.",
+    "Inferred edges retain evidence and confidence.",
+    "Consequential authority relationships are not inferred solely from observed activity."
+  ]
+}

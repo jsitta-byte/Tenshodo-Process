@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "artifact": "connected_discovery_scope",
+  "client": "<client>",
+  "engagement": "<engagement>",
+  "status": "<draft|proposed|adopted|superseded>",
+  "sponsor_or_authority": "<authority>",
+  "acquisition_profile": "<corpus_only|corpus_plus_targeted_validation|targeted_connected_read|broad_connected_read|controlled_action>",
+  "approved_environment_ids": [
+    "<ENV-id>"
+  ],
+  "prohibited_environment_ids": [],
+  "allowed_information_classes": [
+    "<class-id-or-description>"
+  ],
+  "prohibited_information_classes": [
+    "<class-id-or-description>"
+  ],
+  "connector_capabilities": {
+    "read": true,
+    "write": false,
+    "action": false
+  },
+  "retention_and_export_rules": "<rules>",
+  "access_expiry_or_review": "<date-or-trigger>",
+  "wrong_environment_result_rule": "Exclude from baseline unless separately authorized; record as out-of-scope evidence when materially relevant.",
+  "output_location": "<approved-discovery-workspace>",
+  "notes": null
+}

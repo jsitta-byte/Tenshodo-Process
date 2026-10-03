@@ -120,3 +120,27 @@ Discovery does **not** require:
 - a finished enterprise ontology.
 
 The output must be sufficient for safe transformation, not exhaustive for its own sake.
+
+### 9. Environment topology and acquisition provenance
+
+When the engagement uses multiple environments or connected discovery, provide:
+
+- Environment Registry or client-native equivalent;
+- tenant/environment/location identity for material evidence sources;
+- Connected Discovery Scope when connectors were used;
+- Information Authority Register;
+- material cross-environment Information Flow Register;
+- Process Evidence Graph or client-native equivalent when inferred from process evidence;
+- provenance lineage and independence notes for repeated documentary evidence;
+- excluded/out-of-scope evidence log where material;
+- terminology crosswalks for semantically similar but differently named concepts.
+
+Connected discovery is an evidence-acquisition mechanism, not adoption authority.
+
+### Additional acceptance criteria for connected discovery
+
+- every material connector-derived claim can be traced to an authorized environment;
+- provider-only references are disambiguated when multiple tenants/environments exist;
+- candidate SOPs and Benchmarks are visibly draft/proposed until validated;
+- out-of-scope search hits are not promoted into the baseline;
+- existing mature process corpora are used before unnecessary broad connected discovery.

@@ -141,3 +141,56 @@ At intake completion, create/update:
 - discovery mode;
 - first discovery work queue;
 - exact next action.
+
+## 7. Environment topology and optional connected discovery
+
+Complete this section when the organization uses multiple systems/tenants or when live connectors are being considered.
+
+### Environment identity
+
+For every approved source, capture as applicable:
+
+- [ ] provider;
+- [ ] tenant/account/domain;
+- [ ] environment (production/development/test/acquired/legacy/etc.);
+- [ ] service;
+- [ ] site/repository/shared drive/database/location;
+- [ ] business owner;
+- [ ] information classes;
+- [ ] authority status.
+
+Do not record a provider name as sufficient identity when more than one tenant/environment may exist.
+
+### Discovery acquisition profile
+
+Select the least intrusive option sufficient for the engagement:
+
+- [ ] process corpus / document intake only;
+- [ ] process corpus + targeted connected validation;
+- [ ] targeted connected read;
+- [ ] broad connected read;
+- [ ] controlled write/action capability separately authorized for later work.
+
+### Connected scope
+
+If connectors are used:
+
+- [ ] sponsor authorization recorded;
+- [ ] approved environments listed by stable ID;
+- [ ] prohibited environments listed;
+- [ ] approved data classes listed;
+- [ ] sensitive/prohibited data classes listed;
+- [ ] read/write capability recorded separately;
+- [ ] retention/export restrictions recorded;
+- [ ] access expiry/revocation plan recorded;
+- [ ] wrong-tenant/out-of-scope result handling defined.
+
+### Existing process corpus
+
+- [ ] process database / repository available
+- [ ] SOP library available
+- [ ] Human Operating Guides available
+- [ ] process-mining data available
+- [ ] corpus owner/currentness known
+- [ ] provenance lineage can be reconstructed
+- [ ] sample processes selected for operating-reality validation

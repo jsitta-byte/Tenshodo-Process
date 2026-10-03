@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "artifact": "current_state_confidence_map",
   "client": "<client>",
   "engagement": "<engagement>",
@@ -28,8 +28,13 @@
       "confidence": "<level>",
       "evidence_sources": [
         {
-          "type": "<system|document|repository|interview|attestation|observation>",
-          "reference": "<durable-reference>"
+          "type": "<system|document|repository|process_corpus|connector|interview|attestation|observation>",
+          "reference": "<durable-reference>",
+          "environment_id": "<environment-id-or-null>",
+          "location_id": "<location-id-or-null>",
+          "source_lineage_id": "<lineage-id-or-null>",
+          "independent_evidence_group": "<group-id-or-null>",
+          "access_scope_reference": "<connected-discovery-scope-reference-or-null>"
         }
       ],
       "inference_rationale": null,
@@ -38,7 +43,9 @@
       "consequence_if_wrong": "<low|medium|high>",
       "validation_action": "<none|async_confirm|manager_confirm|consultant_interview|workshop|other>",
       "status": "<open|accepted_for_baseline|needs_validation|disputed|superseded>",
-      "notes": null
+      "notes": null,
+      "environment_id": "<environment-id-or-null>",
+      "location_id": "<location-id-or-null>"
     }
   ],
   "rules": [
@@ -46,6 +53,9 @@
     "Consequential decision authority is not inferred from title or activity alone.",
     "Inferred fields require provenance, confidence, rationale, and validation action.",
     "Unknown and disputed are valid states and must not be filled by guesswork.",
-    "Consultant time should prioritize high-consequence uncertainty."
+    "Consultant time should prioritize high-consequence uncertainty.",
+    "Provider identity alone is insufficient provenance when multiple tenants/environments may exist.",
+    "A matching artifact from an out-of-scope or wrong environment does not support the field.",
+    "Repeated documents sharing one upstream source are not counted as independent confirmations."
   ]
 }
