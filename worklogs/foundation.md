@@ -133,3 +133,53 @@ A second operator problem also remained: after each batch, the user still someti
 ### Intended operator experience
 
 The user should be able to rely on the executing conversation itself to say where to go next. If the user sends a prompt to the wrong role chat, that chat should protect the role/domain boundary and redirect the user rather than changing identities.
+
+
+## 2026-10-03 — Parallel workstreams and commercialization architecture established
+
+### Trigger
+
+A live field-laboratory need exposed two methodology gaps:
+
+1. the client operating system was approaching the point where COO, marketing, revenue, technology, and other functions could have real work at the same time;
+2. commercialization work needed a reusable method rather than ad hoc creation of decks and brand assets.
+
+### Parallel-workstream decision
+
+Retain the simple single-cursor model for early engagements.
+
+Add a workstream registry only when at least two durable bodies of work can proceed with distinct executors or independently useful checkpoints.
+
+A workstream is a durable lane of work, not a role and not a second client control plane.
+
+Role binding resolves before workstream routing.
+
+### Commercialization decision
+
+Commercialization is an optional module, not a mandatory stage for every transformation.
+
+Activation is evidence-driven: real market-facing work must exist.
+
+The module begins from durable source artifacts rather than collateral:
+
+- Brand & Market Foundation;
+- Offer Architecture;
+- Claims / Proof Register;
+- Sales Enablement Handoff.
+
+Sales decks, marketing decks, one-pagers, websites, and campaigns are downstream assets generated from these sources.
+
+### Functional separation
+
+The portable module preserves distinctions among:
+
+- product/service — what is being sold;
+- marketing — for whom, why it matters, and how it is explained;
+- revenue — how it is sold;
+- finance — whether commercial economics are sound.
+
+These target-accountability distinctions do not automatically activate executive role conversations.
+
+### Exact next Process action
+
+Continue M04 by completing the remaining generic client bootstrap artifacts and assembly checklist. Parallel-workstream and commercialization support are now available as reusable prework.
