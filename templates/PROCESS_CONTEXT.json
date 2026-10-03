@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "process_repository": "jsitta-byte/Tenshodo-Process",
   "process_ref": "main",
   "current_engagement_step": "ENG-02",
@@ -55,5 +55,13 @@
     "adoption_authority": "<authority-pointer>"
   },
   "precedence_rule": "Live authoritative client systems and live client durable state override this packet if they differ.",
-  "recovery_rule": "If this packet is stale, reconcile from the client state and repair the packet before relying on it again."
+  "recovery_rule": "If this packet is stale, reconcile from the client state and repair the packet before relying on it again.",
+  "workstream_routing": {
+    "mode": "single_or_parallel",
+    "model_source": "jsitta-byte/Tenshodo-Process/docs/PARALLEL_WORKSTREAM_MODEL.md",
+    "registry": "<client-workstream-registry-path-or-null>",
+    "default_workstream_id": "<workstream-id-or-null>",
+    "explicit_command_pattern": "Check Tenshodo-Process and continue the <workstream> workstream for <client>.",
+    "resolution_rule": "Resolve conversation role binding first. Then use an explicitly named workstream, the single workstream assigned to the bound role, a declared default, or the single remaining eligible active workstream. Ask only when multiple eligible workstreams remain."
+  }
 }
