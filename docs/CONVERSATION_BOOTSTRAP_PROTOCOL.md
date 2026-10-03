@@ -165,3 +165,15 @@ If no control plane can be identified after pointer/context discovery, ask only 
 ## Definition of success
 
 A user can open a fresh conversation, connect the relevant repositories, give a one-line step instruction, and the conversation can reconstruct the correct client control plane, role, mission, current task, required sources, authority boundaries, and checkpoint behavior without the user manually copying prior conversation context.
+
+## Role-binding resolution
+
+After resolving the client control plane and before substantive work, read `docs/ROLE_ROUTING_GUARD.md` and determine the conversation binding state.
+
+- A fresh conversation is `unbound` and may adopt the live authorized executor role.
+- A conversation already bound to the live executor is `bound_correct` and may continue within charter.
+- A conversation bound to another role is `bound_wrong` and must not perform the live task or switch roles in the same chat.
+
+When `bound_wrong`, provide the correct live role, current task, and exact handoff instruction. Shared facts may cross roles only through durable client state or another declared authoritative source.
+
+After every substantive bounded batch, follow the Next-Step Contract in `docs/ROLE_ROUTING_GUARD.md` so the executing conversation itself tells the human operator whether to stay in the same chat, open a new chat, return to another role chat, provide a human decision, or stop because the engagement is complete.
