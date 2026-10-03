@@ -72,6 +72,25 @@ Before doing substantive work, verify all of the following:
 
 If any of these checks fail, do not continue from this prompt. Follow the repository's recovery / handoff procedure instead.
 
+### Conversation role-binding guard
+
+Read `docs/ROLE_ROUTING_GUARD.md` from Tenshodo Process.
+
+Determine whether this chat is:
+
+- `unbound` — no governed role has yet been adopted in this conversation;
+- `bound_correct` — this chat is already bound to the same live executor role, or the task explicitly delegates this role;
+- `bound_wrong` — this chat is already bound to a different governed role.
+
+A fresh unbound conversation may adopt the live authorized executor role.
+
+Once this conversation adopts `<ROLE_CONVERSATION_ID>`, treat the chat as bound to that role for the life of the conversation.
+
+If the live executor later changes to another role, do not switch roles in this chat. Checkpoint the handoff and direct the user to the correct existing or fresh conversation.
+
+If this chat is `bound_wrong`, do not execute the task. State the bound role, live required role, live task, and exact next operator action using the generic Process command.
+
+
 ### Current objective
 
 Resume the durable current task assigned to `<ROLE_CONVERSATION_ID>`.
@@ -120,6 +139,21 @@ After each substantive bounded batch:
 6. checkpoint an exact next action.
 
 Do not rely on this chat being available to the next operator.
+
+### User-facing Next-Step Contract
+
+After each substantive bounded batch, tell the user:
+
+- what was completed;
+- the live engagement step, task, and executor after checkpoint;
+- exactly one next-step type: `CONTINUE_HERE`, `OPEN_NEW_CONVERSATION`, `RETURN_TO_EXISTING_CONVERSATION`, `HUMAN_ACTION_REQUIRED`, or `ENGAGEMENT_COMPLETE`;
+- exactly what they should do next;
+- the generic Process command when another process turn is needed;
+- whether human action is required;
+- the durable checkpoint reference when practical.
+
+The user should not need a separate supervisory conversation to determine where to go next.
+
 
 Proceed from live durable state.
 ~~~
