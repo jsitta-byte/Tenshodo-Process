@@ -99,3 +99,31 @@ No pattern is currently classified as Portable.
 ### Operator outcome
 
 A user may send the generic Process command to the wrong role conversation. That conversation must not switch hats or perform the other role's work; it must identify the correct live role and tell the user exactly where to go next.
+
+
+## 2026-10-03 — Parallel workstreams and commercialization module
+
+### Added
+
+- `docs/PARALLEL_WORKSTREAM_MODEL.md`.
+- `templates/WORKSTREAM_REGISTRY.json`.
+- `modules/commercialization/README.md`.
+- `templates/COMMERCIALIZATION_BRAND_MARKET_FOUNDATION.md`.
+- `templates/COMMERCIALIZATION_OFFER_ARCHITECTURE.md`.
+- `templates/COMMERCIALIZATION_CLAIMS_REGISTER.md`.
+- `templates/COMMERCIALIZATION_SALES_ENABLEMENT_HANDOFF.md`.
+
+### Changed
+
+- `PROCESS_CONTEXT.json` can now point to an optional client workstream registry.
+- Conversation bootstrap now resolves role binding before workstream routing.
+- Engagement lifecycle now allows parallel workstream activation when multiple independently executable bodies of work exist.
+- M04 bootstrap scope now includes workstream routing and optional domain modules.
+- Process runtime now exposes an explicit multi-workstream command pattern.
+- README documents the optional-module model.
+
+### Commercialization boundary
+
+The Process module contains reusable method and templates only.
+
+Client brand identity, decks, claims, pricing, customer evidence, market state, and sales execution remain client-specific.
