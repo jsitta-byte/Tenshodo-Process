@@ -1,5 +1,7 @@
 # Tenshodo Process
 
+**Human-layer shorthand: 10XP.** The repository name remains `Tenshodo-Process`; 10XP is the concise human-facing name for the reusable method.
+
 **A portable operating-system transformation playbook for building durable, AI-enabled organizations.**
 
 Tenshodo Process is the consultancy methodology repository created from the operating-system work first developed inside Tenshodo Exchange.
@@ -54,7 +56,7 @@ Every client receives its own control plane and working-plane architecture.
 
 The method separates five things that organizations often blur together:
 
-1. **Working plane** — where people collaborate and create business artifacts.
+1. **Working-plane topology** — the provider/tenant/environment/service/location surfaces where people and systems create or use business artifacts.
 2. **Durable control plane** — where state, authority, dependencies, decisions, and resumable work are maintained.
 3. **Execution plane** — people, software, meetings, ChatGPT conversations, and agents that perform work.
 4. **Adoption authority** — who can make a proposal binding.
@@ -198,3 +200,19 @@ Tenshodo Exchange Management is one company's management control plane.
 Tenshodo Exchange is one specialized project control plane.
 
 Never collapse those scopes.
+
+## Multi-environment topology and optional Connected Discovery
+
+10XP is provider-neutral.
+
+A client may use one cloud or many, including multiple tenants/environments from the same provider. Material sources are identified by environment, not provider name alone.
+
+The optional Connected Discovery module can use authorized system connections to accelerate current-state discovery when the client chooses that access model.
+
+Discovery may instead begin from a mature process corpus without live connectors.
+
+Supported acquisition patterns include corpus/document intake only, corpus plus targeted connected validation, targeted connected read, and broader connected read for low-documentation environments.
+
+Connected discovery is read-only by default, tenant-aware, evidence-state preserving, and cannot convert AI inference into adopted organizational truth.
+
+See docs/WORKING_PLANE_TOPOLOGY.md and modules/connected-discovery/README.md.

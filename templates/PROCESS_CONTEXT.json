@@ -1,5 +1,5 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "process_repository": "jsitta-byte/Tenshodo-Process",
   "process_ref": "main",
   "current_engagement_step": "ENG-02",
@@ -63,5 +63,12 @@
     "default_workstream_id": "<workstream-id-or-null>",
     "explicit_command_pattern": "Check Tenshodo-Process and continue the <workstream> workstream for <client>.",
     "resolution_rule": "Resolve conversation role binding first. Then use an explicitly named workstream, the single workstream assigned to the bound role, a declared default, or the single remaining eligible active workstream. Ask only when multiple eligible workstreams remain."
+  },
+  "environment_topology": {
+    "environment_registry": "<client-environment-registry-path-or-null>",
+    "information_authority_register": "<client-information-authority-register-path-or-null>",
+    "information_flow_register": "<client-information-flow-register-path-or-null>",
+    "connected_discovery_scope": "<client-connected-discovery-scope-path-or-null>",
+    "rule": "These are pointers only. Resolve provider/tenant/environment/service/location identity from client durable state before connector-based discovery; never treat provider name alone as sufficient scope."
   }
 }

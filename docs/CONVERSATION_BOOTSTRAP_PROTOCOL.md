@@ -206,3 +206,17 @@ For a multi-workstream engagement, the human may instead say:
 > Check Tenshodo-Process and continue the <workstream> workstream for <client>.
 
 A role-bound conversation must still obey the role-routing guard. Workstream routing never authorizes a role switch.
+
+## Environment-bound connector discovery
+
+When a client task uses connected systems as discovery evidence:
+
+1. resolve client control plane and role binding first;
+2. read the client's environment/topology and Connected Discovery Scope pointers when present;
+3. identify the intended provider, tenant/account, environment, service, and location before broad search;
+4. use least-privilege / read-only discovery unless durable authority explicitly permits more;
+5. classify results from other tenants/environments as out of scope rather than silently treating them as evidence;
+6. record provenance sufficient to distinguish same-provider environments;
+7. preserve evidence state: connector visibility does not make a result authoritative.
+
+If the environment cannot be disambiguated safely, ask for the minimum environment/tenant information or route to human action rather than guessing.
