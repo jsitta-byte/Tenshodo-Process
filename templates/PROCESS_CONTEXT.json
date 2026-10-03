@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "process_repository": "jsitta-byte/Tenshodo-Process",
   "process_ref": "main",
   "current_engagement_step": "ENG-02",
@@ -25,6 +25,30 @@
     "<role-start-here>",
     "<role-charter>"
   ],
+  "conversation_guard": {
+    "policy": "role_bound_no_silent_switch",
+    "guard_source": "jsitta-byte/Tenshodo-Process/docs/ROLE_ROUTING_GUARD.md",
+    "fresh_conversation_state": "unbound",
+    "allowed_execution_states": [
+      "unbound",
+      "bound_correct"
+    ],
+    "wrong_role_state": "bound_wrong",
+    "wrong_role_action": "Do not execute the task or switch roles. Direct the user to the correct existing or fresh role conversation using the generic Process command.",
+    "shared_context_rule": "Cross-role facts must come through durable client state or another declared authoritative source; do not carry role-local assumptions across conversations."
+  },
+  "next_step_contract": {
+    "required_after_substantive_batch": true,
+    "source": "jsitta-byte/Tenshodo-Process/docs/ROLE_ROUTING_GUARD.md",
+    "types": [
+      "CONTINUE_HERE",
+      "OPEN_NEW_CONVERSATION",
+      "RETURN_TO_EXISTING_CONVERSATION",
+      "HUMAN_ACTION_REQUIRED",
+      "ENGAGEMENT_COMPLETE"
+    ],
+    "generic_command": "Check Tenshodo-Process and execute the current engagement step for <client>."
+  },
   "authority": {
     "execution_class": "<execution-class>",
     "maximum_artifact_state_without_separate_approval": "<draft-or-proposed>",
