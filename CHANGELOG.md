@@ -32,17 +32,6 @@
 - Completed the M02 maturity calibration without promoting any pattern beyond the available evidence.
 - Advanced the methodology cursor to M03; M04 is now dependency-ready.
 
-### Current state
-
-M01 and M02 are complete.
-
-M03 — Build consultancy engagement kickoff and discovery kit — is active.
-
-M04 — Build client control-plane bootstrap kit — is ready.
-
-No pattern is currently classified as portable.
-
-
 ## 2026-10-02
 
 ### Added
@@ -51,30 +40,40 @@ No pattern is currently classified as portable.
 - Stable engagement-step registry with ordinal aliases (`Step 2` → `ENG-02`).
 - One-line engagement quick-start instructions.
 - Generic client `PROCESS_CONTEXT.json` template.
+- `PROCESS_POINTER.json` template for non-control client repositories.
 
 ### Changed
 
 - CONTINUE_HERE.md now routes engagement-step requests separately from methodology-development work.
 - METHOD_RUNBOOK.md now defines engagement runtime and recovery behavior.
 - README.md documents the one-line conversation launch experience.
-- PROCESS_STATE.json now registers engagement runtime artifacts and PROCESS_CONTEXT as standard M04 prework.
-- M04 bootstrap-kit scope now requires a client context packet and step resolver.
+- ENG-02 now resolves context/pointer files before reading large client repository state.
+- M04 bootstrap-kit scope now includes deterministic multi-repository routing.
+
+## 2026-10-03
+
+### Added
+
+- `playbooks/05-current-state-discovery.md` — governing Current-State Discovery SOP.
+- `templates/DISCOVERY_INTAKE_CHECKLIST.md`.
+- `templates/EXECUTIVE_SPONSOR_INTERVIEW.md`.
+- `templates/CURRENT_STATE_CONFIDENCE_MAP.json`.
+- `templates/CURRENT_STATE_DISCOVERY_ASSESSMENT.md`.
+- `templates/DISCOVERY_OUTPUT_CONTRACT.md`.
+
+### Changed
+
+- Added the evidence-first discovery headline as Method Principle 16.
+- Expanded Stage 1 of the engagement lifecycle into the standard evidence → process → inference → validation → baseline sequence.
+- Formalized document-led, hybrid, and interview-led discovery modes.
+- Formalized the evidence escalation ladder.
+- Explicitly prohibited inferring consequential decision authority from title/activity alone.
+- Completed M03 and advanced the methodology-development cursor to M04.
 
 ### Current state
 
-The repeatable conversation launch path is now:
+M01, M02, and M03 are complete.
 
-short operator command → portable ENG step → client PROCESS_CONTEXT.json → live client state → role START_HERE / charter → bounded execution.
+M04 — Build client control-plane bootstrap kit — is active.
 
-M03 remains the active methodology-development task.
-
-
-### 2026-10-02 — Multi-repository routing hardening
-
-- Added `templates/PROCESS_POINTER.json` for non-control client repositories.
-- Added client aliases and explicit `repository_role` to the process-context schema.
-- Updated ENG-02 to resolve `PROCESS_CONTEXT.json` / `PROCESS_POINTER.json` before reading large repository state.
-- Updated the bootstrap protocol and quick start to follow a pointer directly to the engagement control plane.
-- Registered repository-pointer routing as standard M04 bootstrap prework.
-
-This change was prompted by a live launch attempt that first inspected the specialized Tenshodo-Exchange project repo because its name matched the client, then had to search for the separate management control plane.
+No pattern is currently classified as Portable.
