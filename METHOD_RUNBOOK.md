@@ -152,3 +152,15 @@ Before ending substantive methodology work:
 5. append worklog;
 6. update CHANGELOG.md;
 7. verify exact next action.
+
+## Role-routing runtime guard
+
+Every governed client conversation must read `docs/ROLE_ROUTING_GUARD.md` before substantive execution.
+
+A fresh chat may adopt the live current executor role. Once a chat adopts a governed role, it remains bound to that role for the life of the conversation.
+
+If live client state assigns work to a different role, the bound conversation must stop rather than switch hats. It should identify the correct live role and tell the operator exactly whether to return to an existing role conversation or open a fresh one.
+
+Cross-role facts must move through durable client state or another declared authoritative source, not through role-local conversational assumptions.
+
+Every substantive client batch must end with the Next-Step Contract so the operator does not need a separate supervisory conversation to discover what to do next.
