@@ -106,3 +106,30 @@ The discovery system now supports:
 ### Exact next action
 
 Execute M04: package the accepted discovery outputs into a reusable client control-plane bootstrap kit, including generic plan/runbook/worklog/authority artifacts and an assembly checklist.
+
+## 2026-10-03 — Role-bound conversation routing established
+
+### Problem
+
+The one-line Process command made conversation startup easy, but a new risk remained: a user could send the same command to a chat already operating another governed role. Without a hard guard, an HR-oriented conversation might silently switch to technology work or carry role-local assumptions into another domain.
+
+A second operator problem also remained: after each batch, the user still sometimes needed a separate supervisory conversation to determine whether to stay in the same chat or open a new role conversation.
+
+### Established
+
+- A governed chat is `unbound` until it adopts a role.
+- Once adopted, the chat is role-bound for its lifetime.
+- `bound_correct` conversations may proceed within charter.
+- `bound_wrong` conversations must stop without performing the other role's work.
+- Cross-role context must come through durable client state or another authoritative source.
+- A role may create/charter its successor when assigned to do so, but must stop after durable state changes the executor.
+- Every bounded batch must emit a Next-Step Contract with one of:
+  - CONTINUE_HERE;
+  - OPEN_NEW_CONVERSATION;
+  - RETURN_TO_EXISTING_CONVERSATION;
+  - HUMAN_ACTION_REQUIRED;
+  - ENGAGEMENT_COMPLETE.
+
+### Intended operator experience
+
+The user should be able to rely on the executing conversation itself to say where to go next. If the user sends a prompt to the wrong role chat, that chat should protect the role/domain boundary and redirect the user rather than changing identities.
