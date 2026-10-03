@@ -119,3 +119,15 @@ If consultants or AI build a function, the future human steward inherits:
 A pattern is not portable because it is elegant.
 
 It becomes portable when evidence shows it survives differences in organization, tools, culture, authority, and domain.
+
+## 16. Escalate uncertainty, not meetings
+
+> **Do not interview people for facts the organization can already prove. Do not infer facts the organization can cheaply confirm. Do not redesign the organization until you understand enough of the work and authority that actually exist.**
+
+Discovery should use the least expensive reliable evidence source first:
+
+authoritative system → controlled record → observed operational evidence → provisional inference → asynchronous confirmation → manager/owner confirmation → consultant interview/workshop.
+
+Inference is a fallback and accelerator, not a substitute for evidence.
+
+Human consulting time should concentrate on high-consequence ambiguity, disagreement, undocumented authority, hidden process behavior, and transformation-critical unknowns.
