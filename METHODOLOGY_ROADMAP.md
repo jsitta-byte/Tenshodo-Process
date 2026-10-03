@@ -58,6 +58,8 @@ The methodology is built from observed work, explicit abstraction, evidence, and
   - stable engagement-step registry;
   - one-line Step 2 conversation-bootstrap protocol and quick start;
   - assembly checklist that consumes the M03 discovery output contract.
+  - parallel workstream registry and routing model for mature multi-function engagements;
+  - optional commercialization module with brand/market, offer, claims, and sales-enablement source templates.
   - Definition of Done: a new client repository and its first governed role conversation can be initialized rapidly and then resumed from a one-line process-step command.
 
 - [ ] M05 — Define consultancy team operating model
