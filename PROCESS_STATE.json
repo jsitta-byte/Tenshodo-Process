@@ -1,5 +1,5 @@
 {
-  "schema_version": 7,
+  "schema_version": 8,
   "method": "Tenshodo Process",
   "repository": "jsitta-byte/Tenshodo-Process",
   "repository_visibility": "public",
@@ -57,7 +57,9 @@
     },
     "M02": {
       "status": "complete",
-      "depends_on": ["M01"],
+      "depends_on": [
+        "M01"
+      ],
       "title": "Build pattern evidence matrix and calibrate maturity",
       "completion_evidence": [
         "patterns/PATTERN_REGISTRY.json",
@@ -66,7 +68,9 @@
     },
     "M03": {
       "status": "complete",
-      "depends_on": ["M02"],
+      "depends_on": [
+        "M02"
+      ],
       "title": "Build consultancy engagement kickoff and discovery kit",
       "completion_evidence": [
         "playbooks/05-current-state-discovery.md",
@@ -81,7 +85,10 @@
     },
     "M04": {
       "status": "in_progress",
-      "depends_on": ["M02", "M03"],
+      "depends_on": [
+        "M02",
+        "M03"
+      ],
       "title": "Build client control-plane bootstrap kit",
       "prework_complete": [
         "templates/CLIENT_CONTINUE_HERE.md",
@@ -93,12 +100,16 @@
         "templates/PROCESS_POINTER.json",
         "engagement/STEP_REGISTRY.json",
         "docs/CONVERSATION_BOOTSTRAP_PROTOCOL.md",
-        "engagement/QUICK_START.md"
+        "engagement/QUICK_START.md",
+        "docs/ROLE_ROUTING_GUARD.md"
       ]
     },
     "M05": {
       "status": "blocked_by_dependency",
-      "depends_on": ["M03", "M04"],
+      "depends_on": [
+        "M03",
+        "M04"
+      ],
       "title": "Define consultant role system and delivery team operating model"
     },
     "M06": {
@@ -107,7 +118,9 @@
     },
     "M07": {
       "status": "future",
-      "depends_on": ["M06"],
+      "depends_on": [
+        "M06"
+      ],
       "title": "Promote qualifying patterns to portable v1"
     }
   },
@@ -128,6 +141,18 @@
     "short_command_pattern": "Check Tenshodo-Process and execute Engagement Step <N> for <client>.",
     "preferred_continuation_pattern": "Check Tenshodo-Process and execute the current engagement step for <client>.",
     "repository_pointer_template": "templates/PROCESS_POINTER.json",
-    "repository_resolution_rule": "Check PROCESS_CONTEXT.json and PROCESS_POINTER.json before reading large repository state; follow pointers to the engagement control plane."
+    "repository_resolution_rule": "Check PROCESS_CONTEXT.json and PROCESS_POINTER.json before reading large repository state; follow pointers to the engagement control plane.",
+    "role_routing_guard": "docs/ROLE_ROUTING_GUARD.md",
+    "role_binding_policy": "A fresh unbound conversation may adopt the live executor. Once bound, a conversation must not silently switch to another role; a role mismatch requires handoff instructions instead of execution.",
+    "next_step_contract": {
+      "required_after_substantive_batch": true,
+      "types": [
+        "CONTINUE_HERE",
+        "OPEN_NEW_CONVERSATION",
+        "RETURN_TO_EXISTING_CONVERSATION",
+        "HUMAN_ACTION_REQUIRED",
+        "ENGAGEMENT_COMPLETE"
+      ]
+    }
   }
 }
