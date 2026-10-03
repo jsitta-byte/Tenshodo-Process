@@ -77,3 +77,25 @@ M01, M02, and M03 are complete.
 M04 — Build client control-plane bootstrap kit — is active.
 
 No pattern is currently classified as Portable.
+
+## 2026-10-03 — Role-routing guard and Next-Step Contract
+
+### Added
+
+- `docs/ROLE_ROUTING_GUARD.md`.
+- Role-binding state model: `unbound`, `bound_correct`, `bound_wrong`.
+- Mandatory wrong-role stop/handoff behavior.
+- Mandatory end-of-batch Next-Step Contract.
+- Role-binding requirements in `templates/ROLE_CONVERSATION_CHARTER.md`.
+- Role-binding and self-handoff requirements in `templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md`.
+
+### Changed
+
+- `PROCESS_CONTEXT.json` template now carries the role guard and next-step contract.
+- Conversation bootstrap and method runbooks now require role-binding resolution before substantive work.
+- Process runtime now registers the guard as standard M04 bootstrap prework.
+- README now documents wrong-role protection and conversation self-handoff.
+
+### Operator outcome
+
+A user may send the generic Process command to the wrong role conversation. That conversation must not switch hats or perform the other role's work; it must identify the correct live role and tell the user exactly where to go next.
