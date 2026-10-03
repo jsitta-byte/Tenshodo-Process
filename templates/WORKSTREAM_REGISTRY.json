@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "registry": "client_workstreams",
+  "engagement": "<engagement>",
+  "routing_rule": "Resolve role binding first, then explicit workstream, role-assigned workstream, declared default, or the single remaining eligible active workstream. Ask only when multiple eligible workstreams remain.",
+  "lifecycle_states": [
+    "planned",
+    "active",
+    "blocked",
+    "waiting_human",
+    "paused",
+    "complete",
+    "superseded"
+  ],
+  "dependency_types": [
+    "hard_blocker",
+    "soft_dependency",
+    "consultation",
+    "adoption_dependency"
+  ],
+  "workstreams": [
+    {
+      "workstream_id": "<stable-id>",
+      "name": "<name>",
+      "purpose": "<outcome>",
+      "lifecycle_state": "active",
+      "target_accountable_role": "<role-id-or-null>",
+      "current_executor": {
+        "type": "<human|chatgpt_role_conversation|agent|other>",
+        "id": "<executor-id>"
+      },
+      "current_task_id": "<task-id>",
+      "current_batch_id": "<batch-id-or-null>",
+      "authority": {
+        "execution_class": "<execution-class>",
+        "maximum_artifact_state_without_separate_approval": "<draft|proposed|adopted>",
+        "adoption_authority": "<authority-pointer>"
+      },
+      "dependencies": [],
+      "authoritative_sources": [],
+      "working_plane_pointers": [],
+      "latest_checkpoint": "<durable-reference-or-null>",
+      "next_action": "<exact-next-action>",
+      "human_action_required": false
+    }
+  ]
+}
