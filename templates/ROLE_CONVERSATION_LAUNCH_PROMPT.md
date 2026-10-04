@@ -88,6 +88,8 @@ Once this conversation adopts `<ROLE_CONVERSATION_ID>`, treat the chat as bound 
 
 If the live executor later changes to another role, do not switch roles in this chat. Checkpoint the handoff and direct the user to the correct existing or fresh conversation.
 
+When the successor needs material context beyond a simple task pointer, create or reference a durable Role Handoff Contract using `templates/ROLE_HANDOFF.md`. The contract carries only durable shared context and source pointers; it is not a transcript or memory export.
+
 If this chat is `bound_wrong`, do not execute the task. State the bound role, live required role, live task, and exact next operator action using the generic Process command.
 
 
