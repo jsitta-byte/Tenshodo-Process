@@ -482,36 +482,41 @@
     },
     {
       "id": "PAT-016",
-      "name": "Durable cross-role handoff contract",
+      "name": "Durable cross-role handoff with authority-preserving conflict resolution",
       "maturity": "candidate_pattern",
-      "problem": "A governed role transition can route execution to the correct successor while still losing, leaking, or ambiguously transferring the operational context that successor needs.",
-      "mechanism": "Separate routing from context transfer. Use the Next-Step Contract to identify the destination role/conversation, and a compact durable Role Handoff Contract to carry only authoritative source pointers, shared facts, unresolved assumptions, dependencies, authority limits, and the receiving task. Role-local conversational context does not cross implicitly.",
+      "problem": "A governed role transition can route execution to the correct successor while still losing context, leaking role-local assumptions, or allowing the sending role's recommendations to masquerade as authority over the receiving role.",
+      "mechanism": "Separate three controls: Next-Step Contract for destination routing, Role Handoff Contract for durable context transfer, and an authority-resolution ladder for disagreements. Handoff content is classified by source/authority; recommendations and dependency requests remain non-binding; source-resolvable conflicts follow the declared source hierarchy; unresolved domain questions route to the owning role; only genuine authority/adoption conflicts escalate to the valid human authority for that decision class.",
       "conditions": [
         "Material work crosses from one governed role to another.",
         "The receiving role needs context beyond a simple task identifier.",
         "Shared facts can be grounded in durable client state or another declared authoritative source.",
-        "Role-local assumptions can be distinguished from shared operational facts."
+        "Role-local assumptions can be distinguished from shared operational facts.",
+        "Decision-domain ownership and human adoption authority can be identified when escalation is necessary."
       ],
       "failure_modes": [
         "The handoff becomes a chat transcript or hidden-context dump.",
-        "Summarized facts in the handoff are treated as a new authority instead of pointers to their real sources.",
-        "Role-local hypotheses silently cross the boundary as facts.",
-        "The routing destination is correct but authority limits, dependencies, or unresolved gaps are omitted.",
+        "The sending role uses the handoff to narrow or override the receiving role's charter.",
+        "Role titles such as Chief or Stakeholder are mistaken for cross-role override authority.",
+        "Recommendations or dependency requests are silently treated as adopted instructions.",
+        "The receiving role rewrites another role's governing source merely to remove disagreement.",
+        "Every disagreement is escalated to humans, creating an avoidable bottleneck.",
+        "True authority/adoption conflicts are handled role-to-role without valid human resolution.",
         "Every trivial transition creates administrative handoff overhead."
       ],
-      "counterexample_or_limit": "Same-role continuation or a trivial role transition whose complete context is already unambiguously encoded in live durable state may not justify a separate handoff artifact.",
-      "falsifier": "Receiving roles still require substantial chat-history reconstruction, inherit unauthorized assumptions, or repeatedly misread authority despite using the handoff contract.",
+      "counterexample_or_limit": "Same-role continuation or a trivial role transition whose complete context and authority are already unambiguously encoded in live durable state may not justify a separate handoff artifact. Ordinary professional disagreement within a role's own charter does not require human escalation.",
+      "falsifier": "Receiving roles still require substantial chat-history reconstruction, inherit unauthorized upstream assumptions, cannot challenge non-binding handoff context, or either over-escalate routine disagreement or under-escalate genuine authority conflicts despite using the handoff contract.",
       "evidence": [
         {
           "case_id": "CASE-TENSHODO-002-SANITIZED",
           "repository": "jsitta-byte/Tenshodo-Process",
           "artifacts": [
-            "methodology/METHOD_OBSERVATION_REGISTER.json@b7aecfa364e79af63871fc746192da9ddb6e66d6",
-            "templates/ROLE_HANDOFF.md@cb9b6442985e290bc5c1309bc5cafc32b5332a4d"
+            "templates/ROLE_HANDOFF.md@7ec4764679d86ef8f383b95412991edeccb92555",
+            "docs/ROLE_ROUTING_GUARD.md@92dff1b011ca1ea026ca2cdff9a4dcf8d8820fda",
+            "methodology/METHOD_OBSERVATION_REGISTER.json@6403c3a7760644db837f76554c1ab5796c19cb40"
           ]
         }
       ],
-      "portability_gap": "Needs repeated use across materially different role transitions and at least one organization outside the originating field laboratory."
+      "portability_gap": "Needs repeated use across materially different role transitions, including cases with genuine cross-domain disagreement, and at least one organization outside the originating field laboratory."
     }
   ]
 }
