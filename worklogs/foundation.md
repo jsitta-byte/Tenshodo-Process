@@ -279,3 +279,51 @@ M04 remains active. This work is additive bootstrap/runtime support and does not
 
 Continue the remaining M04 generic client control-plane bootstrap kit artifacts.
 
+## 2026-10-04 — Cross-role handoff authority firewall
+
+### Trigger
+
+Follow-up review of PAT-016 exposed a subtle risk: a durable handoff could itself become a backdoor authority channel if the sending role's recommendations were treated as instructions simply because they were written into durable state.
+
+### Method rule
+
+Handoffs now transfer context, not authority.
+
+Material handoff content is classified as:
+
+- authoritative fact;
+- adopted decision / valid sponsor direction;
+- recommendation / hypothesis;
+- dependency / request;
+- unknown / disputed.
+
+The receiving role follows the real source authority for facts and adopted decisions. Recommendations and dependency requests remain non-binding.
+
+Titles such as Chief, Executive, Stakeholder, or Lead do not create override rights.
+
+### Conflict ladder
+
+Cross-role disagreement now resolves in this order:
+
+1. authoritative source;
+2. owning domain / workstream;
+3. valid human authority for genuine authority/adoption conflict;
+4. ordinary non-material disagreement remains within the receiving role's charter.
+
+This deliberately avoids both failure modes:
+
+- one AI role overwriting another role's domain through a handoff; and
+- unnecessary human bottlenecks for routine professional disagreement.
+
+A generic human steward is not automatically the final authority; the client's authority model determines the correct human decision-maker.
+
+### Maturity
+
+MOBS-005 remains implemented.
+
+PAT-016 remains Candidate Pattern and now requires field evidence involving real cross-domain disagreement, not merely successful context transfer.
+
+### Cursor
+
+M04 remains active and unchanged.
+
