@@ -33,7 +33,8 @@
     "connected_discovery_scope": "templates/CONNECTED_DISCOVERY_SCOPE.json",
     "process_evidence_graph": "templates/PROCESS_EVIDENCE_GRAPH.json",
     "terminology_crosswalk": "templates/TERMINOLOGY_CROSSWALK.md",
-    "method_observation": "templates/METHOD_OBSERVATION.md"
+    "method_observation": "templates/METHOD_OBSERVATION.md",
+    "role_handoff": "templates/ROLE_HANDOFF.md"
   },
   "current_phase": "Phase 2 - Client control-plane bootstrap kit",
   "current_task_id": "M04",
@@ -60,7 +61,8 @@
     "Discovery escalates uncertainty rather than meetings: prove what can be proven, infer only the gaps, validate what matters, and redesign only after enough current work and authority are understood.",
     "Working-plane topology is provider-neutral and identifies provider, tenant/account, environment, service, and location separately.",
     "Connected discovery is optional evidence acquisition; connector access does not create information authority.",
-    "Material methodology lessons are captured durably before later triage; the observation queue does not hijack the active method cursor."
+    "Material methodology lessons are captured durably before later triage; the observation queue does not hijack the active method cursor.",
+    "Cross-role transitions separate execution routing from durable context transfer; role-local chat context does not cross implicitly."
   ],
   "decision_records": [
     "decisions/DEC-0001-portable-method-and-client-boundary.md"
@@ -129,7 +131,8 @@
         "templates/INFORMATION_FLOW_REGISTRY.json",
         "templates/CONNECTED_DISCOVERY_SCOPE.json",
         "templates/PROCESS_EVIDENCE_GRAPH.json",
-        "templates/TERMINOLOGY_CROSSWALK.md"
+        "templates/TERMINOLOGY_CROSSWALK.md",
+        "templates/ROLE_HANDOFF.md"
       ]
     },
     "M05": {
@@ -185,7 +188,9 @@
     "parallel_workstream_model": "docs/PARALLEL_WORKSTREAM_MODEL.md",
     "workstream_registry_template": "templates/WORKSTREAM_REGISTRY.json",
     "workstream_command_pattern": "Check Tenshodo-Process and continue the <workstream> workstream for <client>.",
-    "workstream_resolution_rule": "Resolve role binding first, then explicit workstream, role-assigned workstream, declared default, or the single remaining eligible active workstream; ask only when multiple eligible workstreams remain."
+    "workstream_resolution_rule": "Resolve role binding first, then explicit workstream, role-assigned workstream, declared default, or the single remaining eligible active workstream; ask only when multiple eligible workstreams remain.",
+    "role_handoff_template": "templates/ROLE_HANDOFF.md",
+    "role_handoff_rule": "Use a durable Role Handoff Contract when material work crosses governed roles and the successor needs shared context beyond a simple task pointer. The handoff summarizes pointers, facts, unknowns, dependencies, authority limits, and the receiving task; it is not a transcript or new authority."
   },
   "optional_modules": {
     "commercialization": {
