@@ -185,3 +185,39 @@ The handoff is not a transcript, memory export, or new authority. It carries sou
 
 M04 remains the active methodology cursor; no portability promotion occurred.
 
+## 2026-10-04 — Cross-role handoff authority firewall
+
+### Refined
+
+PAT-016 and the Role Handoff Contract now distinguish **context transfer from authority transfer**.
+
+A sending role may pass durable source pointers, facts, recommendations, dependencies, and open questions, but it may not use a handoff to override the receiving role's charter, supersede another role's governing source, or convert its own recommendation into an adopted instruction.
+
+Role labels such as Chief, Executive, Stakeholder, or Lead do not confer cross-role override authority without a separate durable authority record.
+
+### Disagreement resolution
+
+Receiving roles now use this order:
+
+1. resolve from declared authoritative sources;
+2. route unresolved domain-owned questions to the owning role/workstream;
+3. escalate genuine authority/adoption conflicts to the valid human authority for that decision class;
+4. keep non-material professional disagreement within the receiving role's charter.
+
+A generic human steward is not automatically the final decision authority. Stewardship may coordinate escalation, but decision authority remains separately governed.
+
+### Updated
+
+- `templates/ROLE_HANDOFF.md`
+- `docs/ROLE_ROUTING_GUARD.md`
+- `METHOD_RUNBOOK.md`
+- `templates/ROLE_CONVERSATION_CHARTER.md`
+- `templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md`
+- MOBS-005
+- PAT-016
+- `PROCESS_STATE.json`
+- `patterns/EVIDENCE_MATRIX.md`
+- `METHODOLOGY_ROADMAP.md`
+
+M04 remains the active methodology cursor and PAT-016 remains Candidate Pattern.
+
