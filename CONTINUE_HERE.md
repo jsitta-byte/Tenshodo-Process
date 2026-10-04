@@ -73,7 +73,7 @@ When learning from a live client:
 
 The active methodology-development task is **M04 — Build client control-plane bootstrap kit**.
 
-M03 remains complete. Additive discovery capabilities now include multi-environment working-plane topology, optional Connected Discovery, process-corpus shortcuts, Process Evidence Graphs, tenant-aware provenance, and terminology crosswalks.
+M03 remains complete. Additive capabilities now include multi-environment working-plane topology, optional Connected Discovery, process-corpus shortcuts, Process Evidence Graphs, tenant-aware provenance, terminology crosswalks, and a durable cross-role Role Handoff Contract that separates successor routing from transferable context.
 
 Reusable lessons discovered during client work are captured in `methodology/METHOD_OBSERVATION_REGISTER.json` without changing the active M04 cursor merely because a new observation exists.
 
