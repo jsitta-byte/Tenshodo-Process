@@ -82,6 +82,27 @@
         "METHOD_RUNBOOK.md"
       ],
       "evidence_needed": "Demonstrate repeated client-to-method capture cycles without lost insights or disruptive cursor switching."
+    },
+    {
+      "observation_id": "MOBS-005",
+      "title": "Role transitions require explicit routing plus a durable cross-role context contract",
+      "origin_case_id": "CASE-TENSHODO-002-SANITIZED",
+      "origin_context": "A governed role transition showed that correct successor-role routing and correct context transfer are separate control problems. The runtime guard already defined the correct routing outcome, but the method lacked a generic durable handoff object describing which shared facts, source pointers, assumptions, dependencies, and authority boundaries may cross into the receiving role.",
+      "state": "implemented",
+      "sanitized_observation": "When material work crosses governed roles, 10XP should separate execution routing from context transfer. The Next-Step Contract identifies the destination conversation/role; a compact durable Role Handoff Contract identifies the authoritative sources, shared facts, unresolved assumptions, dependencies, authority limits, and exact receiving task. Role-local chat context does not cross implicitly.",
+      "related_patterns": [
+        "PAT-001",
+        "PAT-006",
+        "PAT-008"
+      ],
+      "candidate_pattern": "PAT-016",
+      "method_changes": [
+        "templates/ROLE_HANDOFF.md",
+        "docs/ROLE_ROUTING_GUARD.md",
+        "METHOD_RUNBOOK.md",
+        "PROCESS_STATE.json"
+      ],
+      "evidence_needed": "Use the Role Handoff Contract across additional material role transitions and test whether zero-context receiving roles can start safely without chat transcript transfer, duplicated reconstruction, or authority leakage."
     }
   ],
   "rules": [
