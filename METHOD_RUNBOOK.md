@@ -167,16 +167,27 @@ Every substantive client batch must end with the Next-Step Contract so the opera
 
 ## Cross-role context handoff
 
-When a governed task moves from one role conversation to another, treat routing and context transfer as different controls.
+When a governed task moves from one role conversation to another, treat routing, context transfer, and authority resolution as separate controls.
 
 - The Next-Step Contract identifies the destination conversation/role.
 - `templates/ROLE_HANDOFF.md` carries durable cross-role context when the successor needs more than a simple task pointer.
 - Shared facts in the handoff must already be durable in client state or another declared authoritative source.
 - The handoff should expose assumptions, unknowns, dependencies, authority limits, and the receiving task rather than copying chat history.
+- The handoff transfers context, not authority. Sending-role recommendations remain non-binding unless a separate durable authority source says otherwise.
+- Role labels such as Chief, Executive, Stakeholder, or Lead do not create cross-role override rights.
 - The receiving role verifies live state before acting; live state overrides stale handoff prose.
 - Do not create handoff paperwork for trivial same-role continuation.
 
-This pattern supports zero-context resumability without making conversational memory a cross-role integration surface.
+When handoff context is disputed:
+
+1. resolve from declared authoritative sources when possible;
+2. route unresolved domain-owned questions to the role/workstream that owns that domain;
+3. escalate only genuine authority/adoption conflicts to the valid human authority for that decision class;
+4. allow non-material professional disagreement to remain within the receiving role's charter.
+
+The receiving role must not rewrite another role's governing source merely to eliminate a conflict. It may propose a change, route it to the owner, or escalate when decision rights require human resolution.
+
+This pattern supports zero-context resumability without making conversational memory or inter-role handoff prose a cross-role authority surface.
 
 ## Method observation capture
 
