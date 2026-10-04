@@ -66,6 +66,30 @@ Example:
 
 This is a handoff, not a same-chat costume change.
 
+## Cross-role handoff context contract
+
+Routing and context transfer are separate controls.
+
+The Next-Step Contract tells the operator **where execution goes next**. When material work crosses from one governed role to another and the successor needs more than a simple task pointer, create a durable Role Handoff Contract using `templates/ROLE_HANDOFF.md`.
+
+The handoff should identify:
+
+- sending and receiving roles;
+- source task/batch and source checkpoint;
+- durable source pointers the receiving role should read;
+- shared facts that are already durable and allowed to cross the role boundary;
+- open assumptions, unknowns, and disputes;
+- role-local context that must not cross implicitly;
+- dependencies and escalations;
+- execution/adoption authority boundaries;
+- the receiving task, exact next action, and completion condition.
+
+The handoff is not a transcript, memory export, or substitute authority. It may summarize and route durable facts, but the underlying authoritative sources remain controlling.
+
+A receiving role must still verify live durable state. If live state conflicts with a handoff, live state wins and the handoff should be reconciled.
+
+Do not require a separate handoff artifact for every trivial continuation. Use it when cross-role context, authority, dependencies, or source provenance are material enough that the successor could otherwise reconstruct or misinterpret the work.
+
 ## Domain firewall
 
 Role-specific conversational context is local to the role.
