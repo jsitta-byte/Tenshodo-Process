@@ -86,3 +86,5 @@ After every substantive bounded batch, the user-facing response must state:
 - durable checkpoint reference when practical.
 
 If the current executor changes to another role, this conversation stops after the handoff checkpoint and does not execute the successor role's work.
+
+When material context must cross that role boundary, create or update a durable Role Handoff Contract using `templates/ROLE_HANDOFF.md`. The handoff should point to authoritative sources, identify shared facts, assumptions/unknowns, dependencies, authority limits, and the receiving task. Do not copy role-local chat context or hidden reasoning into the handoff.
