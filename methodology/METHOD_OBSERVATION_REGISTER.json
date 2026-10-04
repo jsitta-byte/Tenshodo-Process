@@ -85,11 +85,11 @@
     },
     {
       "observation_id": "MOBS-005",
-      "title": "Role transitions require explicit routing plus a durable cross-role context contract",
+      "title": "Role transitions require explicit routing, durable context transfer, and authority-preserving conflict resolution",
       "origin_case_id": "CASE-TENSHODO-002-SANITIZED",
       "origin_context": "A governed role transition showed that correct successor-role routing and correct context transfer are separate control problems. The runtime guard already defined the correct routing outcome, but the method lacked a generic durable handoff object describing which shared facts, source pointers, assumptions, dependencies, and authority boundaries may cross into the receiving role.",
       "state": "implemented",
-      "sanitized_observation": "When material work crosses governed roles, 10XP should separate execution routing from context transfer. The Next-Step Contract identifies the destination conversation/role; a compact durable Role Handoff Contract identifies the authoritative sources, shared facts, unresolved assumptions, dependencies, authority limits, and exact receiving task. Role-local chat context does not cross implicitly.",
+      "sanitized_observation": "When material work crosses governed roles, 10XP should separate execution routing, context transfer, and authority resolution. The Next-Step Contract identifies the destination conversation/role; a compact durable Role Handoff Contract identifies authoritative sources, shared facts, unresolved assumptions, dependencies, authority limits, and the receiving task. The handoff transfers context rather than authority. Sending-role recommendations remain non-binding; disagreements resolve first from authoritative sources, then through the owning domain, with valid human escalation reserved for genuine authority/adoption conflicts.",
       "related_patterns": [
         "PAT-001",
         "PAT-006",
@@ -100,9 +100,12 @@
         "templates/ROLE_HANDOFF.md",
         "docs/ROLE_ROUTING_GUARD.md",
         "METHOD_RUNBOOK.md",
+        "templates/ROLE_CONVERSATION_CHARTER.md",
+        "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md",
         "PROCESS_STATE.json"
       ],
-      "evidence_needed": "Use the Role Handoff Contract across additional material role transitions and test whether zero-context receiving roles can start safely without chat transcript transfer, duplicated reconstruction, or authority leakage."
+      "evidence_needed": "Use the Role Handoff Contract across additional material role transitions and test whether zero-context receiving roles can start safely, challenge non-binding upstream context without authority leakage, route domain conflicts correctly, and escalate only genuine authority/adoption disputes without creating unnecessary human bottlenecks.",
+      "refinement_note": "Implemented authority firewall: role titles do not create cross-role override rights; handoff context is classified by source/authority; recipient conflicts follow source-resolvable -> domain-owned -> valid-human-authority escalation, while non-material professional disagreement does not require escalation."
     }
   ],
   "rules": [
