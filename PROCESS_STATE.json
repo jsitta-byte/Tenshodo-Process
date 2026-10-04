@@ -62,7 +62,8 @@
     "Working-plane topology is provider-neutral and identifies provider, tenant/account, environment, service, and location separately.",
     "Connected discovery is optional evidence acquisition; connector access does not create information authority.",
     "Material methodology lessons are captured durably before later triage; the observation queue does not hijack the active method cursor.",
-    "Cross-role transitions separate execution routing from durable context transfer; role-local chat context does not cross implicitly."
+    "Cross-role transitions separate execution routing, durable context transfer, and authority resolution; handoffs transfer context rather than authority, and role-local chat context does not cross implicitly.",
+    "Cross-role disagreements resolve from authoritative sources first, then the owning domain, with human escalation reserved for genuine authority/adoption conflicts."
   ],
   "decision_records": [
     "decisions/DEC-0001-portable-method-and-client-boundary.md"
@@ -190,7 +191,7 @@
     "workstream_command_pattern": "Check Tenshodo-Process and continue the <workstream> workstream for <client>.",
     "workstream_resolution_rule": "Resolve role binding first, then explicit workstream, role-assigned workstream, declared default, or the single remaining eligible active workstream; ask only when multiple eligible workstreams remain.",
     "role_handoff_template": "templates/ROLE_HANDOFF.md",
-    "role_handoff_rule": "Use a durable Role Handoff Contract when material work crosses governed roles and the successor needs shared context beyond a simple task pointer. The handoff summarizes pointers, facts, unknowns, dependencies, authority limits, and the receiving task; it is not a transcript or new authority."
+    "role_handoff_rule": "Use a durable Role Handoff Contract when material work crosses governed roles and the successor needs shared context beyond a simple task pointer. The handoff transfers context, not authority: classify authoritative facts, adopted decisions, recommendations/hypotheses, dependencies/requests, and unknown/disputed items by source. Resolve disagreement from source hierarchy first, then route domain-owned questions, and escalate genuine authority/adoption conflicts to the valid human authority for that decision class."
   },
   "optional_modules": {
     "commercialization": {
