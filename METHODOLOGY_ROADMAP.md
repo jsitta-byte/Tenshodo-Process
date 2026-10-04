@@ -47,6 +47,7 @@ The methodology is built from observed work, explicit abstraction, evidence, and
   - plan;
   - runbook;
   - handoff;
+  - durable cross-role handoff contract separating successor routing from transferable context;
   - decision records;
   - worklogs;
   - authority/source model;
@@ -110,5 +111,6 @@ Added capability:
 - provenance lineage / evidence-independence controls;
 - terminology crosswalks for cross-team semantic integration;
 - durable Method Observation queue so method learning can be captured without interrupting the active methodology cursor.
+- durable cross-role handoff contract for role transitions, preserving source authority and preventing chat-context leakage.
 
 These extensions begin as Candidate Patterns and require further field validation before any portability promotion.
