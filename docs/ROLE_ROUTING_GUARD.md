@@ -90,6 +90,45 @@ A receiving role must still verify live durable state. If live state conflicts w
 
 Do not require a separate handoff artifact for every trivial continuation. Use it when cross-role context, authority, dependencies, or source provenance are material enough that the successor could otherwise reconstruct or misinterpret the work.
 
+## Handoff authority firewall
+
+A durable handoff transfers **context, not authority**.
+
+The sending role may provide source pointers, established shared facts, recommendations, dependencies, unresolved questions, and the requested receiving task. It may not use the handoff to:
+
+- expand its own authority;
+- narrow or override the receiving role's charter;
+- convert a role-local recommendation into an adopted instruction;
+- silently supersede another role's governing source;
+- create cross-role priority merely from a title such as Chief, Executive, Stakeholder, Lead, or similar.
+
+Role titles are not authority records. Any cross-role override or adoption power must come from a separate durable client authority source.
+
+### Context classes
+
+Material handoff content should be understood as one of:
+
+1. **authoritative fact** — follow the declared authoritative source;
+2. **adopted decision / valid sponsor direction** — follow within its recorded scope unless validly superseded;
+3. **recommendation / hypothesis** — non-binding; the receiving role may challenge or replace it within its charter;
+4. **dependency / request** — route to the owning domain; it is not authority over that domain;
+5. **unknown / disputed** — preserve uncertainty; do not convert it into fact.
+
+The handoff itself is not the authority for classes 1 or 2. It points to the source that is.
+
+### Disagreement ladder
+
+When the receiving role disagrees with handoff context:
+
+- **Source-resolvable:** apply the declared source hierarchy, record a material discrepancy, and continue.
+- **Domain-owned:** route the issue to the role/workstream that owns the governing source or decision domain. The receiving role may propose a change but must not overwrite the other role's source to make the conflict disappear.
+- **Authority / adoption conflict:** when authoritative sources conflict, authority is ambiguous, decision rights cross domains, or the change would create/supersede a consequential adopted decision, stop that consequential action and escalate to the valid human authority defined for that decision class.
+- **Non-material professional disagreement:** resolve or record it within the receiving role's charter. Human escalation is not required merely because governed roles disagree.
+
+Do not automatically escalate every disagreement to a generic human steward. The correct escalation target is the **valid human adoption authority, sponsor, or steward for the decision class**. A steward may coordinate escalation when chartered to do so, but stewardship does not automatically confer final decision authority.
+
+A valid human instruction can modify or supersede role context only within that human's declared authority. Consequential overrides must be recorded durably rather than conveyed only through chat.
+
 ## Domain firewall
 
 Role-specific conversational context is local to the role.
