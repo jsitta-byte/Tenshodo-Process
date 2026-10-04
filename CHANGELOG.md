@@ -156,3 +156,32 @@ Client brand identity, decks, claims, pricing, customer evidence, market state, 
 ### Maturity boundary
 
 These additions are durable method architecture but remain Candidate Patterns until field validation justifies promotion.
+
+## 2026-10-04 — Durable cross-role handoff contract
+
+### Trigger
+
+A governed role transition demonstrated that correct successor-role routing and correct context transfer are separate control problems. The Role Routing Guard already defined where execution should go next, but the portable method did not define a generic artifact for the durable context that may cross the role boundary.
+
+### Added
+
+- `templates/ROLE_HANDOFF.md`.
+- MOBS-005 — role transitions require explicit routing plus a durable cross-role context contract.
+- PAT-016 — Durable cross-role handoff contract — Candidate Pattern.
+
+### Changed
+
+- `docs/ROLE_ROUTING_GUARD.md` now distinguishes routing from context transfer and calls for a Role Handoff Contract when material cross-role context exists.
+- `METHOD_RUNBOOK.md` now defines the cross-role handoff method.
+- `templates/ROLE_CONVERSATION_CHARTER.md` and `templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md` now require durable handoff context when a successor role needs more than a simple task pointer.
+- `PROCESS_STATE.json` registers the Role Handoff template as M04 prework/runtime support.
+- `METHODOLOGY_ROADMAP.md` includes the durable cross-role handoff contract in M04.
+- `patterns/EVIDENCE_MATRIX.md` includes PAT-016 evidence and portability gap.
+- `CONTINUE_HERE.md` exposes the capability for zero-context methodology recovery.
+
+### Boundary
+
+The handoff is not a transcript, memory export, or new authority. It carries source pointers, durable shared facts, unresolved assumptions, dependencies, authority limits, and the receiving task. Live client state remains controlling.
+
+M04 remains the active methodology cursor; no portability promotion occurred.
+
