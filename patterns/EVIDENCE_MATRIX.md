@@ -88,6 +88,7 @@ No pattern is currently Portable.
 | PAT-013 Maturity-adaptive connected discovery | Candidate Pattern | Sanitized method capture | Access scope can be governed and discovery maturity can be assessed | Broad access by default; observation mistaken for authority; wrong-tenant evidence | Comparative discovery across different maturity levels |
 | PAT-014 Semantic terminology crosswalk before renaming | Candidate Pattern | Sanitized method capture | Similar concepts exist under different labels | Labels assumed equivalent or source vocabulary overwritten too early | Real cross-team/cross-company integration |
 | PAT-015 Parallel methodology observation queue | Candidate Pattern | Sanitized method capture | Method Steward can triage and confidentiality boundary is preserved | Queue becomes backlog or hijacks active cursor | Repeated field-to-method cycles |
+| PAT-016 Durable cross-role handoff contract | Candidate Pattern | Sanitized method capture | Material governed work crosses roles and shared facts can be grounded in durable sources | Handoff becomes transcript, new authority, or administrative overhead | Repeated cross-role transitions across different functions and organizations |
 
 ### PAT-012 evidence
 
@@ -110,4 +111,10 @@ No pattern is currently Portable.
 - `jsitta-byte/Tenshodo-Process/templates/METHOD_OBSERVATION.md@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f`
 - `jsitta-byte/Tenshodo-Process/METHOD_RUNBOOK.md@9a3adb5a484ee8598c3b9a5b9ef5c010dc863b0f`
 
-These patterns are intentionally not promoted beyond Candidate Pattern. The architecture is now durable; portability remains to be earned through field evidence.
+### PAT-016 evidence
+
+- `jsitta-byte/Tenshodo-Process/methodology/METHOD_OBSERVATION_REGISTER.json@b7aecfa364e79af63871fc746192da9ddb6e66d6`
+- `jsitta-byte/Tenshodo-Process/templates/ROLE_HANDOFF.md@cb9b6442985e290bc5c1309bc5cafc32b5332a4d`
+- `jsitta-byte/Tenshodo-Process/docs/ROLE_ROUTING_GUARD.md@45e2bb28f9dd450e34cd359dab433196a7f63d57`
+
+These patterns are intentionally not promoted beyond Candidate Pattern. The architecture is now durable; portability remains to be earned through field evidence. PAT-016 specifically requires repeated zero-context role transitions showing that the handoff contract reduces reconstruction and authority leakage without creating unnecessary process overhead.
