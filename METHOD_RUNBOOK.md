@@ -165,6 +165,19 @@ Cross-role facts must move through durable client state or another declared auth
 
 Every substantive client batch must end with the Next-Step Contract so the operator does not need a separate supervisory conversation to discover what to do next.
 
+## Cross-role context handoff
+
+When a governed task moves from one role conversation to another, treat routing and context transfer as different controls.
+
+- The Next-Step Contract identifies the destination conversation/role.
+- `templates/ROLE_HANDOFF.md` carries durable cross-role context when the successor needs more than a simple task pointer.
+- Shared facts in the handoff must already be durable in client state or another declared authoritative source.
+- The handoff should expose assumptions, unknowns, dependencies, authority limits, and the receiving task rather than copying chat history.
+- The receiving role verifies live state before acting; live state overrides stale handoff prose.
+- Do not create handoff paperwork for trivial same-role continuation.
+
+This pattern supports zero-context resumability without making conversational memory a cross-role integration surface.
+
 ## Method observation capture
 
 A material reusable methodology insight must not remain conversation-only after substantive engagement work.
