@@ -327,3 +327,38 @@ PAT-016 remains Candidate Pattern and now requires field evidence involving real
 
 M04 remains active and unchanged.
 
+## 2026-10-04 — Off-cursor role-conversation recovery
+
+### Trigger
+
+A governed client context exposed a recovery gap: a useful role conversation could exist outside the live company cursor, yet the normal generic engagement command correctly reconstructed only the live executor.
+
+Without a separate route, permanent chat loss would preserve company decisions but not necessarily reconstruct the role-specific advisory context.
+
+### Established
+
+10XP now distinguishes:
+
+1. **current-executor recovery** — use the normal engagement command and follow the live client cursor;
+2. **explicit role recovery** — use a client-registered role-specific recovery route to recreate an already-authorized off-cursor role context.
+
+Canonical pattern:
+
+`Check Tenshodo-Process and recover the <ROLE_CONVERSATION_ID> role conversation for <client>.`
+
+### Safety boundary
+
+Role recovery does not grant task ownership or human authority.
+
+The recovered role may perform chartered role-local work. If asked to execute another role's live task without durable delegation, it becomes wrong-role for that request and must redirect.
+
+This preserves both zero-context resumability and the role firewall.
+
+### Observation
+
+MOBS-006 records the lesson. No new pattern was promoted; current evidence is still single-field-laboratory evidence closely related to PAT-001, PAT-008, and PAT-016.
+
+### Cursor
+
+M04 remains active and unchanged.
+
