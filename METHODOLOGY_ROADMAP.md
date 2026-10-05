@@ -48,6 +48,7 @@ The methodology is built from observed work, explicit abstraction, evidence, and
   - runbook;
   - handoff;
   - durable cross-role handoff contract separating successor routing, transferable context, and authority resolution;
+  - explicit role-specific recovery binding for registered off-cursor role conversations;
   - decision records;
   - worklogs;
   - authority/source model;
