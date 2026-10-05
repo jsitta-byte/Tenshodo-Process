@@ -123,7 +123,10 @@
         "docs/ROLE_ROUTING_GUARD.md",
         "METHOD_RUNBOOK.md",
         "templates/ROLE_CONVERSATION_CHARTER.md",
-        "PROCESS_STATE.json"
+        "PROCESS_STATE.json",
+        "templates/ROLE_CONVERSATION_LAUNCH_PROMPT.md",
+        "CONTINUE_HERE.md",
+        "METHODOLOGY_ROADMAP.md"
       ],
       "evidence_needed": "Exercise recovery after intentional loss of one or more off-cursor role conversations and verify that the successor reconstructs legitimate context from durable sources, does not hijack the live cursor, and does not infer authority from role identity."
     }
