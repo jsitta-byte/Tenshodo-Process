@@ -21,6 +21,18 @@ Before substantive work, compare the bound role to the live current executor in 
 
 Role-local assumptions do not cross into another role merely because the same user asks.
 
+## Optional recovery route
+
+When this role should remain recoverable even while it is not the live current executor, define:
+
+- Recovery state: active / inactive / not_applicable
+- Canonical recovery command:
+- Recovery authority source:
+- Off-cursor allowed work:
+- Explicit statement that recovery binding does not change the live current executor or adoption authority.
+
+Use the Process Role Routing Guard for explicit role-specific recovery binding.
+
 ## Mission
 
 What function is this conversation incubating or supporting?
