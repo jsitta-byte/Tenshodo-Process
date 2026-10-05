@@ -31,6 +31,27 @@ Instead:
 
 The portable process defines how to launch. The client repository defines what is live.
 
+### Role-recovery mode
+
+If the user explicitly asks to recover a registered role conversation, for example:
+
+- "recover the RC-EX-CEO role conversation for <client>";
+- "rebind <ROLE_CONVERSATION_ID> after chat loss";
+
+do **not** follow the live current-engagement cursor by default.
+
+Instead:
+
+1. identify the client control-plane repository;
+2. read that client's `PROCESS_CONTEXT.json`;
+3. verify the requested role recovery route is explicitly registered;
+4. read the requested role's registry entry, START_HERE file, and charter;
+5. read live client state and the Process Role Routing Guard;
+6. bind the fresh chat to the recovered role for chartered role-local work only;
+7. do not replace the live current executor or infer human/adoption authority from the recovered role identity.
+
+If no durable recovery route exists, do not invent one from chat history.
+
 ### Methodology-development mode
 
 If the user asks to develop, improve, document, or continue **Tenshodo Process itself**, use the methodology startup below and resume PROCESS_STATE.json current_task_id.
@@ -73,7 +94,7 @@ When learning from a live client:
 
 The active methodology-development task is **M04 — Build client control-plane bootstrap kit**.
 
-M03 remains complete. Additive capabilities now include multi-environment working-plane topology, optional Connected Discovery, process-corpus shortcuts, Process Evidence Graphs, tenant-aware provenance, terminology crosswalks, and a durable cross-role Role Handoff Contract that separates successor routing from transferable context.
+M03 remains complete. Additive capabilities now include multi-environment working-plane topology, optional Connected Discovery, process-corpus shortcuts, Process Evidence Graphs, tenant-aware provenance, terminology crosswalks, a durable cross-role Role Handoff Contract, and explicit recovery binding for registered off-cursor role conversations.
 
 Reusable lessons discovered during client work are captured in `methodology/METHOD_OBSERVATION_REGISTER.json` without changing the active M04 cursor merely because a new observation exists.
 
