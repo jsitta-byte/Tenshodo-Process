@@ -63,7 +63,8 @@
     "Connected discovery is optional evidence acquisition; connector access does not create information authority.",
     "Material methodology lessons are captured durably before later triage; the observation queue does not hijack the active method cursor.",
     "Cross-role transitions separate execution routing, durable context transfer, and authority resolution; handoffs transfer context rather than authority, and role-local chat context does not cross implicitly.",
-    "Cross-role disagreements resolve from authoritative sources first, then the owning domain, with human escalation reserved for genuine authority/adoption conflicts."
+    "Cross-role disagreements resolve from authoritative sources first, then the owning domain, with human escalation reserved for genuine authority/adoption conflicts.",
+    "Role-conversation recovery recreates durable execution context without changing the live current executor or granting human authority."
   ],
   "decision_records": [
     "decisions/DEC-0001-portable-method-and-client-boundary.md"
@@ -133,7 +134,8 @@
         "templates/CONNECTED_DISCOVERY_SCOPE.json",
         "templates/PROCESS_EVIDENCE_GRAPH.json",
         "templates/TERMINOLOGY_CROSSWALK.md",
-        "templates/ROLE_HANDOFF.md"
+        "templates/ROLE_HANDOFF.md",
+        "role-specific recovery binding"
       ]
     },
     "M05": {
@@ -191,7 +193,9 @@
     "workstream_command_pattern": "Check Tenshodo-Process and continue the <workstream> workstream for <client>.",
     "workstream_resolution_rule": "Resolve role binding first, then explicit workstream, role-assigned workstream, declared default, or the single remaining eligible active workstream; ask only when multiple eligible workstreams remain.",
     "role_handoff_template": "templates/ROLE_HANDOFF.md",
-    "role_handoff_rule": "Use a durable Role Handoff Contract when material work crosses governed roles and the successor needs shared context beyond a simple task pointer. The handoff transfers context, not authority: classify authoritative facts, adopted decisions, recommendations/hypotheses, dependencies/requests, and unknown/disputed items by source. Resolve disagreement from source hierarchy first, then route domain-owned questions, and escalate genuine authority/adoption conflicts to the valid human authority for that decision class."
+    "role_handoff_rule": "Use a durable Role Handoff Contract when material work crosses governed roles and the successor needs shared context beyond a simple task pointer. The handoff transfers context, not authority: classify authoritative facts, adopted decisions, recommendations/hypotheses, dependencies/requests, and unknown/disputed items by source. Resolve disagreement from source hierarchy first, then route domain-owned questions, and escalate genuine authority/adoption conflicts to the valid human authority for that decision class.",
+    "role_recovery_rule": "A client may register an explicit role-specific recovery route for an active/recoverable role conversation. A fresh unbound chat may bind to that role for chartered role-local recovery/advisory work without replacing the live current executor. Executable work still requires live assignment/delegation; recovery grants no human or adoption authority.",
+    "role_recovery_command_pattern": "Check Tenshodo-Process and recover the <ROLE_CONVERSATION_ID> role conversation for <client>."
   },
   "optional_modules": {
     "commercialization": {
