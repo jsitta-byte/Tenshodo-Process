@@ -165,6 +165,22 @@ Cross-role facts must move through durable client state or another declared auth
 
 Every substantive client batch must end with the Next-Step Contract so the operator does not need a separate supervisory conversation to discover what to do next.
 
+## Role-conversation recovery
+
+The default engagement command resolves the live client cursor.
+
+When a client explicitly registers a recoverable role conversation, a fresh unbound chat may instead use:
+
+`Check Tenshodo-Process and recover the <ROLE_CONVERSATION_ID> role conversation for <client>.`
+
+The client control plane must provide the role registry entry, charter, START_HERE package, and recovery route.
+
+Recovery binding recreates the role context without changing the live company executor. The recovered role may perform only chartered role-local work unless live durable state explicitly assigns or delegates an executable task to it.
+
+If a recovered off-cursor role is asked to execute another role's live task, apply the normal wrong-role stop/redirect behavior.
+
+Recovery must preserve authority separation: conversation identity is not human appointment, sponsor authority, adoption authority, or task ownership.
+
 ## Cross-role context handoff
 
 When a governed task moves from one role conversation to another, treat routing, context transfer, and authority resolution as separate controls.
