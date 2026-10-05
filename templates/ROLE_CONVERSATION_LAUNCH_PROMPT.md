@@ -8,6 +8,16 @@ The client's durable repository and live authoritative systems govern the work a
 
 ---
 
+## Recovery versus first launch
+
+This template is for launching/adopting a role conversation from durable role metadata.
+
+If the client already registers the role as recoverable and the purpose is to recreate that existing role context after chat loss, prefer the explicit Process recovery route instead of inventing a new launch prompt:
+
+`Check Tenshodo-Process and recover the <ROLE_CONVERSATION_ID> role conversation for <client>.`
+
+Recovery must use the client's registered recovery route and must not change the live current executor or authority.
+
 ## Consultant preparation
 
 Before giving the prompt to the new conversation, replace every placeholder and verify:
