@@ -106,6 +106,26 @@
       ],
       "evidence_needed": "Use the Role Handoff Contract across additional material role transitions and test whether zero-context receiving roles can start safely, challenge non-binding upstream context without authority leakage, route domain conflicts correctly, and escalate only genuine authority/adoption disputes without creating unnecessary human bottlenecks.",
       "refinement_note": "Implemented authority firewall: role titles do not create cross-role override rights; handoff context is classified by source/authority; recipient conflicts follow source-resolvable -> domain-owned -> valid-human-authority escalation, while non-material professional disagreement does not require escalation."
+    },
+    {
+      "observation_id": "MOBS-006",
+      "title": "Durable recovery for off-cursor governed role conversations",
+      "origin_case_id": "CASE-TENSHODO-002-SANITIZED",
+      "origin_context": "A live executive decision-support conversation had durable company decisions but no durable role-conversation identity. The generic engagement command correctly followed the live company cursor, so it could not recreate that specific off-cursor role context after chat loss.",
+      "state": "implemented",
+      "sanitized_observation": "A governed role conversation may need crash recovery even when it is not the live current executor. 10XP should support an explicit client-registered role recovery route that binds a fresh unbound chat to the existing role package for chartered role-local work without changing the live executor, task ownership, or human/adoption authority.",
+      "related_patterns": [
+        "PAT-001",
+        "PAT-008",
+        "PAT-016"
+      ],
+      "method_changes": [
+        "docs/ROLE_ROUTING_GUARD.md",
+        "METHOD_RUNBOOK.md",
+        "templates/ROLE_CONVERSATION_CHARTER.md",
+        "PROCESS_STATE.json"
+      ],
+      "evidence_needed": "Exercise recovery after intentional loss of one or more off-cursor role conversations and verify that the successor reconstructs legitimate context from durable sources, does not hijack the live cursor, and does not infer authority from role identity."
     }
   ],
   "rules": [
