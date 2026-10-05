@@ -34,6 +34,34 @@ It must **not execute the task**.
 
 It must not switch hats, adopt the other role inside the same chat, reinterpret its existing role-specific context as if it belonged to the other role, or use its role-specific assumptions to perform the other role's task.
 
+## Explicit role-specific recovery binding
+
+The generic current-engagement command follows the live client cursor. It does not recreate an arbitrary prior role conversation.
+
+A client may define an explicit durable recovery route for an already-registered role conversation when preserving that role's context is useful even while another role is the live current executor.
+
+Canonical pattern:
+
+`Check Tenshodo-Process and recover the <ROLE_CONVERSATION_ID> role conversation for <client>.`
+
+A fresh unbound chat may use that route only when:
+
+- the client control plane explicitly registers the recovery route;
+- the role conversation is active/recoverable;
+- its charter and START_HERE package exist;
+- the requested purpose is recovery or chartered role-local work;
+- binding does not claim or replace the live current executor.
+
+After recovery, the chat is bound to that role.
+
+For role-local advisory/recovery work within its charter, treat the binding as `bound_correct`.
+
+If the recovered chat is later asked to execute the live current engagement task and that task belongs to another role without explicit delegation, it is `bound_wrong` for that request and must redirect rather than switch hats.
+
+Role-specific recovery never grants additional authority. It recreates an execution context, not a human appointment, sponsor authority, adoption authority, or task assignment.
+
+Live durable client state remains controlling.
+
 ## Wrong-role response
 
 When `bound_wrong`, the conversation should respond succinctly with:
