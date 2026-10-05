@@ -221,3 +221,32 @@ A generic human steward is not automatically the final decision authority. Stewa
 
 M04 remains the active methodology cursor and PAT-016 remains Candidate Pattern.
 
+## 2026-10-04 — Off-cursor role-conversation recovery
+
+### Trigger
+
+A live client executive decision-support conversation was found to have durable company decisions but no durable role-conversation identity. The normal engagement command correctly followed the live company cursor, so it could not recreate that specific role context after chat loss.
+
+### Added
+
+- explicit role-specific recovery binding in the Role Routing Guard;
+- generic recovery command pattern:
+  `Check Tenshodo-Process and recover the <ROLE_CONVERSATION_ID> role conversation for <client>.`
+- optional recovery-route section in the role-conversation charter template;
+- engagement-runtime recovery rule in PROCESS_STATE;
+- MOBS-006.
+
+### Boundary
+
+Role recovery recreates a registered role's durable execution context. It does not:
+
+- replace the live current executor;
+- assign the recovered role the live task;
+- grant human appointment, sponsor, adoption, or cross-role override authority.
+
+A recovered off-cursor role is bound_correct for chartered role-local recovery/advisory work. If it is asked to execute another role's live task without delegation, the normal bound_wrong stop/redirect rule applies.
+
+### Cursor
+
+M04 remains the active methodology task.
+
